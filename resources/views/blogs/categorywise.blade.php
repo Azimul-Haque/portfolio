@@ -1,6 +1,6 @@
-@extends('layouts.index')
+s@extends('layouts.index')
 @section('title')
-    IIT Alumni | {{ $name }}
+    {{ $name }}
 @endsection
 
 @section('css')
