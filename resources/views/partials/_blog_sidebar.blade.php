@@ -9,19 +9,6 @@
 <!-- end widget  -->
 <!-- widget  -->
 <div class="widget">
-    <h5 class="widget-title font-alt">Categories</h5>
-    <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
-    <div class="widget-body">
-        <ul class="category-list">
-            @foreach($categories as $category)
-            <li><a href="{{ route('blog.categorywise', $category->name) }}">{{ $category->name }} <span>{{ $category->blogs->count() }}</span></a></li>
-            @endforeach
-        </ul>
-    </div>
-</div>
-<!-- end widget  -->
-<!-- widget  -->
-<div class="widget">
     <h5 class="widget-title font-alt">Popular posts</h5>
     <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
     <div class="widget-body">
@@ -40,6 +27,19 @@
                     <span class="overflowellipsis">{{ $popular->user->name }} - {{ date('F d', strtotime($popular->created_at)) }}</span>
                 </div>
             </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+<!-- end widget  -->
+<!-- widget  -->
+<div class="widget">
+    <h5 class="widget-title font-alt">Categories</h5>
+    <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+    <div class="widget-body">
+        <ul class="category-list">
+            @foreach($categories as $category)
+            <li><a href="{{ route('blog.categorywise', $category->name) }}">{{ $category->name }} <span>{{ $category->blogs->count() }}</span></a></li>
             @endforeach
         </ul>
     </div>

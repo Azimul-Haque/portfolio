@@ -1,4 +1,4 @@
-<!-- navigation panel -->
+navigation panel -->
 <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom @if(\Request::is('/')) nav-white @endif" role="navigation">
     <div class="container">
         <div class="row">
@@ -52,13 +52,9 @@
                         <li>
                             <a href="{{ route('index.index') }}" class="inner-link">Home</a>
                         </li>
-                        <!-- menu item -->
-                        <li class="dropdown panel simple-dropdown">
-                            <a href="#about_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">About ▽
-                                {{-- <i class="fa fa-angle-down"></i> --}}
-                            </a>
-                            <!-- sub menu single -->
-                            <!-- sub menu item  -->
+
+                        {{-- <li class="dropdown panel simple-dropdown">
+                            <a href="#about_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">About ▽</a>
                             <ul id="about_dropdown" class="dropdown-menu panel-collapse collapse" role="menu">
                                 <li>
                                     <a href="{{ route('index.journey') }}"><i class="icon-presentation i-plain"></i> Journey of DUIITAA</a>
@@ -70,55 +66,19 @@
                                     <a href="{{ route('index.faq') }}"><i class="icon-search i-plain"></i> FAQ</a>
                                 </li>
                             </ul>
-                            <!-- end sub menu item  -->
-                            <!-- end sub menu single -->
-                        </li>
-                        <li class="dropdown panel simple-dropdown">
-                            <a href="#committee_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Committee ▽
-                                {{-- <i class="fa fa-angle-down"></i> --}}
-                            </a>
-                            <!-- sub menu single -->
-                            <!-- sub menu item  -->
-                            <ul id="committee_dropdown" class="dropdown-menu panel-collapse collapse" role="menu">
-                                <li>
-                                    <a href="{{ route('index.adhoc') }}"><i class="icon-strategy i-plain"></i> Ad Hoc Committee</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('index.executive') }}"><i class="icon-strategy i-plain"></i> Executive Committee</a>
-                                </li>
-                            </ul>
-                            <!-- end sub menu item  -->
-                            <!-- end sub menu single -->
-                        </li>
-                        <li class="dropdown panel simple-dropdown">
-                            <a href="#others_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Others ▽
-                                {{-- <i class="fa fa-angle-down"></i> --}}
-                            </a>
-                            <!-- sub menu single -->
-                            <!-- sub menu item  -->
-                            <ul id="others_dropdown" class="dropdown-menu panel-collapse collapse" role="menu">
-                                <li>
-                                    <a href="{{ route('index.news') }}"><i class="icon-newspaper i-plain"></i> News</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('index.events') }}"><i class="icon-megaphone i-plain"></i> Events</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('index.gallery') }}"><i class="icon-pictures i-plain"></i> Photo Gallery</a>
-                                </li>
-                            </ul>
-                            <!-- end sub menu item  -->
-                            <!-- end sub menu single -->
-                        </li>
+                        </li> --}}
 
                         <li>
-                            <a href="{{ route('index.members') }}">Members</a>
+                            <a href="{{ route('index.bio') }}">Biography</a>
                         </li>
                         <li>
                             <a href="{{ route('blogs.index') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.contact') }}">Contact</a>
+                            <a href="{{ route('index.books') }}">Books</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.books') }}">Books</a>
                         </li>
                         <li>
                             <a href="{{ route('index.application') }}">Membership</a>
@@ -156,4 +116,4 @@
         </div>
     </div>
 </nav>
-<!--end navigation panel -->
+<!--end navigation panel

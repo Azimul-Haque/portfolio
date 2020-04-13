@@ -18,11 +18,13 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // index routes
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
 Route::get('/bio', ['as'=>'index.bio','uses'=>'IndexController@getBio']);
+Route::get('/books', ['as'=>'index.books','uses'=>'IndexController@getBooks']);
+Route::get('/multimedia', ['as'=>'index.multimedia','uses'=>'IndexController@getMultimedia']);
 
 
 Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);
-Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContact']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
+Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContact']);
 Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 
 

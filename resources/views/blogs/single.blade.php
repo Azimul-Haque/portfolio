@@ -118,7 +118,7 @@
                             </a>
                             <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-alt"></i>Share</a>
                             {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
-                            <a href="#" class="comment"><i class="fa fa-comment-o"></i>
+                            <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i>
                             <span id="comment_count"></span> comment(s)</a>
                             <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
                             <script type="text/javascript">
@@ -167,7 +167,7 @@
                     <!-- end social icon -->
                     <!-- blog comment -->
 
-                    <div class="blog-comment-main xs-no-padding-top">
+                    <div class="blog-comment-main xs-no-padding-top" id="comment_section">
                         <h5 class="widget-title">Blog Comments</h5>
                         <div class="row">
                             <div class="col-md-12">

@@ -71,83 +71,20 @@
             </div>
         </div>
     </section>
-    <section style="padding: 13px 0;">
-        <div class="container margin-five wow fadeInUp">
-            <div class="row">
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>Latest News</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We're ready
-                        <br> to start now</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
-                </div>
-                <!-- end features item -->
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>Latest Event</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">Always on time
-                        <br> call support</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
-                </div>
-                <!-- end features item -->
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 xs-margin-bottom-ten xs-text-center">
-                    <h3>Latest Notice</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We Deliver the
-                        <br> highest quality</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
-                </div>
-                <!-- end features item -->
 
-            </div>
-        </div>
-    </section>
     <!-- counter section -->
     <section id="counter" class="fix-background" style="background-image:url('images/slider/slider-img45.jpg');">
         <div class="opacity-full bg-dark-gray"></div>
         <div class="container position-relative">
             <div class="row">
-                <!-- counter item -->
-                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
-                    <i class="icon-heart medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="{{ $alumnis }}" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Alumnis</span>
+                <div class="col-md-12">
+                    ASD
                 </div>
-                <!-- end counter item -->
-                <!-- counter item -->
-                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
-                    <i class="icon-happy medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Batch</span>
-                </div>
-                <!-- end counter item -->
-                <!-- counter item -->
-                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
-                    <i class="icon-anchor medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Projects Completed</span>
-                </div>
-                <!-- end counter item -->
-                <!-- counter item -->
-                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp" data-wow-duration="1200ms">
-                    <i class="icon-chat medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="5" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Events</span>
-                </div>
-                <!-- end counter item -->
             </div>
         </div>
     </section>
     <!-- end counter section -->
+
     <!-- blog content section -->
     <section class="">
         <div class="container">
@@ -212,6 +149,11 @@
                 @endphp
                 @endforeach
                 <!-- end post item -->
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="{{ route('blogs.index') }}" class="btn btn-black btn-small margin-four no-margin-bottom">View All Blog</a>
+                </div>
             </div>
         </div>
     </section>
