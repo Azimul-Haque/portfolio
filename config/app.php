@@ -163,7 +163,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Mews\Purifier\PurifierServiceProvider::class
+        Mews\Purifier\PurifierServiceProvider::class,
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
 
 
     ],
@@ -217,7 +218,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Purifier' => Mews\Purifier\Facades\Purifier::class
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class
 
     ],
 
