@@ -39,6 +39,22 @@
         <div id="status">&nbsp;</div>
     </div>
     @include('partials._slider')
+    
+    <!-- quotes section -->
+    <section class="fix-background" style="background-image:url('images/photography-12.jpg');">
+        <div class="opacity-full bg-gray"></div>
+        <div class="container position-relative">
+            <div class="row margin-five">
+                <div class="col-md-5 center-col text-center">
+                    <i class="fa fa-quote-left medium-icon black-text margin-ten no-margin-top"></i><br>
+                    <span class="text-small text-uppercase letter-spacing-3">Photography is about finding out what can happen in the frame. When you put four edges around some facts, you change those facts.</span><br>
+                    <span class="text-small text-uppercase letter-spacing-5 black-text font-weight-600 margin-five display-block no-margin-bottom">Garry Winogrand</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end quotes section -->
+
     <!-- about section -->
     <section class="no-padding-bottom wow fadeIn">
         <div class="container">

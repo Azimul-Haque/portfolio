@@ -82,7 +82,10 @@
                     @endforeach
                     <!-- end post item -->
                     {{-- paginating --}}
-                    {{ $blogs->links() }}
+
+                    <center>
+                        @include('pagination.default', ['paginator' => $blogs])
+                    </center>
 
                 </div>
                 <!-- end content  -->

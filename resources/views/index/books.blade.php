@@ -15,15 +15,14 @@
                   <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                       <!-- page title -->
                       {{-- <h1 class="black-text">Books</h1> --}}
-                      <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">@mobile Contact Us @endmobile</span>
+                      <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Books</span>
                       <!-- end page title -->
                   </div>
                   <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                       <!-- breadcrumb -->
-                      <ul @mobile class="text-right" @endmobile>
+                      <ul @desktop class="text-right" @enddesktop>
                           <li><a href="{{ route('index.index') }}">Home</a></li>
-                          <li><a href="#">About</a></li>
-                          <li>Journey</li>
+                          <li><a href="#">Books</a></li>
                       </ul>
                       <!-- end breadcrumb -->
                   </div>
