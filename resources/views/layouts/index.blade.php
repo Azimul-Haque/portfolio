@@ -3,8 +3,8 @@
 
 <head>
     <title>Atique Riyad | @yield('title')</title>
-    <meta name="description" content="Official website of IITDU Alumni Association, University of Dhaka. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
-    <meta name="keywords" content="IITDU Alumni Association, IITDU, IIT, University of Dhaka, IIT Alumni">
+    <meta name="description" content="Official website of Captain A H M Atiqul Haque. Developed by A. H. M. Azimul Haque.">
+    <meta name="keywords" content="Atique Riyad, Atique, Riyad, A H M Atiqul Haque, Captain Atique">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
@@ -211,7 +211,7 @@
                 <div class="row margin-three">
                     <!-- copyright -->
                     <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} Soft360 Ltd.
+                        &copy; {{ date('Y') }} All Rights Reserved.
                     </div>
                     <!-- end copyright -->
                     <!-- logo -->
