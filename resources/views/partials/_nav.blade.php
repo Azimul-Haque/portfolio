@@ -26,9 +26,10 @@
                         <i class="fa fa-search search-button"></i>
                     </a>
                     <!-- end nav search -->
+
                 </div>
                 <!-- search input-->
-                <form id="search-header" method="post" action="#!" name="search-header" class="mfp-hide search-form-result">
+                <form id="search-header" method="post" action="{{ route('index.search.post') }}" name="search-header" class="mfp-hide search-form-result">
                     <div class="search-form position-relative">
                         <button type="submit" class="fa fa-search close-search search-button"></button>
                         <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
@@ -81,6 +82,9 @@
                         </li>
                         <li>
                             <a href="{{ route('index.multimedia') }}">Multimedia</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.faq') }}">FAQ</a>
                         </li>
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>

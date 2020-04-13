@@ -78,22 +78,22 @@
             <div class="container">
                 <div class="row margin-four">
                     <!-- phone -->
-                    <div class="col-md-4 col-sm-4 text-center">
+                    {{-- <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-phone small-icon black-text"></i>
                         <h6 class="black-text margin-two no-margin-bottom"><a href="tel:+8801515297658">+88 01515297658</a></h6>
-                    </div>
+                    </div> --}}
                     <!-- end phone -->
                     <!-- address -->
-                    <div class="col-md-4 col-sm-4 text-center">
+                    <div class="col-md-6 col-sm-6 text-center">
                         <i class="icon-map-pin small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom">IIT, University of Dhaka</h6>
+                        <h6 class="black-text margin-two no-margin-bottom">Dhaka, Bangladesh</h6>
                     </div>
                     <!-- end address -->
                     <!-- email -->
-                    <div class="col-md-4 col-sm-4 text-center">
+                    <div class="col-md-6 col-sm-6 text-center">
                         <i class="icon-envelope small-icon black-text"></i>
                         <h6 class="margin-two no-margin-bottom">
-                            <a href="mailto:info@iitdualumni.com" class="black-text">info@iitdualumni.com</a>
+                            <a href="mailto:info@atiqueriyad.com" class="black-text">info@atiqueriyad.com</a>
                         </h6>
                     </div>
                     <!-- end email -->
@@ -104,7 +104,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 footer-link1 xs-display-none">
                     <!-- headline -->
-                    <h5>About Us</h5>
+                    <h5>About Me</h5>
                     <!-- end headline -->
                     <!-- text -->
                     <p class="footer-text">IIT Alumni Association was established in the year 201* with a view to .... ... ...</p>
@@ -117,10 +117,7 @@
                     <!-- link -->
                     <ul>
                         <li>
-                            <a href="{{ route('index.journey') }}">Journey</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.constitution') }}">Constitution</a>
+                            <a href="{{ route('index.bio') }}">Biography</a>
                         </li>
                         <li>
                             <a href="{{ route('index.faq') }}">FAQ</a>
@@ -130,36 +127,30 @@
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4  footer-link3">
                     <!-- headline -->
-                    <h5>Others</h5>
+                    <h5>Writing</h5>
                     <!-- end headline -->
                     <!-- link -->
                     <ul>
                         <li>
-                            <a href="{{ route('index.news') }}">News</a>
+                            <a href="{{ route('blogs.index') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.events') }}">Events</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.gallery') }}">Gallery</a>
+                            <a href="{{ route('index.books') }}">Books</a>
                         </li>
                     </ul>
                     <!-- end link -->
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4  footer-link4">
                     <!-- headline -->
-                    <h5>Alumni</h5>
+                    <h5>Multimedia</h5>
                     <!-- end headline -->
                     <!-- link -->
                     <ul>
                         <li>
-                            <a href="{{ route('index.application') }}">Apply</a>
+                            <a href="{{ route('index.gallery') }}">Gallery</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.adhoc') }}">Ad Hoc Committee</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.members') }}">Members</a>
+                            <a href="{{ route('index.multimedia') }}">Audio(s)/ Video(s)</a>
                         </li>
                     </ul>
                     <!-- end link -->
@@ -174,10 +165,16 @@
                             <a href="{{ route('blogs.index') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.news') }}">News</a>
+                            <a href="{{ route('index.gallery') }}">Gallery</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.events') }}">Events</a>
+                            <a href="{{ route('index.books') }}">Books</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.multimedia') }}">Multimedia</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.faq') }}">FAQ</a>
                         </li>
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>
@@ -193,8 +190,8 @@
                     <a target="_blank" href="https://twitter.com/">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a target="_blank" href="https://plus.google.com/">
-                        <i class="fa fa-google-plus"></i>
+                    <a target="_blank" href="https://instagram.com/">
+                        <i class="fa fa-instagram"></i>
                     </a>
                     <a target="_blank" href="https://www.youtube.com/">
                         <i class="fa fa-youtube"></i>
@@ -275,6 +272,9 @@
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/hamburger-menu.js') }}"></script>
     <!-- setting -->
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/main.js') }}"></script>
+    <script async src="https://cse.google.com/cse.js?cx=012800888456229161516:ayupmmwnoio"></script>
+    
+    
     @include('partials._messages')
     @yield('js')
 

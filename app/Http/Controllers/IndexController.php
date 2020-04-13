@@ -53,6 +53,27 @@ class IndexController extends Controller
         return view('index.journey');
     }
 
+    public function getGSearch(Request $request)
+    {
+        return view('index.gsearch');
+    }
+
+    public function postGSearch(Request $request)
+    {
+        return  redirect()->route('index.search')->withRequest($request);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public function getJourney()
     {
         return view('index.journey');
