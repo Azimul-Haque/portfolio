@@ -38,6 +38,11 @@ class IndexController extends Controller
                     ->withAlumnis($alumnis);
     }
 
+    public function getBio()
+    {
+        return view('index.journey');
+    }
+
     public function getJourney()
     {
         return view('index.journey');
@@ -214,11 +219,6 @@ class IndexController extends Controller
         Session::flash('success', 'You have registered Successfully!');
         Auth::login($application);
         return redirect()->route('index.profile', $unique_key);
-    }
-
-    public function coronaAwareness()
-    {
-        return view('index.coronaawareness');
     }
 
     // clear configs, routes and serve

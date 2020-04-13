@@ -17,22 +17,27 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // index routes
 // index routes
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
+Route::get('/bio', ['as'=>'index.bio','uses'=>'IndexController@getBio']);
+
+
+Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);
+Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContact']);
+Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
+Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
+
+
+
 Route::get('/journey', ['as'=>'index.journey','uses'=>'IndexController@getJourney']);
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
-Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
 Route::get('/adhoc', ['as'=>'index.adhoc','uses'=>'IndexController@getAdhoc']);
 Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
 Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
 Route::get('/events', ['as'=>'index.events','uses'=>'IndexController@getEvents']);
-Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);
 Route::get('/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
-Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContact']);
-Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
 Route::get('/member/login', ['as'=>'index.login','uses'=>'IndexController@getLogin']);
 Route::get('/member/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
 Route::post('/member/application/store', ['as'=>'index.storeapplication','uses'=>'IndexController@storeApplication']);
-Route::get('/corona/awareness', ['as'=>'corona.awareness','uses'=>'IndexController@coronaAwareness']);
 // index routes
 // index routes
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Http\Requests;
 
@@ -11,7 +12,7 @@ use App\Blog;
 use App\Category;
 use App\Like;
 use Carbon\Carbon;
-use DB, Hash, Auth, Image, File, Session;
+use DB, Hash, Auth, Image, File, Session, Cookie;
 use Purifier;
 
 class BlogController extends Controller {
@@ -98,8 +99,18 @@ class BlogController extends Controller {
         //
     }
 
-    public function getBlogPost($slug)
+    public function getBlogPost(Request $request, $slug)
     {
+        if(!$request->hasCookie('my_sweet_visitor')) {
+          $minutes = 60 * 24 * 365;
+          $randomstring = random_string(10);
+          Cookie::queue('my_sweet_visitor', $randomstring, $minutes);
+          $visitor = $randomstring;
+        } else {
+          $visitor = $request->cookie('my_sweet_visitor');
+        }
+        
+
         $categories = Category::all();
         $blog = Blog::where('slug', $slug)->first();
         $populars = Blog::orderBy('likes', 'desc')->get()->take(4);
@@ -109,11 +120,16 @@ class BlogController extends Controller {
                         ->orderBy('created_at', 'DESC')
                         ->get();
                         //dd($archives);
+
+        
+        
+
         return view('blogs.single')
                 ->withBlog($blog)
                 ->withCategories($categories)
                 ->withPopulars($populars)
-                ->withArchives($archives);
+                ->withArchives($archives)
+                ->withVisitor($visitor);
     }
 
     /**

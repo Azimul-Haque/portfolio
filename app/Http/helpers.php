@@ -21,3 +21,9 @@
       else
           return $number. $ends[$number % 10];
   }
+
+  function random_string($length){
+        $pool = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $random_string = substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
+        return $random_string;
+  }

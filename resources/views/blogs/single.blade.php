@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
-                    <h1 class="black-text"></h1>
+                    <h1 class="black-text">{{ $visitor }}</h1>
                     <!-- end page title -->
                 </div>
                 <div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
