@@ -158,14 +158,11 @@
             </div>
             <div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>
             <div class="row margin-four no-margin-bottom">
-                <div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
+                <div class="col-md-7 col-sm-12 sm-text-center sm-margin-bottom-four">
                     <!-- link -->
                     <ul class="list-inline footer-link text-uppercase">
                         <li>
                             <a href="{{ route('blogs.index') }}">Blog</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.gallery') }}">Gallery</a>
                         </li>
                         <li>
                             <a href="{{ route('index.books') }}">Books</a>
@@ -179,10 +176,13 @@
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>
                         </li>
+                        <li>
+                            <a href="{{ route('index.search') }}">Search</a>
+                        </li>
                     </ul>
                     <!-- end link -->
                 </div>
-                <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
+                <div class="col-md-5 col-sm-12 footer-social text-right sm-text-center">
                     <!-- social media link -->
                     <a target="_blank" href="https://www.facebook.com/">
                         <i class="fa fa-facebook"></i>
