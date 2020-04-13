@@ -272,7 +272,6 @@
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/hamburger-menu.js') }}"></script>
     <!-- setting -->
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/main.js') }}"></script>
-    <script async src="https://cse.google.com/cse.js?cx=012800888456229161516:ayupmmwnoio"></script>
     
     
     @include('partials._messages')

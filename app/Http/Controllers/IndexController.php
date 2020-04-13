@@ -55,13 +55,9 @@ class IndexController extends Controller
 
     public function getGSearch(Request $request)
     {
-        return view('index.gsearch');
+        return view('index.gsearch')->withSearch($request->search);
     }
 
-    public function postGSearch(Request $request)
-    {
-        return  redirect()->route('index.search')->withRequest($request);
-    }
 
 
 

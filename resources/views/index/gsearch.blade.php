@@ -35,7 +35,7 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12 wow fadeInUp" data-wow-duration="400ms">
-                    <div class="gcse-search"></div>
+                    <div class="gcse-search" data-queryParameterName="search"></div>
                   </div>
               </div>
           </div>
@@ -44,5 +44,5 @@
 @endsection
 
 @section('js')
-   
+  <script async src="https://cse.google.com/cse.js?cx=012800888456229161516:ayupmmwnoio"></script>
 @endsection

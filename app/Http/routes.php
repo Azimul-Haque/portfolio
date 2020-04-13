@@ -28,7 +28,6 @@ Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContac
 Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 
 Route::get('/search', ['as'=>'index.search','uses'=>'IndexController@getGSearch']);
-Route::post('/search/post', ['as'=>'index.search.post','uses'=>'IndexController@postGSearch']);
 
 
 

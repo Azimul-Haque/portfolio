@@ -29,12 +29,12 @@
 
                 </div>
                 <!-- search input-->
-                <form id="search-header" method="post" action="{{ route('index.search.post') }}" name="search-header" class="mfp-hide search-form-result">
+                {!! Form::open(['route' => 'index.search', 'method' => 'get', 'class' => 'mfp-hide search-form-result', 'id' => 'search-header']) !!}
                     <div class="search-form position-relative">
                         <button type="submit" class="fa fa-search close-search search-button"></button>
                         <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
                     </div>
-                </form>
+                {!! Form::close() !!}
 
             </div>
             <!-- end search and cart  -->
