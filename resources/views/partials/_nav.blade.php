@@ -6,15 +6,15 @@
             <div class="col-md-2 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
                     @if(\Request::is('/'))
-                        <img alt="" src="{{ asset('images/logo-light.png') }}" @mobile class="logo" @endmobile />
+                        <img alt="" src="{{ asset('images/logo-light.png') }}" class="logo" @mobile style="max-height: 30px;" @endmobile />
                     @else
-                        <img alt="" src="{{ asset('images/logo.png') }}" @mobile class="logo" @endmobile />
+                        <img alt="" src="{{ asset('images/logo.png') }}" class="logo"@mobile style="max-height: 30px;" @endmobile />
                     @endif
 
 
                 </a>
                 <a class="logo-dark" href="{{ route('index.index') }}">
-                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" @mobile style="max-height: 30px;" @endmobile />
                 </a>
             </div>
             <!-- end logo -->

@@ -64,6 +64,10 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
             'Symfony\\Component\\Console\\' => 26,
             'SuperClosure\\' => 13,
         ),
+        'R' => 
+        array (
+            'Riverskies\\Laravel\\MobileDetect\\' => 32,
+        ),
         'P' => 
         array (
             'Psy\\' => 4,
@@ -209,6 +213,10 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
         ),
+        'Riverskies\\Laravel\\MobileDetect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
@@ -332,6 +340,13 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
+        'D' => 
+        array (
+            'Detection' => 
+            array (
+                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -431,6 +446,7 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
         'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
         'Doctrine\\Instantiator\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php',
@@ -1981,6 +1997,7 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'Mews\\Purifier\\Facades\\Purifier' => __DIR__ . '/..' . '/mews/purifier/src/Facades/Purifier.php',
         'Mews\\Purifier\\Purifier' => __DIR__ . '/..' . '/mews/purifier/src/Purifier.php',
         'Mews\\Purifier\\PurifierServiceProvider' => __DIR__ . '/..' . '/mews/purifier/src/PurifierServiceProvider.php',
+        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -3162,6 +3179,17 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'Psy\\VarDumper\\Dumper' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Dumper.php',
         'Psy\\VarDumper\\Presenter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Presenter.php',
         'Psy\\VarDumper\\PresenterAware' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/PresenterAware.php',
+        'Riverskies\\Laravel\\MobileDetect\\Contracts\\BladeDirectiveInterface' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Contracts/BladeDirectiveInterface.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\AndroidBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/AndroidBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\DesktopBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/DesktopBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\HandheldBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/HandheldBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\MobileBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/MobileBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\NotMobileBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/NotMobileBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\NotTabletBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/NotTabletBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\TabletBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/TabletBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Directives\\iOSBladeDirective' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Directives/iOSBladeDirective.php',
+        'Riverskies\\Laravel\\MobileDetect\\Facades\\MobileDetect' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/Facades/MobileDetect.php',
+        'Riverskies\\Laravel\\MobileDetect\\MobileDetectServiceProvider' => __DIR__ . '/..' . '/riverskies/laravel-mobile-detect/src/MobileDetectServiceProvider.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',
