@@ -1,4 +1,4 @@
-navigation panel -->
+<!-- navigation panel -->
 <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom @if(\Request::is('/')) nav-white @endif" role="navigation">
     <div class="container">
         <div class="row">
@@ -6,10 +6,12 @@ navigation panel -->
             <div class="col-md-2 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
                     @if(\Request::is('/'))
-                        <img alt="" src="{{ asset('images/logo-light.png') }}" class="logo" />
+                        <img alt="" src="{{ asset('images/logo-light.png') }}" @mobile class="logo" @endmobile />
                     @else
-                        <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                        <img alt="" src="{{ asset('images/logo.png') }}" @mobile class="logo" @endmobile />
                     @endif
+
+
                 </a>
                 <a class="logo-dark" href="{{ route('index.index') }}">
                     <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
@@ -78,10 +80,10 @@ navigation panel -->
                             <a href="{{ route('index.books') }}">Books</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.books') }}">Books</a>
+                            <a href="{{ route('index.multimedia') }}">Multimedia</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.application') }}">Membership</a>
+                            <a href="{{ route('index.contact') }}">Contact</a>
                         </li>
                         @if(Auth::check())
                         <li class="dropdown panel simple-dropdown">
@@ -104,9 +106,9 @@ navigation panel -->
                             </ul>
                         </li>
                         @else
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('index.login') }}" class="">Login</a>
-                        </li>
+                        </li> --}}
                         @endif
                         <!-- end menu item -->
                     </ul>
