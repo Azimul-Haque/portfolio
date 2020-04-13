@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <!-- section title -->
-                <div class="col-md-6 col-sm-6 xs-margin-bottom-four">
+                <div class="col-md-6 col-sm-6 {{-- xs-margin-bottom-four --}}">
                     <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Contact Us</span>
                 </div>
                 <!-- end section title -->

@@ -45,7 +45,7 @@ class IndexController extends Controller
 
     public function getBooks()
     {
-        return view('index.journey');
+        return view('index.books');
     }
 
     public function getMultimedia()
