@@ -27,6 +27,8 @@
     <meta name="msapplication-TileColor" content="#252525">
     <meta name="msapplication-TileImage" content="{{ asset('images/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#252525">
+
+    <meta name="google-site-verification" content="HVsFk-Q0HIWS110QDQG52pyE9LpOMl6piOuOCcGBmSo" />
     <!-- animation -->
     
     <!-- animation -->
