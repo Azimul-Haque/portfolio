@@ -71,8 +71,10 @@
           @endif
           >
               @if($blog->featured_image != null)
-              <div class="blog-image"><a href="{{ route('blog.single', $blog->slug) }}">
-                <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt=""/></a>
+              <div class="blog-image">
+                <a href="{{ route('blog.single', $blog->slug) }}">
+                  <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt=""/>
+                </a>
               </div>
               @endif
               <div class="blog-details">

@@ -19,6 +19,12 @@
           width: 100%;
           height: 100%;
       }
+      .separator-line {
+          height: 2px;
+          margin: 0 auto;
+          width: 30px;
+          margin: 3% auto;
+      }
     </style>
 @endsection
 
@@ -55,7 +61,7 @@
         <div class="row blog-masonry blog-masonry-2col no-transition">
           <!-- post item -->
           @php $counter = 1; @endphp
-          @foreach($blogs as $blog)
+          @foreach($multimedia as $blog)
           <div class="col-md-6 col-sm-6 col-xs-6 blog-listing wow fadeInUp" 
           @if($counter%2 == 0)
           data-wow-duration="600ms" 
@@ -63,19 +69,18 @@
           data-wow-duration="300ms"
           @endif
           >
-              @if($blog->featured_image != null)
-              <div class="blog-image"><a href="{{ route('blog.single', $blog->slug) }}">
-                <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt=""/></a>
+              <div class="blog-image">
+                {!! $blog->body !!}
               </div>
-              @endif
               <div class="blog-details">
-                  <div class="blog-date">{{ date('F d, Y', strtotime($blog->created_at)) }} | 
-                    <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a>
+                  <div class="blog-date">Posted by <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }}
                   </div>
-                  <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">
-                    {{ $blog->title }}
-                  </a></div>
-                  <div class="blog-short-description">
+                  <div class="blog-title">
+                    <a href="{{ route('blog.single', $blog->slug) }}">
+                      {{ $blog->title }}
+                    </a>
+                  </div>
+                  {{-- <div class="blog-short-description">
                     <div style="text-align: justify;">
                         @if(strlen(strip_tags($blog->body))>400)
                             {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+300))." [...] " }}
@@ -84,7 +89,7 @@
                             {{ strip_tags($blog->body) }}
                         @endif
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="separator-line bg-black no-margin-lr"></div>
                   <div>
                     <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
@@ -117,7 +122,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <center>{{ $blogs->links() }}</center>
+            <center>{{ $multimedia->links() }}</center>
           </div>
         </div>
       </div>

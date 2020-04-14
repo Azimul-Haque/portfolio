@@ -9,6 +9,10 @@ class User extends Authenticatable
     public function blogs(){
         return $this->hasMany('App\Blog');
     }
+    
+    public function multimedia(){
+        return $this->hasMany('App\Multimedia');
+    }
 
     protected $fillable = [
         'name', 'email', 'password',

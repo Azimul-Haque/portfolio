@@ -9,6 +9,7 @@ use App\User;
 use App\Blog;
 use App\Category;
 use App\Adhocmember;
+use App\Multimedia;
 
 use Carbon\Carbon;
 use DB;
@@ -50,8 +51,8 @@ class IndexController extends Controller
 
     public function getMultimedia()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->paginate(6);
-        return view('index.multimedia')->withBlogs($blogs);
+        $multimedia = Multimedia::orderBy('id', 'DESC')->paginate(6);
+        return view('index.multimedia')->withMultimedia($multimedia);
     }
 
     public function getGSearch(Request $request)
