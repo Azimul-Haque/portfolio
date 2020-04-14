@@ -20,7 +20,9 @@
                 <div class="mb-4 lead">দুঃখিত! পাওয়া যায়নি।</div>
                 <a href="{{ url('/') }}" class="btn btn-link">নীড় পাতায় ফিরে যান</a>
                 <br/>
-                <img src="{{ asset('images/404.png') }}" alt="404 Image"/>
+                <center>
+                  <img src="{{ asset('images/404.png') }}" alt="404 Image" style="max-height: 400px; width: auto; bottom: 0px; position: fixed;">
+                </center>
             </div>
         </div>
     </div>
