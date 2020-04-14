@@ -1,29 +1,35 @@
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<style type="text/css">
-    body {
-        background: #dedede;
-    }
-    .page-wrap {
-        min-height: 100vh;
-    }
-</style>
+@extends('layouts.index')
+@section('title')
+    404 Not Found!
+@endsection
 
-<div class="page-wrap d-flex flex-row align-items-center">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <span class="display-4 d-block">404 Not Found</span>
-                <div class="mb-4 lead">দুঃখিত! পাওয়া যায়নি।</div>
-                <a href="{{ url('/') }}" class="btn btn-link">নীড় পাতায় ফিরে যান</a>
-                <br/>
-                <center>
-                  <img src="{{ asset('images/404.png') }}" alt="404 Image" style="max-height: 400px; width: auto; bottom: 0px; position: fixed;">
-                </center>
-            </div>
-        </div>
-    </div>
-</div>
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
+@endsection
+
+@section('content')
+    
+
+      <!-- content section -->
+      <section class="content-top-margin border-top no-padding-bottom wow fadeIn">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-10 col-sm-8 col-xs-11 text-center center-col">
+                      <p class="not-found-title black-text">404!</p>
+                      <p class="text-med text-uppercase letter-spacing-2">The page you were looking for could not be found.</p>
+                      <a class="highlight-button-dark btn btn-small no-margin-right" href="/">Go to home page</a>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-10 col-sm-8 col-xs-11 center-col">
+                      <img src="{{ asset('images/404.png') }}" alt="404 Image"/>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- end content section -->
+@endsection
+
+@section('js')
+   
+@endsection

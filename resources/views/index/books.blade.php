@@ -5,6 +5,14 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
+    <style type="text/css">
+        .separator-line-thick {
+            height: 4px;
+            margin: 0 auto;
+            width: 30px;
+            margin: 3% auto;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -31,20 +39,58 @@
     </section>
     <!-- end head section -->
     
-    <!-- WHATWEDO section -->
-    <section class="border-bottom-light sm-text-center">
+    <!-- content section -->
+    <section class="wow fadeIn">
+        <!-- container -->
         <div class="container">
-            <div class="row">
-                <div class="col-md-7 wow fadeInUp" data-wow-duration="400ms"><img src="{{ asset('images/contact2.jpg') }}" alt=""/></div>
-                <div class="col-md-5 wow fadeInUp" data-wow-duration="800ms">
-                    <h1 class="title-extra-large font-weight-700 black-text margin-five text-transform-none">What we do</h1>
-                    <p class="title-small font-weight-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's standard dummy text.</p>
-                    <p class="title-small font-weight-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            
+            <div class="row margin-five" style="min-height: 350px;">
+                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
+                    <p class="no-margin sm-center">
+                        <img src="{{ asset('images/books/1.png') }}" class="img-responsive">
+                    </p>
+                </div>
+                <div class="col-md-9 col-sm-6">
+                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
+                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
                 </div>
             </div>
+            <div class="wide-separator-line no-margin-lr"></div>
+            
+            <div class="row margin-five" style="min-height: 350px;">
+                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
+                    <p class="no-margin sm-center">
+                        <img src="{{ asset('images/books/2.jpg') }}" class="img-responsive">
+                    </p>
+                </div>
+                <div class="col-md-9 col-sm-6">
+                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
+                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
+                </div>
+            </div>
+            <div class="wide-separator-line no-margin-lr"></div>
+            
+            <div class="row margin-five" style="min-height: 350px;">
+                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
+                    <p class="no-margin sm-center">
+                        <img src="{{ asset('images/books/3.jpg') }}" class="img-responsive">
+                    </p>
+                </div>
+                <div class="col-md-9 col-sm-6">
+                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
+                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
+                </div>
+            </div>
+            <div class="wide-separator-line no-margin-lr"></div>
+        
         </div>
     </section>
-    <!-- end WHATWEDO section -->
 @endsection
 
 @section('js')

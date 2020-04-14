@@ -50,7 +50,8 @@ class IndexController extends Controller
 
     public function getMultimedia()
     {
-        return view('index.journey');
+        $blogs = Blog::orderBy('id', 'DESC')->paginate(6);
+        return view('index.multimedia')->withBlogs($blogs);
     }
 
     public function getGSearch(Request $request)

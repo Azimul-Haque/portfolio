@@ -26,6 +26,21 @@
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->category->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
+    <style type="text/css">
+      .youtibecontainer {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 56.25%;
+      }
+      .youtubeiframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+    </style>
 @endsection
 
 @section('content')
@@ -121,7 +136,7 @@
                             <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i>
                             <span id="comment_count"></span> comment(s)</a>
                             <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                            <script type="text/javascript">
+                            {{-- <script type="text/javascript">
                                 $.ajax({
                                     url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
                                     dataType: "jsonp",
@@ -133,40 +148,15 @@
                                         }
                                     }
                                 });
-                            </script>
+                            </script> --}}
                         </div>
                         <!-- end post tags -->
                     </div>
                     <!-- end post details text -->
-                    <!-- about author -->
-                    <div class="text-center margin-ten no-margin-bottom about-author text-left bg-gray">
-                        <div class="blog-comment text-left clearfix no-margin">
-                            <!-- author image -->
-                            <a class="comment-avtar no-margin-top"><img src="{{ asset('images/users/'.$blog->user->image) }}" alt=""></a>
-                            <!-- end author image -->
-                            <!-- author text -->
-                            <div class="comment-text overflow-hidden position-relative">
-                                <h5 class="widget-title">About The Author</h5>
-                                <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><p class="blog-date no-padding-top">{{ $blog->user->name }}</p></a>
-                                <p class="about-author-text no-margin">
-                                    {{ $blog->user->degree }} {{ $blog->user->batch }}, {{ $blog->user->passing_year }}<br/>
-                                    {{ $blog->user->designation }}, {{ $blog->user->current_job }}
-                                </p>
-                            </div>
-                            <!-- end author text -->
-                        </div>
-                    </div>
-                    <!-- end about author -->
-                    <!-- social icon -->
-                    <div class="text-center border-bottom margin-ten padding-four no-margin-top">
-                        <a href="{{ $blog->user->fb }}" class="btn social-icon social-icon-large button"><i class="fa fa-facebook"></i></a>
-                        <a href="{{ $blog->user->twitter }}" class="btn social-icon social-icon-large button"><i class="fa fa-twitter"></i></a>
-                        <a href="{{ $blog->user->gplus }}" class="btn social-icon social-icon-large button"><i class="fa fa-google-plus"></i></a>
-                        <a href="{{ $blog->user->linkedin }}" class="btn social-icon social-icon-large button"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                    <!-- end social icon -->
-                    <!-- blog comment -->
 
+                    <div class="wide-separator-line no-margin-lr"></div>
+                    
+                    <!-- blog comment -->
                     <div class="blog-comment-main xs-no-padding-top" id="comment_section">
                         <h5 class="widget-title">Blog Comments</h5>
                         <div class="row">
