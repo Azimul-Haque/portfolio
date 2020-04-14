@@ -20,6 +20,7 @@ Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
 Route::get('/bio', ['as'=>'index.bio','uses'=>'IndexController@getBio']);
 Route::get('/books', ['as'=>'index.books','uses'=>'IndexController@getBooks']);
 Route::get('/multimedia', ['as'=>'index.multimedia','uses'=>'IndexController@getMultimedia']);
+Route::get('/multimedia/{slug}', ['as'=>'index.multimedia.single','uses'=>'IndexController@getSingleMultimedia']);
 
 
 Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);

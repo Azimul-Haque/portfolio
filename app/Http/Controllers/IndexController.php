@@ -55,6 +55,12 @@ class IndexController extends Controller
         return view('index.multimedia')->withMultimedia($multimedia);
     }
 
+    public function getSingleMultimedia($slug)
+    {
+        $multimedia = Multimedia::orderBy('id', 'DESC')->paginate(6);
+        return view('index.multimedia')->withMultimedia($multimedia);
+    }
+
     public function getGSearch(Request $request)
     {
         return view('index.gsearch')->withSearch($request->search);

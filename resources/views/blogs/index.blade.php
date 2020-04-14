@@ -4,7 +4,14 @@
 @endsection
 
 @section('css')
-
+    <style type="text/css">
+        .separator-line {
+            height: 2px;
+            margin: 0 auto;
+            width: 30px;
+            margin: 3% auto;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -57,7 +64,7 @@
                                     {{ strip_tags($blog->body) }}
                                 @endif
                             </div>
-                            <div class="separator-line bg-black no-margin-lr margin-four"></div>
+                            <div class="separator-line bg-black no-margin-lr"></div>
                             <div>
                                 <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
                                 <a href="#!" class="comment"><i class="fa fa-comment-o"></i>

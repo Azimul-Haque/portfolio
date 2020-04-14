@@ -34,7 +34,7 @@ return [
         ],
         "youtube" => [
             "HTML.SafeIframe"      => 'true',
-            "URI.SafeIframeRegexp" => "%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/)%",
+            "URI.SafeIframeRegexp" => "%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/|w.soundcloud.com/)%",
         ],
         'custom_definition' => [
             'id'  => 'html5-definitions',
