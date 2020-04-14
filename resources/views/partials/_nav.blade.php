@@ -1,11 +1,11 @@
 <!-- navigation panel -->
-<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom @if(\Request::is('/')) nav-white @endif" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom @if(\Request::is('/') || \Request::is('blogs')) nav-white @endif" role="navigation">
     <div class="container">
         <div class="row">
             <!-- logo -->
             <div class="col-md-2 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
-                    @if(\Request::is('/'))
+                    @if(\Request::is('/') || \Request::is('blogs'))
                         <img alt="" src="{{ asset('images/logo-light.png') }}" class="logo" @handheld style="max-height: 30px;" @endhandheld />
                     @else
                         <img alt="" src="{{ asset('images/logo.png') }}" class="logo"@handheld style="max-height: 30px;" @endhandheld />
@@ -79,6 +79,9 @@
                         </li>
                         <li>
                             <a href="{{ route('index.books') }}">Books</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.gallery') }}">Gallery</a>
                         </li>
                         <li>
                             <a href="{{ route('index.multimedia') }}">Multimedia</a>

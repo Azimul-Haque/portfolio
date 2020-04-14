@@ -29,21 +29,58 @@
           </div>
       </section>
       <!-- end head section -->
-      <!-- feature section -->
-      <section>
+      
+      <section class="work-3col masonry">
           <div class="container">
-              <div class="row margin-six">
-                <div class="col-md-8 col-md-offset-2">
-                  <center>
-                    <i class="icon-tools large-icon yellow-text text-center"></i>
-                    <h1 class="margin-ten no-margin-bottom">Gallery</h1>
-                    <p class="text-med margin-ten width-80 center-col">Under Construction!</p>
-                  </center>
-                </div>
+              <div class="row">                     
+                  <div class="col-md-7 col-sm-10 center-col text-center margin-ten no-margin-top">
+                      <h6 class="no-margin-top margin-ten xs-margin-bottom-seven"><strong class="black-text">Masonry - 3 Columns</strong></h6>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 grid-gallery overflow-hidden no-padding" >
+                      <ul class="grid masonry-items lightbox-gallery">
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/1.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/1.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/2.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/2.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/3.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/3.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/4.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/4.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/5.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/5.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/6.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/6.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                          <!-- photo item -->
+                          <li class="wow">
+                              <a href="{{ asset('images/gallery/7.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/7.jpg') }}" alt=""></a>
+                          </li>
+                          <!-- end photo item -->
+                      </ul>
+                  </div>
+
               </div>
           </div>
-      </section> 
-      <!-- end feature section -->
+      </section>
 @endsection
 
 @section('js')

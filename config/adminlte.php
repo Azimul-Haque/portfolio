@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'IIT Alumni',
+    'title' => 'Atique Riyad',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>IIT</b>Alumni',
+    'logo' => '<b>Atique</b>Riyad',
 
-    'logo_mini' => '<b>IIT</b>A',
+    'logo_mini' => '<b>A</b>R',
 
     /*
     |--------------------------------------------------------------------------

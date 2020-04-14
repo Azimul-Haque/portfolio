@@ -151,15 +151,18 @@ class IndexController extends Controller
         // }
     }
 
-    public function getApplication()
-    {
-        return view('index.application');
-    }
 
-    public function getLogin()
-    {
-        return view('index.login');
-    }
+
+
+    // public function getApplication()
+    // {
+    //     return view('index.application');
+    // }
+
+    // public function getLogin()
+    // {
+    //     return view('index.login');
+    // }
 
     public function getProfile($unique_key)
     {

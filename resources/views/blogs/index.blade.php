@@ -9,21 +9,19 @@
 
 @section('content')
     <!-- head section -->
-    <section class="content-top-margin page-title page-title-small bg-gray">
+    <section class="page-title parallax3 parallax-fix page-title-large">
+        <div class="opacity-medium bg-black"></div>
+        <img class="parallax-background-img" src="{{ asset('images/slider/blog_cover.jpg') }}" alt="" />
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                <div class="col-md-12 col-sm-12 text-center animated fadeInUp">
+                    <div class="separator-line bg-yellow no-margin-top margin-four"></div>
                     <!-- page title -->
-                    <h1 class="black-text">Blogs...</h1>
+                    <h1 class="white-text">Blog - Right Sidebar</h1>
                     <!-- end page title -->
-                </div>
-                <div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
-                    <!-- breadcrumb -->
-                    <ul>
-                        <li><a href="{{ route('index.index') }}">Home</a></li>
-                        <li><a href="{{ route('blogs.index') }}">Blog</a></li>
-                    </ul>
-                    <!-- end breadcrumb -->
+                    <!-- page title tagline -->
+                    <span class="white-text">Lorem Ipsum is simply dummy text of the printing.</span>
+                    <!-- end title tagline -->
                 </div>
             </div>
         </div>
