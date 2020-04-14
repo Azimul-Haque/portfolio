@@ -1,10 +1,10 @@
 <!-- sidebar  -->
 <!-- widget  -->
 <div class="widget">
-    <form>
-        <i class="fa fa-search close-search search-button"></i>
+    {!! Form::open(['route' => 'index.search', 'method' => 'get',]) !!}
+        <button class="fa fa-search close-search search-button" type="submit"></button>
         <input type="text" placeholder="Search..." class="search-input" name="search">
-    </form>
+    {!! Form::close() !!}
 </div>
 <!-- end widget  -->
 <!-- widget  -->
