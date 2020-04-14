@@ -13,18 +13,18 @@
     <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
     <div class="widget-body">
         <ul class="widget-posts">
-            @foreach($populars as $popular)
+            @foreach($similars as $similar)
             <li class="clearfix">
-                <a href="{{ route('blog.single', $popular->slug) }}">
-                    @if($popular->featured_image != null)
-                    <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" alt=""/>
+                <a href="{{ route('index.multimedia.single', $similar->slug) }}">
+                    @if(!empty($similar->featured_image))
+                    <img src="{{ asset('images/blogs/'.$similar->featured_image) }}" alt=""/>
                     @else
-                    <img src="{{ asset('images/600x315.png') }}" alt=""/>
+                    <img src="{{ asset('images/multimedia.jpg') }}" alt=""/>
                     @endif
                 </a>
                 <div class="widget-posts-details">
-                    <a href="{{ route('blog.single', $popular->slug) }}" class="overflowellipsis">{{ $popular->title }}</a>
-                    <span class="overflowellipsis">{{ $popular->user->name }} - {{ date('F d', strtotime($popular->created_at)) }}</span>
+                    <a href="{{ route('index.multimedia.single', $similar->slug) }}" class="overflowellipsis">{{ $similar->title }}</a>
+                    <span class="overflowellipsis">{{ $similar->user->name }} - {{ date('F d', strtotime($similar->created_at)) }}</span>
                 </div>
             </li>
             @endforeach
