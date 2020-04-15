@@ -85,7 +85,7 @@
                     <h2 class="blog-details-headline text-black">{{ $multimedia->title }}</h2>
                     <!-- end post title  -->
                     <!-- post date and categories  -->
-                    <div class="blog-date no-padding-top">Posted by <a href="{{ route('blogger.profile', $multimedia->user->unique_key) }}"><b>{{ $multimedia->user->name }}</b></a> | {{ date('F d, Y', strtotime($multimedia->created_at)) }}</div>
+                    <div class="blog-date no-padding-top margin-two-bottom">Posted by <a href="{{ route('index.bio') }}"><b>{{ $multimedia->user->name }}</b></a> | {{ date('F d, Y', strtotime($multimedia->created_at)) }}</div>
                     <!-- end date and categories   -->
                     
 
