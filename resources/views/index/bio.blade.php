@@ -43,7 +43,7 @@
 @section('content')
     <!-- parallax section -->
     <section class="parallax1 parallax-fix full-screen no-padding scroll-to-down" onclick="scrollToDown()" id="slider">
-        <div class="opacity-medium bg-gray"></div>
+        <div class="opacity-light bg-gray"></div>
         <img class="parallax-background-img" src="/images/bio_landing.jpg" alt="One of my photos" />
         <div class="container full-screen position-relative">
             <div class="slider-typography">

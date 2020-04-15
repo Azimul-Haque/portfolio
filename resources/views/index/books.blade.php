@@ -50,7 +50,7 @@
                     </p>
                 </div>
                 <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <span class="title-large font-weight-600 black-text">Our Mission is to Save বাংলাদেশ</span>
                     <div class="separator-line-thick bg-yellow no-margin-lr"></div>
                     <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
@@ -65,7 +65,7 @@
                     </p>
                 </div>
                 <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <span class="title-large font-weight-600 black-text">Dummy Book</span>
                     <div class="separator-line-thick bg-yellow no-margin-lr"></div>
                     <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                     <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
@@ -80,7 +80,7 @@
                     </p>
                 </div>
                 <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">Our Mission is to Satisfy বাংলাদেশ</span>
+                    <span class="title-large font-weight-600 black-text">অর্কেস্ট্রা</span>
                     <div class="separator-line-thick bg-yellow no-margin-lr"></div>
                     <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
