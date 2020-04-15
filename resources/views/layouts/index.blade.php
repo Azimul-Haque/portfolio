@@ -112,7 +112,7 @@
                     <h5>About Me</h5>
                     <!-- end headline -->
                     <!-- text -->
-                    <p class="footer-text">IIT Alumni Association was established in the year 201* with a view to .... ... ...</p>
+                    <p class="footer-text">This the about me section. Here there will be some text about me briefly.</p>
                     <!-- end text -->
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">

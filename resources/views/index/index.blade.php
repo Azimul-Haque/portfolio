@@ -31,6 +31,21 @@
             background-position:center;
             margin:-100px 0 0 -100px;
         }
+
+        @mobile
+            
+        @elsemobile
+            .fashion-subtitle {
+                border: 8px solid #000;
+                padding: 50px;
+                font-size: 40px;
+                width: 520px;
+                display: inline-block;
+                line-height: 65px;
+                margin: 30px 0;
+                letter-spacing: 3px;
+            }
+        @endmobile
     </style>
 @endsection
 
@@ -42,13 +57,13 @@
     
     <!-- quotes section -->
     <section class="fix-background" style="background-image:url('images/photography-12.jpg');">
-        <div class="opacity-full bg-gray"></div>
+        <div class="opacity-medium bg-gray"></div>
         <div class="container position-relative">
             <div class="row margin-five">
-                <div class="col-md-5 center-col text-center">
+                <div class="col-md-6 center-col text-center">
                     <i class="fa fa-quote-left medium-icon black-text margin-ten no-margin-top"></i><br>
-                    <span class="text-small text-uppercase letter-spacing-3">Photography is about finding out what can happen in the frame. When you put four edges around some facts, you change those facts.</span><br>
-                    <span class="text-small text-uppercase letter-spacing-5 black-text font-weight-600 margin-five display-block no-margin-bottom">Atique Riyad</span>
+                    <span class="text-medium text-uppercase letter-spacing-2">Life is not easy for anyone. Sometimes you don’t see the challenges on the outside, but every single one of us has both those and everything that goes on inside as well. Give it all. Dare to be all you can be.</span><br>
+                    <span class="text-large text-uppercase letter-spacing-5 black-text font-weight-700 margin-five display-block no-margin-bottom">Atique Riyad</span>
                 </div>
             </div>
         </div>
@@ -68,11 +83,15 @@
 
     <!-- counter section -->
     <section id="counter" class="fix-background" style="background-image:url('/images/home_page_back_2.jpg');">
-        <div class="opacity-full bg-dark-gray"></div>
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-md-12">
-                    ASD
+        <div class="opacity-medium bg-dark-gray"></div>
+        <div class="container position-relative margin-five">
+            <div class="slider-typography position-relative">
+                <div class="slider-text-middle-main">
+                    <div class="slider-text-middle text-center slider-text-middle1 center-col wow fadeIn">
+                        <span class="fashion-subtitle white-text text-uppercase font-weight-700 border-color-white text-center ">
+                            Your time is limited, so don’t waste it living someone else’s life.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
