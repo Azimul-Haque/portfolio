@@ -92,7 +92,7 @@
                     <!-- end date and categories   -->
                     <!-- post image -->
                     @if($blog->featured_image != null)
-                        <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div>
+                        <div class="blog-image margin-four"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div>
                     @endif
 
                     <!-- end post image -->
