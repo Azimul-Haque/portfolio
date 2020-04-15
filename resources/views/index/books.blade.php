@@ -22,7 +22,6 @@
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
-                    {{-- <h1 class="black-text">Books</h1> --}}
                     <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Books</span>
                     <!-- end page title -->
                 </div>
