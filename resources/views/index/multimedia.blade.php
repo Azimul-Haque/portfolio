@@ -73,7 +73,7 @@
                 {!! $blog->body !!}
               </div>
               <div class="blog-details">
-                  <div class="blog-date">Posted by <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }}
+                  <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }}
                   </div>
                   <div class="blog-title">
                     <a href="{{ route('index.multimedia.single', $blog->slug) }}">
