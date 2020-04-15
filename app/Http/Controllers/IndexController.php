@@ -141,26 +141,27 @@ class IndexController extends Controller
 
     public function storeFormMessage(Request $request)
     {
-        // $this->validate($request,array(
-        //     'name'                      => 'required|max:255',
-        //     'email'                     => 'required|max:255',
-        //     'message'                   => 'required',
-        //     'contact_sum_result_hidden'   => 'required',
-        //     'contact_sum_result'   => 'required'
-        // ));
+        $this->validate($request,array(
+            'name'                      => 'required|max:255',
+            'email'                     => 'required',
+            'phone'                     => 'required',
+            'message'                   => 'required',
+            'contact_sum_result_hidden'   => 'required',
+            'contact_sum_result'   => 'required'
+        ));
 
-        // if($request->contact_sum_result_hidden == $request->contact_sum_result) {
-        //     $message = new Formmessage;
-        //     $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
-        //     $message->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
-        //     $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
-        //     $message->save();
+        if($request->contact_sum_result_hidden == $request->contact_sum_result) {
+            // $message = new Formmessage;
+            // $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
+            // $message->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+            // $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
+            // $message->save();
             
-        //     Session::flash('success', 'আপনার বার্তা আমাদের কাছে পৌঁছেছে। ধন্যবাদ!');
-        //     return redirect()->route('index.contact');
-        // } else {
-        //     return redirect()->route('index.contact')->with('warning', 'যোগফল ভুল হয়েছে! আবার চেষ্টা করুন।')->withInput();
-        // }
+            Session::flash('success', 'Thank you for your message! I will get back to you.');
+            return redirect()->route('index.contact');
+        } else {
+            return redirect()->route('index.contact')->with('warning', 'The sum is incorrect! Try again.')->withInput();
+        }
     }
 
 

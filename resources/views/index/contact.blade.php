@@ -35,7 +35,7 @@
             <div class="row">
                 <!-- office address -->
                 <div class="col-md-4 col-sm-6 xs-margin-bottom-ten">
-                    <p class="text-med text-uppercase letter-spacing-1 black-text font-weight-600">Contact Form</p>
+                    <p class="text-med text-uppercase letter-spacing-1 black-text font-weight-600">Write to me</p>
                     <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                     <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
@@ -43,16 +43,16 @@
 
                 <div class="col-md-6 col-sm-6  col-md-offset-2">
                     {!! Form::open(['route' => 'index.storeformmessage', 'method' => 'POST']) !!}
-                        <input name="name" type="text" value="{{ old('name') }}" placeholder="Name" required="" />
+                        <input name="name" type="text" value="{{ old('name') }}" placeholder="Name *" required="" />
                         <div class="row">
                             <div class="col-md-6">
-                                <input name="email" type="email" value="{{ old('email') }}" placeholder="Email"  required="" />
+                                <input name="email" type="email" value="{{ old('email') }}" placeholder="Email *"  required="" />
                             </div>
                             <div class="col-md-6">
-                                <input name="email" type="email" value="{{ old('email') }}" placeholder="Email"  required="" />
+                                <input name="phone" type="text" value="{{ old('phone') }}" placeholder="Contact No *"  required="" />
                             </div>
                         </div>
-                        <textarea name="message" placeholder="Message"  required="">{{ old('message') }}</textarea>
+                        <textarea name="message" placeholder="Message *"  required="">{{ old('message') }}</textarea>
                         
                         @php
                           $contact_num1 = rand(1,20);
@@ -62,8 +62,8 @@
                         <input type="hidden" name="contact_sum_result_hidden" value="{{ $contact_sum_result_hidden }}">
                         <input type="text" name="contact_sum_result" id="" class="form-control" placeholder="{{ $contact_num1 }} + {{ $contact_num2 }} = ?" required="">
                         
-                        <button id="contact-us-button" type="submit" class="highlight-button-dark btn btn-small button xs-margin-bottom-five"><i class="fa fa-paper-plane"></i> Send</button>
-                    </form>
+                        <button id="" type="submit" class="highlight-button-dark btn btn-small button xs-margin-bottom-five"><i class="fa fa-paper-plane"></i> Send</button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
