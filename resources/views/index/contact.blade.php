@@ -9,19 +9,22 @@
 
 @section('content')
     <!-- head section -->
-    <section class="content-top-margin wow fadeInUp bg-gray">
+    <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
             <div class="row">
-                <!-- section title -->
-                <div class="col-md-6 col-sm-6 {{-- xs-margin-bottom-four --}}">
+                <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                    <!-- page title -->
                     <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Contact Us</span>
+                    <!-- end page title -->
                 </div>
-                <!-- end section title -->
-                <!-- section highlight text -->
-                <div class="col-md-6 col-sm-6 text-right xs-text-left">
-                    <span class="text-extra-large font-weight-400"></span>
+                <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                    <!-- breadcrumb -->
+                    <ul @desktop class="text-right" @enddesktop>
+                        <li><a href="{{ route('index.index') }}">Home</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <!-- end breadcrumb -->
                 </div>
-                <!-- end section highlight text -->
             </div>
         </div>
     </section>
@@ -73,7 +76,7 @@
         <div class="container-fuild">
             <div class="row no-margin">
                 <div id="canvas1" class="col-md-12 col-sm-12 no-padding contact-map map">
-                    <iframe id="map_canvas1" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14610.052956266321!2d90.3983461!3d23.7290706!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfde166eb920114d4!2sInstitute+of+Information+Technology!5e0!3m2!1sen!2sbd!4v1557415545548!5m2!1sen!2sbd"></iframe>
+                    <iframe id="map_canvas1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82616.60524822788!2d90.3620565187904!3d23.77686687309586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1586987877985!5m2!1sen!2sbd"></iframe>
                 </div>
             </div>
         </div>
