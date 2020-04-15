@@ -1,10 +1,10 @@
 @extends('layouts.index')
 @section('title')
-    {{ $archivedate }}
+    Archive - {{ $archivedate }}
 @endsection
 
 @section('css')
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
 @endsection
 
 @section('content')
@@ -12,16 +12,17 @@
     <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
-                    <h1 class="black-text">{{ $archivedate }}...</h1>
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Archive - {{ $archivedate }}</span>
                     <!-- end page title -->
                 </div>
-                <div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
-                    <ul>
+                    <ul @desktop class="text-right" @enddesktop>
                         <li><a href="{{ route('index.index') }}">Home</a></li>
                         <li><a href="{{ route('blogs.index') }}">Blog</a></li>
+                        <li><a href="#">Archive - {{ $archivedate }}</a></li>
                     </ul>
                     <!-- end breadcrumb -->
                 </div>
@@ -47,7 +48,7 @@
                         @endif
                         <!-- end post image -->
                         <div class="blog-details">
-                            <div class="blog-date">Posted by <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
+                            <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
                             <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">
                                 {{ $blog->title }}
                             </a></div>
