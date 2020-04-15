@@ -88,7 +88,7 @@
                     <h2 class="blog-details-headline text-black">{{ $blog->title }}</h2>
                     <!-- end post title  -->
                     <!-- post date and categories  -->
-                    <div class="blog-date no-padding-top">Posted by <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
+                    <div class="blog-date no-padding-top">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
                     <!-- end date and categories   -->
                     <!-- post image -->
                     @if($blog->featured_image != null)
