@@ -112,7 +112,7 @@
                   <div class="faq-search margin-five no-margin-bottom position-relative">
                     {!! Form::open(['route' => 'index.search', 'method' => 'get']) !!}
                         <input type="text" name="search" class="input-round big-input no-margin" placeholder="Search our Help Center..." required="">
-                        <i class="fa fa-search faq-search-button"></i>
+                        <button type="submit" class="fa fa-search close-search search-button faq-search-button"></button>
                     {!! Form::close() !!}
                       
                   </div>
