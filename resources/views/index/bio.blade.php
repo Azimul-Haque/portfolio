@@ -195,7 +195,7 @@
         </section>
     @elsemobile
         <!-- education section -->
-        <section id="education" class="fix-background xs-onepage-section" style="background-image:url('/images/pcc.jpg');">
+        <section id="education" class="fix-background" style="background-image:url('/images/pcc.jpg');">
             <div class="bg-dark-gray"></div>
             <div class="container">
                 <div class="row margin-ten no-margin-top">
