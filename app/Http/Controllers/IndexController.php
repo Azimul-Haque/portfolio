@@ -41,7 +41,7 @@ class IndexController extends Controller
 
     public function getBio()
     {
-        return view('index.journey');
+        return view('index.bio');
     }
 
     public function getBooks()
