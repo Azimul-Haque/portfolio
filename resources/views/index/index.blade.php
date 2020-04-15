@@ -178,7 +178,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-md-12 text-center center-col margin-four opacity-full">
+                <div class="col-md-12 text-center center-col margin-five opacity-full">
                     <h1 class="white-text">Testimonials</h1>
                 </div><br/><br/>
             </div>
