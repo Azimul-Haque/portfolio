@@ -3,7 +3,7 @@
 
 <head>
     <title>Atique Riyad | @yield('title')</title>
-    <meta name="description" content="Official website of Captain A H M Atiqul Haque. Developed by A. H. M. Azimul Haque.">
+    <meta name="description" content="Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.">
     <meta name="keywords" content="Atique Riyad, Atique, Riyad, A H M Atiqul Haque, Captain Atique">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
@@ -25,8 +25,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicons/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicons//manifest.json') }}">
     <meta name="msapplication-TileColor" content="#252525">
+    <meta name="msapplication-navbutton-color" content="#252525">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#252525">
     <meta name="msapplication-TileImage" content="{{ asset('images/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#252525">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <meta name="google-site-verification" content="HVsFk-Q0HIWS110QDQG52pyE9LpOMl6piOuOCcGBmSo" />
     <!-- animation -->

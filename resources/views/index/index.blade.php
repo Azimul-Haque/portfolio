@@ -48,7 +48,7 @@
                 <div class="col-md-5 center-col text-center">
                     <i class="fa fa-quote-left medium-icon black-text margin-ten no-margin-top"></i><br>
                     <span class="text-small text-uppercase letter-spacing-3">Photography is about finding out what can happen in the frame. When you put four edges around some facts, you change those facts.</span><br>
-                    <span class="text-small text-uppercase letter-spacing-5 black-text font-weight-600 margin-five display-block no-margin-bottom">Garry Winogrand</span>
+                    <span class="text-small text-uppercase letter-spacing-5 black-text font-weight-600 margin-five display-block no-margin-bottom">Atique Riyad</span>
                 </div>
             </div>
         </div>
@@ -174,6 +174,53 @@
         </div>
     </section>
     <!-- end blog content section -->
+
+    <!-- content section --> 
+    <section id="slider" class="wow fadeInUp fix-background" style="background-image:url('/images/testimonial.jpg');">
+        <div class="opacity-full bg-dark-gray"></div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center center-col margin-four opacity-full">
+                    <h1 class="white-text">Testimonials</h1>
+                </div><br/><br/>
+            </div>
+            <div class="row">
+                <div id="owl-demo" class="col-xs-12 owl-carousel owl-theme light-pagination bottom-pagination dark-pagination-without-next-prev-arrow position-relative">
+                    <!-- testimonials item -->
+                    <div class="item">
+                        <div class="col-md-6 col-sm-8 no-padding testimonial-style2 center-col text-center margin-three no-margin-top">
+                            <img src="{{ asset('images/testimonials/1.jpg') }}" alt=""/>
+                            <p class="white-text text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <span class="name white-text text-med">John Carmack - Google</span>
+                            <i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i>
+                        </div>
+                    </div>
+                    <!-- end testimonials item -->
+                    <!-- testimonials item -->
+                    <div class="item">
+                        <div class="col-md-6 col-sm-8 no-padding testimonial-style2 center-col text-center margin-three no-margin-top">
+                            <img src="{{ asset('images/testimonials/2.jpg') }}" alt=""/>
+                            <p class="white-text text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <span class="name white-text text-med">Dallas Groot - Facebook</span>
+                            <i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i>
+                        </div>
+                    </div>
+                    <!-- end testimonials item -->
+                    <!-- testimonials item -->
+                    <div class="item">
+                        <div class="col-md-6 col-sm-8 no-padding testimonial-style2 center-col text-center margin-three no-margin-top">
+                            <img src="{{ asset('images/testimonials/3.jpg') }}" alt=""/>
+                            <p class="white-text text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <span class="name white-text text-med">Adario Strange - Apple</span>
+                            <i class="fa fa-quote-left small-icon yellow-text display-block margin-five no-margin-bottom"></i>
+                        </div>
+                    </div>
+                    <!-- end testimonials item -->
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('js')
