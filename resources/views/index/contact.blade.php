@@ -34,27 +34,24 @@
         <div class="container">
             <div class="row">
                 <!-- office address -->
-                <div class="col-md-6 col-sm-6 xs-margin-bottom-ten">
-                    <div class="position-relative"><img src="{{ asset('images/contact2.jpg') }}" alt=""/><a class="highlight-button-dark btn btn-very-small view-map no-margin bg-black white-text" href="https://www.google.co.in/maps" target="_blank">See on Map</a></div>
-                    <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><i class="fa fa-map-marker black-text"></i> IIT, University of Dhaka</p>
-                        </div>
-                        <div class="col-md-6 xs-text-center">
-                            <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> <a href="tel:+8801515297658">+88 01515297658</a></p>
-                            <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info@iitdualumni.com">info@iitdualumni.com</a></p>
-                        </div>
-                    </div>
+                <div class="col-md-4 col-sm-6 xs-margin-bottom-ten">
+                    <p class="text-med text-uppercase letter-spacing-1 black-text font-weight-600">Contact Form</p>
+                    <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
                 <!-- end office address -->
 
-                <div class="col-md-6 col-sm-6">
-                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Contact Form</span><br/><br/><br/>
+                <div class="col-md-6 col-sm-6  col-md-offset-2">
                     {!! Form::open(['route' => 'index.storeformmessage', 'method' => 'POST']) !!}
-                        <div id="success" class="no-margin-lr"></div>
                         <input name="name" type="text" value="{{ old('name') }}" placeholder="Name" required="" />
-                        <input name="email" type="email" value="{{ old('email') }}" placeholder="Email"  required="" />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input name="email" type="email" value="{{ old('email') }}" placeholder="Email"  required="" />
+                            </div>
+                            <div class="col-md-6">
+                                <input name="email" type="email" value="{{ old('email') }}" placeholder="Email"  required="" />
+                            </div>
+                        </div>
                         <textarea name="message" placeholder="Message"  required="">{{ old('message') }}</textarea>
                         
                         @php
