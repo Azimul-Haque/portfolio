@@ -3,7 +3,7 @@
 <div class="widget">
     {!! Form::open(['route' => 'index.search', 'method' => 'get',]) !!}
         <button class="fa fa-search close-search search-button" type="submit"></button>
-        <input type="text" placeholder="Search..." class="search-input" name="search" readonly="">
+        <input type="text" placeholder="Search..." class="search-input" name="search" required="">
     {!! Form::close() !!}
 </div>
 <!-- end widget  -->
