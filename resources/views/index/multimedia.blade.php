@@ -40,7 +40,7 @@
                     <!-- page title tagline -->
                     <span class="xs-display-none">Lorem Ipsum is simply dummy text of the printing.</span>
                     <!-- end title tagline -->
-                    <div class="separator-line margin-three bg-black no-margin-lr sm-margin-top-three sm-margin-bottom-three no-margin-bottom xs-display-none"></div>
+                    <div class="separator-line margin-three bg-yellow no-margin-lr sm-margin-top-three sm-margin-bottom-three no-margin-bottom xs-display-none"></div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase sm-no-margin-top wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->

@@ -53,20 +53,20 @@
     {{-- facebook comment plugin --}}
 
     <!-- head section -->
-    <section class="content-top-margin page-title page-title-small bg-gray xs-display-none">
+    <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
-                    <h1 class="black-text">{{-- {{ $visitor }} --}}</h1>
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Single Multimedia</span>
                     <!-- end page title -->
                 </div>
-                <div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
-                    <ul>
+                    <ul @desktop class="text-right" @enddesktop>
                         <li><a href="{{ route('index.index') }}">Home</a></li>
                         <li><a href="{{ route('index.multimedia') }}">Multimedia</a></li>
-                        <li>Single Multimedia</li>
+                        <li><a href="#">Single Multimedia</a></li>
                     </ul>
                     <!-- end breadcrumb -->
                 </div>
@@ -74,6 +74,7 @@
         </div>
     </section>
     <!-- end head section -->
+
     <!-- content section -->
     <section class="wow fadeIn xs-margin-top-ten no-margin-top">
         <div class="container">
