@@ -6,7 +6,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
 
-    <meta property="og:image" content="{{ asset('images/600x315.png') }}" />
+    <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}" />
 
     <meta property="og:title" content="{{ $multimedia->title }} | {{ $multimedia->user->name }}"/>
     <meta name="description" property="og:description" content="{{ $multimedia->title }} | {{ $multimedia->user->name }}" />
