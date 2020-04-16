@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="Atique Riyad">
     <meta property="og:locale" content="en_US">
     <meta property="fb:admins" content="100001596964477">
-    <meta property="fb:app_id" content="163879201229487">
+    <meta property="fb:app_id" content="250806882740490">
     <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->category->name }}">
@@ -46,13 +46,8 @@
 @section('content')
     {{-- facebook comment plugin --}}
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=163879201229487&autoLogAppEvents=1';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
     {{-- facebook comment plugin --}}
 
     <!-- head section -->
