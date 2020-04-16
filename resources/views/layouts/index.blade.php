@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-    <title>Atique Riyad | @yield('title')</title>
+    <title>Atique Riyad | @yield('title') | atiqeuriyad.com</title>
     <meta name="description" content="@yield('description', 'Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.')">
     <meta name="keywords" content="Atique Riyad, Atique, Riyad, A H M Atiqul Haque, Captain Atique">
     <meta charset="utf-8">
