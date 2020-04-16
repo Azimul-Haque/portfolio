@@ -71,7 +71,8 @@
                             </div>
                             <div class="separator-line bg-black no-margin-lr"></div>
                             <div>
-                                <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{-- {{ $blog->likes }} --}} Like(s)</a> <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+                                {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>  --}}
+                                <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
                                 <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
                                 <span id="comment_count{{ $blog->id }}"></span>
                                 <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
