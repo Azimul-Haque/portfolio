@@ -15,6 +15,11 @@
 @endsection
 
 @section('content')
+    {{-- facebook comment plugin --}}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
+    {{-- facebook comment plugin --}}
+
     <!-- head section -->
     <section class="page-title parallax3 parallax-fix page-title-large">
         <div class="opacity-medium bg-black"></div>
@@ -66,7 +71,7 @@
                             </div>
                             <div class="separator-line bg-black no-margin-lr"></div>
                             <div>
-                                <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
+                                <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{-- {{ $blog->likes }} --}} <span class="fb-like-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> Like(s)</a>
                                 <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
                                 <span id="comment_count{{ $blog->id }}"></span>
                                 <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
