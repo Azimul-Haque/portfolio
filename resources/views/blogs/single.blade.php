@@ -123,6 +123,7 @@
                         <div class="separator-line bg-black no-margin-lr margin-four"></div>
                         <div>
                             <div class="fb-like blog-like" data-href="{{ Request::url() }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>  <span class="fb-like-count" data-href="{{ Request::url() }}">0</span> <span class="fb-like-counts" data-href="{{ Request::url() }}">0</span>
+                            <fb:like-count href="{{ Request::url() }}"></fb:like-count>
                                                      
                             {{-- <a href="#!" class="blog-like" @if(Auth::check()) onclick="likeBlog({{ Auth::user()->id }}, {{ $blog->id }})" @else title="Login to Like!" @endif>
                                 <i class="fa fa-heart-o" id="like_icon"></i>
@@ -132,11 +133,11 @@
                             <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-alt"></i>Share</a>
                             {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
                             <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i>
-                            {{-- <span id="comment_count"></span> --}}
+                            <span id="comment_count"></span>
                             <span class="fb-comments-count" data-href="{{ Request::url() }}">0</span> comment(s)</a>
                             
-                            {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                            <script type="text/javascript">
+                            <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
+                            {{-- <script type="text/javascript">
                                 $.ajax({
                                     url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
                                     dataType: "jsonp",
@@ -149,6 +150,19 @@
                                     }
                                 });
                             </script> --}}
+                            <script type="text/javascript">
+                                $.ajax({
+                                    url: "https://graph.facebook.com/v2.2/?fields=share{like_count}&id={{ Request::url() }}",
+                                    dataType: "jsonp",
+                                    success: function(data) {
+                                        if(data.share) {
+                                            $('#comment_count').text(data.share.like_count);
+                                        } else {
+                                            $('#comment_count').text(0);
+                                        }
+                                    }
+                                });
+                            </script>
                         </div>
                         <!-- end post tags -->
                     </div>
