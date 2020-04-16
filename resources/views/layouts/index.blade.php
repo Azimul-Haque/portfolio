@@ -33,7 +33,7 @@
 
     <meta name="google-site-verification" content="HVsFk-Q0HIWS110QDQG52pyE9LpOMl6piOuOCcGBmSo" />
 
-    @if(!Request::is('blog/*'))
+    @if((!Request::is('blog/*')) | (!Request::is('multimedia/*')))
     <meta property="og:title" content="Atique Riyad |@yield('title')| atiqeuriyad.com">
     <meta property="og:description" content="@yield('description', 'Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.')">
     <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}">
