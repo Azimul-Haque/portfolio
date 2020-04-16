@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    {{ Auth::user()->name }}
-@endsection
+@section('title') {{ Auth::user()->name }} @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

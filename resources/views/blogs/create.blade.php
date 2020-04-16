@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Create New Blog
-@endsection
+@section('title') Create New Blog @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

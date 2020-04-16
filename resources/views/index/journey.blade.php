@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Journey of DUIITAA
-@endsection
+@section('title') Journey @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

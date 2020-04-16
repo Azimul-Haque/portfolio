@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Biography
-@endsection
+@section('title') Biography @endsection
 
-@section('description') Test @endsection
+@section('description') Hello, I'm a Writer/ Something Else & Front End Developer from Thakurgaon, Bangladesh. I hold a honors degree of Web Design from the World University. @endsection
 
 @section('css')
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}"> --}}

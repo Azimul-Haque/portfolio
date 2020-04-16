@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    {{ $multimedia->title }}
-@endsection
+@section('title') {{ $multimedia->title }} @endsection
 
-@section('description') Test @endsection
+@section('description') Here is one of my content - {{ $multimedia->title }} @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

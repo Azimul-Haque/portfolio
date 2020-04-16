@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Contact Us
-@endsection
+@section('title') Contact Us @endsection
 
-@section('description') Test @endsection
+@section('description') Feel free to write to me whatever thought you want to share or any query you have on your mind; I will try to reach you. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

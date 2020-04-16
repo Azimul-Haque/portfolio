@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Login
-@endsection
+@section('title') Login @endsection
 
 @section('css')
 

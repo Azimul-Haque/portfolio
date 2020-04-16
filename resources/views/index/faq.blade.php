@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    FAQ - Frequently Asked Questions
-@endsection
+@section('title') FAQ - Frequently Asked Questions @endsection
 
 @section('description') FAQ - Frequently Asked Questions. Find the answers of mostly asked questions about me or ask more. @endsection
 

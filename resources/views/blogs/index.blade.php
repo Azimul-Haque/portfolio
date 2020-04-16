@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Blogs
-@endsection
+@section('title') Blogs - All of my writing @endsection
 
-@section('description') Test @endsection
+@section('description') Blog is a way to simply express yourself. I have written my thoughts and emotions over these blogs. Read them, comment on them. @endsection
 
 @section('css')
     <style type="text/css">

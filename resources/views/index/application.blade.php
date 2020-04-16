@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Member Application
-@endsection
+@section('title') Member Application @endsection
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css') }}">

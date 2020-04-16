@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-    <title>Atique Riyad | @yield('title') | atiqeuriyad.com</title>
+    <title>Atique Riyad |@yield('title')| atiqeuriyad.com</title>
     <meta name="description" content="@yield('description', 'Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.')">
     <meta name="keywords" content="Atique Riyad, Atique, Riyad, A H M Atiqul Haque, Captain Atique">
     <meta charset="utf-8">
@@ -32,6 +32,14 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <meta name="google-site-verification" content="HVsFk-Q0HIWS110QDQG52pyE9LpOMl6piOuOCcGBmSo" />
+
+    @if(!Request::is('blog/*'))
+    <meta property="og:title" content="Atique Riyad |@yield('title')| atiqeuriyad.com">
+    <meta property="og:description" content="@yield('description', 'Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.')">
+    <meta property="og:image" content="{{ asset('images/fb_back_du_iit.jpg') }}">
+    <meta property="og:url" content="{{ url('/') }}">
+    @endif
+
     <!-- animation -->
     
     <!-- animation -->

@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Books
-@endsection
+@section('title') Books @endsection
 
-@section('description') Test @endsection
+@section('description') I have written some books, worked on several, find all of the books I have worked on and the originals. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

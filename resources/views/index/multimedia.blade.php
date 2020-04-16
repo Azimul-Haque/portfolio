@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Multimedia - Audio(s)/ Video(s)
-@endsection
+@section('title') Multimedia - Audio(s)/ Video(s) @endsection
 
-@section('description') Test @endsection
+@section('description') Find most of my youtube videos and soundcloud contents on this page. I have shared almost all off them here. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

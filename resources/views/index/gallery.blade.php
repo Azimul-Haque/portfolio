@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Gallery
-@endsection
+@section('title') Gallery @endsection
 
 @section('description') Find some of my photos taken on different time, different places. I call them - Memories clicked by machine called camera. @endsection
 

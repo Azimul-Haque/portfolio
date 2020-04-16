@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Search
-@endsection
+@section('title') Search @endsection
 
 @section('description') Search anything on my website including my blogs, gallery or multimedia. Google will help you to get those on this page. @endsection
 

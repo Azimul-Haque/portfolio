@@ -1,7 +1,5 @@
 @extends('layouts.index')
-@section('title')
-    Home
-@endsection
+@section('title') Home @endsection
 
 @section('css')
     <style type="text/css">

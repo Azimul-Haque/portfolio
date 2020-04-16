@@ -1,9 +1,7 @@
 @extends('layouts.index')
-@section('title')
-    Archive - {{ $archivedate }}
-@endsection
+@section('title') Archive - {{ $archivedate }} @endsection
 
-@section('description') Test @endsection
+@section('description') Month wise blogs are synchronized here. Easily find them - Archive of {{ $archivedate }}. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
