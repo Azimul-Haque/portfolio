@@ -46,7 +46,6 @@
 @section('content')
     {{-- facebook comment plugin --}}
     <div id="fb-root"></div>
-    <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
     {{-- facebook comment plugin --}}
 
