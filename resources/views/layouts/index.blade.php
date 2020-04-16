@@ -37,7 +37,7 @@
     <meta property="og:title" content="Atique Riyad |@yield('title')| atiqeuriyad.com">
     <meta property="og:description" content="@yield('description', 'Official website of Captain A H M Atiqul Haque aka Atiqye Riyad. Developed by A. H. M. Azimul Haque.')">
     <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}">
-    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
     @endif
 
     <!-- animation -->
