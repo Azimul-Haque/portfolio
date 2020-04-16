@@ -29,6 +29,11 @@
 @endsection
 
 @section('content')
+    {{-- facebook comment plugin --}}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
+    {{-- facebook comment plugin --}}
+
     <!-- head section -->
     <section class="content-top-margin page-title bg-gray">
         <div class="container">
@@ -80,40 +85,33 @@
                       {{ $blog->title }}
                     </a>
                   </div>
-                  {{-- <div class="blog-short-description">
-                    <div style="text-align: justify;">
-                        @if(strlen(strip_tags($blog->body))>400)
-                            {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+300))." [...] " }}
-
-                        @else
-                            {{ strip_tags($blog->body) }}
-                        @endif
-                    </div>
-                  </div> --}}
+                  
                   <div class="separator-line bg-black no-margin-lr"></div>
                   <div>
-                    <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
+                    {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a> --}}
+                    <div class="fb-like blog-like" data-href="{{ url('/multimedia/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
+
                     <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
-                                <span id="comment_count{{ $blog->id }}"></span>
-                                 comment(s)</a>
+                      {{-- <span id="comment_count{{ $blog->id }}"></span> --}}
+                      <span class="fb-comments-count" data-href="{{ url('/multimedia/'.$blog->slug) }}">0</span> comment(s)</a>
                   </div>
-                    <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                    <script type="text/javascript">
-                        $.ajax({
-                            url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
-                            dataType: "jsonp",
-                            success: function(data) {
-                                if(data.hasOwnProperty('share')) {
-                                  $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
-                                } else {
-                                  $('#comment_count{{ $blog->id }}').text(0);
-                                }
-                            },
-                            error: function(data) {
-                              
-                            }
-                        });
-                    </script>
+                  {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
+                  <script type="text/javascript">
+                      $.ajax({
+                          url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
+                          dataType: "jsonp",
+                          success: function(data) {
+                              if(data.hasOwnProperty('share')) {
+                                $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
+                              } else {
+                                $('#comment_count{{ $blog->id }}').text(0);
+                              }
+                          },
+                          error: function(data) {
+                            
+                          }
+                      });
+                  </script> --}}
               </div>
           </div>
           @php $counter++; @endphp

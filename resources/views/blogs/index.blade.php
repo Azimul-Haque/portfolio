@@ -50,48 +50,37 @@
                     <h2 class="visible-xs margin-ten xs-no-margin-bottom">Blogs</h2> --}}
                     <!-- post item -->
                     @foreach ($blogs as $blog)
-                    <div class="blog-listing blog-listing-classic no-margin-top wow fadeIn">
-                        <!-- post image -->
-                        @if($blog->featured_image != null)
-                            <div class="blog-image"><a href="{{ route('blog.single', $blog->slug) }}"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div>
-                        @endif
-                        <!-- end post image -->
-                        <div class="blog-details">
-                            <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
-                            <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">
-                                {{ $blog->title }}
-                            </a></div>
-                            <div style="text-align: justify;">
-                                @if(strlen(strip_tags($blog->body))>600)
-                                    {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+500))." [...] " }}
+                        <div class="blog-listing blog-listing-classic no-margin-top wow fadeIn">
+                            <!-- post image -->
+                            @if($blog->featured_image != null)
+                                <div class="blog-image"><a href="{{ route('blog.single', $blog->slug) }}"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div>
+                            @endif
+                            <!-- end post image -->
+                            <div class="blog-details">
+                                <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
+                                <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">
+                                    {{ $blog->title }}
+                                </a></div>
+                                <div style="text-align: justify;">
+                                    @if(strlen(strip_tags($blog->body))>600)
+                                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+500))." [...] " }}
 
-                                @else
-                                    {{ strip_tags($blog->body) }}
-                                @endif
+                                    @else
+                                        {{ strip_tags($blog->body) }}
+                                    @endif
+                                </div>
+                                <div class="separator-line bg-black no-margin-lr"></div>
+                                <div>
+                                    {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>  --}}
+                                    <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
+                                    <a href="{{ url('/blog/'.$blog->slug . '#comment_section') }}" class="comment"><i class="fa fa-comment-o"></i> <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
+                                </div>
+                                <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Continue Reading</a>
                             </div>
-                            <div class="separator-line bg-black no-margin-lr"></div>
-                            <div>
-                                {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>  --}}
-                                <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
-                                <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
-                                <span id="comment_count{{ $blog->id }}"></span>
-                                <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
-                            </div>
-                            <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Continue Reading</a>
                         </div>
-                    </div>
-                    {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                    <script type="text/javascript">
-                        $.ajax({
-                            url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
-                            dataType: "jsonp",
-                            success: function(data) {
-                                $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
-                            }
-                        });
-                    </script> --}}
                     @endforeach
                     <!-- end post item -->
+
                     {{-- paginating --}}
 
                     <center>

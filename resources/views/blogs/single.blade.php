@@ -130,25 +130,8 @@
                             </a> --}}
                             
                             <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-alt"></i>Share</a>
-                            {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
-                            <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i>
-                            <span id="comment_count"></span>
-                            <span class="fb-comments-count" data-href="{{ Request::url() }}">0</span> comment(s)</a>
-                            
-                            <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                            {{-- <script type="text/javascript">
-                                $.ajax({
-                                    url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
-                                    dataType: "jsonp",
-                                    success: function(data) {
-                                        if(data.share) {
-                                            $('#comment_count').text(data.share.comment_count);
-                                        } else {
-                                            $('#comment_count').text(0);
-                                        }
-                                    }
-                                });
-                            </script> --}}
+
+                            <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i> <span class="fb-comments-count" data-href="{{ Request::url() }}">0</span> comment(s)</a>
                         </div>
                         <!-- end post tags -->
                     </div>
