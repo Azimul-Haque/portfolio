@@ -69,7 +69,7 @@
                                 <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
                                 <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
                                 <span id="comment_count{{ $blog->id }}"></span>
-                                 comment(s)</a>
+                                <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
                             </div>
                             <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Continue Reading</a>
                         </div>
