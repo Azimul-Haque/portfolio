@@ -3,7 +3,7 @@
     Search
 @endsection
 
-@section('description') Test @endsection
+@section('description') Search anything on my website including my blogs, gallery or multimedia. Google will help you to get those on this page. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

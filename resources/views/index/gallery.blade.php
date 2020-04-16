@@ -3,7 +3,7 @@
     Gallery
 @endsection
 
-@section('description') Test @endsection
+@section('description') Find some of my photos taken on different time, different places. I call them - Memories clicked by machine called camera. @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
