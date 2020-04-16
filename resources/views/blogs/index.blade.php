@@ -3,6 +3,8 @@
     Blogs
 @endsection
 
+@section('description') Test @endsection
+
 @section('css')
     <style type="text/css">
         .separator-line {

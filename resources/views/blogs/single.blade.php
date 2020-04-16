@@ -3,6 +3,8 @@
     {{ $blog->title }}
 @endsection
 
+@section('description') {{ $blog->title }} - {{ substr(strip_tags($blog->body), 0, 100) }} @endsection
+
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
     @if($blog->featured_image != null)

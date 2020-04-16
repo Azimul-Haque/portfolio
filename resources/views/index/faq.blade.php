@@ -3,6 +3,8 @@
     FAQ - Frequently Asked Questions
 @endsection
 
+@section('description') FAQ - Frequently Asked Questions. Find the answers of mostly asked questions about me or ask more. @endsection
+
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
 @endsection
@@ -107,15 +109,18 @@
     <section class="fix-background" style="background-image:url('/images/faq.jpg');">
       <div class="container">
           <div class="row">
-              <div class="col-md-8 col-sm-12 wow fadeInUp center-col text-center margin-ten padding-four">
+              <div class="col-md-8 col-sm-12 wow fadeInLeft center-col text-center margin-ten padding-two">
                   <h1 class="white-text">Hello, any more questions?</h1>
                   <div class="faq-search margin-five no-margin-bottom position-relative">
                     {!! Form::open(['route' => 'index.search', 'method' => 'get']) !!}
                         <input type="text" name="search" class="input-round big-input no-margin" placeholder="Search our Help Center..." required="">
                         <button type="submit" class="fa fa-search close-search search-button faq-search-button"></button>
                     {!! Form::close() !!}
-                      
                   </div>
+              </div>
+              <div class="col-md-8 col-sm-12 wow fadeInRight center-col text-center margin-ten padding-two">
+                  <h1 class="white-text margin-three">Or, ask me directly!</h1>
+                  <a href="{{ route('index.contact') }}" class="btn-small-white btn btn-large button xs-margin-bottom-five fa fa-warning"> Contact Me</a>
               </div>
           </div>
       </div>
