@@ -8,7 +8,7 @@
 
     <meta property="og:image" content="{{ asset('images/multimedia.jpg') }}" />
 
-    <meta property="og:title" content="{{ $multimedia->title }} | {{ $multimedia->user->name }} | https://atiqueriyad.com"/>
+    <meta property="og:title" content="{{ $multimedia->title }} | {{ $multimedia->user->name }} | atiqueriyad.com"/>
     <meta name="description" property="og:description" content="{{ $multimedia->title }} | {{ $multimedia->user->name }}" />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
