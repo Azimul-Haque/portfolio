@@ -122,7 +122,7 @@
 
                         <div class="separator-line bg-black no-margin-lr margin-four"></div>
                         <div>
-                            <div class="fb-like blog-like" data-href="{{ Request::url() }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>  <span class="fb-like" data-href="{{ Request::url() }}">0</span> <span class="fb-likes" data-href="{{ Request::url() }}">0</span>
+                            <div class="fb-like blog-like" data-href="{{ Request::url() }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>  <span class="fb-like-count" data-href="{{ Request::url() }}">0</span> <span class="fb-like-counts" data-href="{{ Request::url() }}">0</span>
                                                      
                             {{-- <a href="#!" class="blog-like" @if(Auth::check()) onclick="likeBlog({{ Auth::user()->id }}, {{ $blog->id }})" @else title="Login to Like!" @endif>
                                 <i class="fa fa-heart-o" id="like_icon"></i>
