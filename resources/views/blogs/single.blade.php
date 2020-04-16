@@ -131,7 +131,7 @@
                             <a href="#comment_section" class="comment"><i class="fa fa-comment-o"></i>
                             <span id="comment_count"></span> comment(s)</a>
                             <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                            {{-- <script type="text/javascript">
+                            <script type="text/javascript">
                                 $.ajax({
                                     url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
                                     dataType: "jsonp",
@@ -143,7 +143,7 @@
                                         }
                                     }
                                 });
-                            </script> --}}
+                            </script>
                         </div>
                         <!-- end post tags -->
                     </div>
@@ -237,4 +237,13 @@
         }
     </script>
     @endif
+
+    <script type="text/javascript">
+      // setTimeout(function() 
+      // {
+      //   console.log($('. _50f7').text());
+      //   $('#comment_count').text($('._50f7').text());
+      // }, 5000);
+      
+    </script>
 @endsection
