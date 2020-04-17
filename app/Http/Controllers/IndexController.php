@@ -29,7 +29,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
+        $blogs = Blog::where('status', 1)->orderBy('id', 'DESC')->get()->take(3);
 
         return view('index.index')
                     ->withBlogs($blogs);

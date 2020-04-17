@@ -25,14 +25,15 @@ class BlogController extends Controller {
     public function index()
     {
         $categories = Category::all();
-        $populars = Blog::orderBy('likes', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('likes', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
-                        ->select("created_at", DB::raw('count(*) as total'))
-                        ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
-                        ->orderBy('created_at', 'DESC')
-                        ->get();
-                        //dd($archives);
-        $blogs = Blog::orderBy('id', 'desc')->paginate(7);
+                      ->where('status', 1)
+                      ->select("created_at", DB::raw('count(*) as total'))
+                      ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
+                      ->orderBy('created_at', 'DESC')
+                      ->get();
+                      //dd($archives);
+        $blogs = Blog::where('status', 1)->orderBy('id', 'desc')->paginate(7);
         
         return view('blogs.index')
                   ->withBlogs($blogs)
@@ -114,17 +115,15 @@ class BlogController extends Controller {
         
 
         $categories = Category::all();
-        $blog = Blog::where('slug', $slug)->first();
-        $populars = Blog::orderBy('likes', 'desc')->get()->take(4);
+        $blog = Blog::where('status', 1)->where('slug', $slug)->first();
+        $populars = Blog::where('status', 1)->orderBy('likes', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
-                        ->select("created_at", DB::raw('count(*) as total'))
-                        ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
-                        ->orderBy('created_at', 'DESC')
-                        ->get();
-                        //dd($archives);
-
-        
-        
+                      ->where('status', 1)
+                      ->select("created_at", DB::raw('count(*) as total'))
+                      ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
+                      ->orderBy('created_at', 'DESC')
+                      ->get();
+                      //dd($archives);
 
         return view('blogs.single')
                 ->withBlog($blog)
@@ -133,7 +132,11 @@ class BlogController extends Controller {
                 ->withArchives($archives)
                 ->withVisitor($visitor);
       } catch (\Exception $e) {
-          abort(404, 'Page Not found');
+          $message = $e->getMessage();
+          
+          Session::flash('errorException', $message); 
+
+          return view('errors.404');
       }
     }
 
