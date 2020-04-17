@@ -61,7 +61,7 @@
           </td>
           <td>{{ date('F d, Y h:i A', strtotime($blog->created_at)) }}</td>
           <td>
-            <a class="btn btn-sm btn-primary" href="" title="Edit Blog"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-primary" href="{{ route('dashboard.blogs.edit', $blog->id) }}" title="Edit Blog"><i class="fa fa-pencil"></i></a>
 
             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $blog->id }}" data-backdrop="static" title="Delete Blog"><i class="fa fa-trash-o"></i></button>
             <!-- Delete Modal -->
