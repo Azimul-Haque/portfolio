@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 use App\Adhocmember;
 use App\User;
+use App\Blog;
+use App\Category;
+use App\Like;
 
-use DB;
-use Auth;
-use Image;
-use File;
-use Session;
+use DB, Hash, Auth, Image, File, Session, Cookie;
+use Purifier;
 
 class DashboardController extends Controller
 {
@@ -35,6 +35,11 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard.index');
+    }
+
+    public function getBlogs()
+    {
+        return view('dashboard.blogs.index');
     }
 
     public function getCommittee()
@@ -152,8 +157,5 @@ class DashboardController extends Controller
         return view('dashboard.index');
     }
 
-    public function getBlogs()
-    {
-        return view('dashboard.index');
-    }
+    
 }

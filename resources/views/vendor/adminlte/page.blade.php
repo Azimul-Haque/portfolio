@@ -42,12 +42,12 @@
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">
-                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto">;
+                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto; border-radius: 50%;">
                   {{-- {!! config('adminlte.logo_mini', '<b>A</b>LT') !!} --}}
                 </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
-                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto">; 
+                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto; border-radius: 50%;"> 
                   {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
                 </span>
             </a>
@@ -143,20 +143,32 @@
                     {{-- <li class="header">Personal Profile</li> --}}
                     <li class="{{ Request::is('dashboard/blogs') ? 'active' : '' }} {{ Request::is('dashboard/blogs/*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.blogs') }}">
-                            <i class="fa fa-fw fa-user-circle"></i>
+                            <i class="fa fa-fw fa-file-text-o"></i>
                             <span>Blogs</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('dashboard/books') ? 'active' : '' }} {{ Request::is('dashboard/books/*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.books') }}">
-                            <i class="fa fa-fw fa-user-circle"></i>
+                            <i class="fa fa-fw fa-book"></i>
                             <span>Books</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('dashboard/books') ? 'active' : '' }} {{ Request::is('dashboard/books/*') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.books') }}">
-                            <i class="fa fa-fw fa-user-circle"></i>
-                            <span>Books</span>
+                    <li class="{{ Request::is('dashboard/gallery') ? 'active' : '' }} {{ Request::is('dashboard/gallery/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.gallery') }}">
+                            <i class="fa fa-fw fa-picture-o"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/multimedia') ? 'active' : '' }} {{ Request::is('dashboard/multimedia/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.multimedia') }}">
+                            <i class="fa fa-fw fa-file-video-o"></i>
+                            <span>Multimedia</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/messages') ? 'active' : '' }} {{ Request::is('dashboard/messages/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.messages') }}">
+                            <i class="fa fa-fw fa-envelope-o"></i>
+                            <span>Messages</span>
                         </a>
                     </li>
                 </ul>
