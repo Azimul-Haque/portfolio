@@ -58,7 +58,7 @@
 
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                            <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
+                            <img src="{{ asset('images/users/' . Auth::User()->image)}}" class="user-image" alt="User Image">
                             {{ Auth::User()->name }}</a>
                             <ul class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                               <!-- User image -->
@@ -66,7 +66,7 @@
                                 <img src="{{ asset('images/user.png') }}" class="img-circle" alt="User Image">
                                 <p>
                                   {{ Auth::User()->name }}
-                                  <small>Member since {{ date('F, Y', strtotime(Auth::User()->created_at)) }}</small>
+                                  {{-- <small>Member since {{ date('F, Y', strtotime(Auth::User()->created_at)) }}</small> --}}
                                 </p>
                               </li>
                               <!-- Menu Body -->
@@ -135,7 +135,7 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="header">Personal Profile</li>
+                    {{-- <li class="header">Personal Profile</li> --}}
                     <li class="{{ Request::is('dashboard/blogs') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.blogs') }}">
                             <i class="fa fa-fw fa-user-circle"></i>
