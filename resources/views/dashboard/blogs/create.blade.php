@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-10">
           <label for="title">Title of the Blog *</label>
-          <input type="text" name="title" id="title" class="form-control" placeholder="Title of the Blog" required="">
+          <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Blog" required="">
         </div>
         {{-- <div class="col-md-5">
           <label for="slug">URL Slug *</label>

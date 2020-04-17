@@ -39,16 +39,14 @@ class DashboardController extends Controller
 
     public function getBlogs()
     {
-        $blogs = Blog::orderBy('likes', 'desc')->paginate(7);
-
+        $blogs = Blog::orderBy('id', 'desc')->paginate(7);
         return view('dashboard.blogs.index')
-                        ->withBlogs($blogs);
+                            ->withBlogs($blogs);
     }
 
     public function createBlog()
     {
         $categories = Category::all();
-
         return view('dashboard.blogs.create')
                         ->withCategories($categories);
     }
@@ -81,11 +79,23 @@ class DashboardController extends Controller
         }
 
         $blog->save();
+
         //redirect
+        Session::flash('success', 'Saved Successfully!');
         return redirect()->route('dashboard.blogs');
     }
 
     public function editBlog($id)
+    {
+        $blog = Blog::find($id);
+        $categories = Category::all();
+
+        return view('dashboard.blogs.edit')
+                        ->withBlog($blog)
+                        ->withCategories($categories);
+    }
+
+    public function updateBlog(Request $request, $id)
     {
         $blog = Blog::find($id);
         $categories = Category::all();
