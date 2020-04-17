@@ -61,7 +61,7 @@
 
       <div class="row">
         <div class="col-md-5">
-          <label>Featured Image (750 X 430 &amp; 400Kb Max): (Optional)</label>
+          <label>Featured Image (600 X 315 &amp; 400Kb Max): (Optional)</label>
           <input type="file" id="image" name="featured_image" class="form-control">
         </div>
         <div class="col-md-5">

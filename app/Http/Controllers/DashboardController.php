@@ -74,15 +74,25 @@ class DashboardController extends Controller
         if($request->hasFile('featured_image'))
         {
             $image      = $request->file('featured_image');
-            $filename   = 'featured_image_' .  . time() .'.' . $image->getClientOriginalExtension();
+            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->fit(600, 315)->save($location);
             $blog->featured_image = $filename;
         }
 
         $blog->save();
         //redirect
         return redirect()->route('dashboard.blogs');
+    }
+
+    public function editBlog($id)
+    {
+        $blog = Blog::find($id);
+        $categories = Category::all();
+
+        return view('dashboard.blogs.edit')
+                        ->withBlog($blog)
+                        ->withCategories($categories);
     }
 
     public function getCommittee()
