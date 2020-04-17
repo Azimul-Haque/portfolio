@@ -42,12 +42,12 @@
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">
-                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto; border-radius: 50%;">
+                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto">;
                   {{-- {!! config('adminlte.logo_mini', '<b>A</b>LT') !!} --}}
                 </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
-                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto; border-radius: 50%;"> 
+                  <img src="{{ asset('images/users/' . Auth::user()->image) }}" style="height: 30px; width: auto">; 
                   {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
                 </span>
             </a>
@@ -69,15 +69,15 @@
                             <ul class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                               <!-- User image -->
                               <li class="user-header">
-                                <img src="{{ asset('images/user.png') }}" class="img-circle" alt="User Image">
+                                <img src="{{ asset('images/users/' . Auth::User()->image) }}" class="img-circle" alt="User Image">
                                 <p>
                                   {{ Auth::User()->name }}
-                                  {{-- <small>Member since {{ date('F, Y', strtotime(Auth::User()->created_at)) }}</small> --}}
+                                  <small>Main Admin Account</small>
                                 </p>
                               </li>
                               <!-- Menu Body -->
-                              <li class="user-body">
-                                {{-- <div class="row">
+                              {{-- <li class="user-body">
+                                <div class="row">
                                   <div class="col-xs-4 text-center">
                                     <a href="#">Followers</a>
                                   </div>
@@ -87,13 +87,12 @@
                                   <div class="col-xs-4 text-center">
                                     <a href="#">Friends</a>
                                   </div>
-                                </div> --}}
-                                <!-- /.row -->
-                              </li>
+                                </div>
+                              </li> --}}
                               <!-- Menu Footer-->
                               <li class="user-footer">
                                 <div class="pull-left">
-                                  <a href="{{ route('users.edit', Auth::User()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                                  {{-- <a href="{{ route('users.edit', Auth::User()->id) }}" class="btn btn-default btn-flat">Profile</a> --}}
                                 </div>
                                 <div class="pull-right">
                                   @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
@@ -142,10 +141,22 @@
                         </a>
                     </li>
                     {{-- <li class="header">Personal Profile</li> --}}
-                    <li class="{{ Request::is('dashboard/blogs') ? 'active' : '' }}">
+                    <li class="{{ Request::is('dashboard/blogs') ? 'active' : '' }} {{ Request::is('dashboard/blogs/*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.blogs') }}">
                             <i class="fa fa-fw fa-user-circle"></i>
                             <span>Blogs</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/books') ? 'active' : '' }} {{ Request::is('dashboard/books/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.books') }}">
+                            <i class="fa fa-fw fa-user-circle"></i>
+                            <span>Books</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/books') ? 'active' : '' }} {{ Request::is('dashboard/books/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.books') }}">
+                            <i class="fa fa-fw fa-user-circle"></i>
+                            <span>Books</span>
                         </a>
                     </li>
                 </ul>
