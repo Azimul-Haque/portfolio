@@ -12,7 +12,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
     {{-- facebook comment plugin --}}
-    
+
     <!-- head section -->
     <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
@@ -67,10 +67,9 @@
                             </div>
                             <div class="separator-line bg-black no-margin-lr margin-four"></div>
                             <div>
-                                <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
-                                <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
-                                <span id="comment_count{{ $blog->id }}"></span>
-                                 comment(s)</a>
+                                {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>  --}}
+                                <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
+                                <a href="{{ url('/blog/'.$blog->slug . '#comment_section') }}" class="comment"><i class="fa fa-comment-o"></i> <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
                             </div>
                             <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Continue Reading</a>
                         </div>
