@@ -147,16 +147,6 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.committee');
     }
 
-    public function getNews()
-    {
-        return view('dashboard.index');
-    }
-
-    public function getEvents()
-    {
-        return view('dashboard.index');
-    }
-
     public function getGallery()
     {
         return view('dashboard.index');
@@ -165,56 +155,5 @@ class DashboardController extends Controller
     public function getBlogs()
     {
         return view('dashboard.index');
-    }
-
-    public function getMembers()
-    {
-        $members = User::where('payment_status', 1)
-                            ->where('role', 'alumni')
-                            ->get();
-        return view('dashboard.members')->withMembers($members);
-    }
-
-    public function deleteMember($id)
-    {
-        //
-    }
-
-    public function getApplications()
-    {
-        $applications = User::where('payment_status', 0)
-                            ->where('role', 'alumni')
-                            ->get();
-        return view('dashboard.applications')->withApplications($applications);
-    }
-
-    public function approveApplication(Request $request, $id)
-    {
-        $this->validate($request,array(
-            'amount'    => 'required',
-            'trxid'     => 'sometimes'
-        ));
-
-        $application = User::findOrFail($id);
-        $application->payment_status = 1;
-        $application->amount = $request->amount;
-        $application->trxid = $request->trxid;
-        $application->save();
-
-        Session::flash('success', 'Approved Successfully!');
-        return redirect()->route('dashboard.applications');
-    }
-
-    public function deleteApplication($id)
-    {
-        // $adhocmember = Adhocmember::find($id);
-        // $image_path = public_path('images/committee/adhoc/'. $adhocmember->image);
-        // if(File::exists($image_path)) {
-        //     File::delete($image_path);
-        // }
-        // $adhocmember->delete();
-
-        // Session::flash('success', 'Deleted Successfully!');
-        // return redirect()->route('dashboard.committee');
     }
 }

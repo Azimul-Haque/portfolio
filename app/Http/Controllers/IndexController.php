@@ -30,12 +30,9 @@ class IndexController extends Controller
     public function index()
     {
         $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
-        $alumnis = User::where('payment_status', 1)
-                       ->where('role', 'alumni')->count();
 
         return view('index.index')
-                    ->withBlogs($blogs)
-                    ->withAlumnis($alumnis);
+                    ->withBlogs($blogs);
     }
 
     public function getBio()
@@ -69,28 +66,6 @@ class IndexController extends Controller
         return view('index.gsearch')->withSearch($request->search);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public function getJourney()
-    {
-        return view('index.journey');
-    }
-
-    public function getConstitution()
-    {
-        return view('index.constitution');
-    }
-
     public function getFaq()
     {
         return view('index.faq');
@@ -99,17 +74,6 @@ class IndexController extends Controller
     public function getGallery()
     {
         return view('index.gallery');
-    }
-
-    public function getMembers()
-    {
-        $members = User::where('role', 'alumni')
-                       ->where('payment_status', 1)
-                       ->orderBy('degree', 'asc')
-                       ->orderBy('batch', 'asc')
-                       ->orderBy('roll', 'asc')
-                       ->get();
-        return view('index.members')->withMembers($members);
     }
 
     public function getContact()
@@ -141,6 +105,12 @@ class IndexController extends Controller
             return redirect()->route('index.contact')->with('warning', 'The sum is incorrect! Try again.')->withInput();
         }
     }
+
+    // public function testDate()
+    // {
+    //     $mydata = json_decode(file_get_contents('http://localhost/bangla_date/test.php'));
+    //     print_r($mydata->bn_date);
+    // }
 
     // clear configs, routes and serve
     public function clear()
