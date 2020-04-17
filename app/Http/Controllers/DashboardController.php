@@ -56,24 +56,25 @@ class DashboardController extends Controller
     public function storeBlog(Request $request)
     {
         $this->validate($request,array(
-            'title'          => 'required|max:255|unique:blogs,title',
+            'title'          => 'required|max:255',
             'body'           => 'required',
             'category_id'    => 'required|integer',
-            'featured_image' => 'sometimes|image|max:300'
+            'featured_image' => 'sometimes|image|max:400'
         ));
 
         //store to DB
-        $blog              = new Blog();
+        $blog              = new Blog;
         $blog->title       = $request->title;
         $blog->user_id     = Auth::user()->id;
-        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-',$request->title).time();
+        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
         $blog->category_id = $request->category_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         
         // image upload
-        if($request->hasFile('featured_image')) {
+        if($request->hasFile('featured_image'))
+        {
             $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . $image->getClientOriginalExtension();
+            $filename   = 'featured_image_' .  . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('images/blogs/'. $filename);
             Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $blog->featured_image = $filename;

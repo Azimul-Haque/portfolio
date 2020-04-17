@@ -19,19 +19,19 @@
 @section('content')
     {!! Form::open(['route' => 'dashboard.blogs.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10">
           <label for="title">Title of the Blog *</label>
           <input type="text" name="title" id="title" class="form-control" placeholder="Title of the Blog" required="">
         </div>
-        <div class="col-md-6">
+        {{-- <div class="col-md-5">
           <label for="slug">URL Slug *</label>
           <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Blog" required="">
-        </div>
+        </div> --}}
       </div>
 
       <br/>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <label for="category_id">Select Category *</label>
           <select name="category_id" id="category_id" class="form-control" required="">
               <option value="" selected="" disabled="">Category</option>
@@ -40,7 +40,7 @@
               @endforeach
           </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <label for="title">Publish Status *</label><br/>
           <label class="radio-inline">
             <input type="radio" name="status" checked>Published
@@ -53,23 +53,23 @@
 
       <br/>
       <div class="row">
-        <div class="col-md-12">
-          <label for="body" class="text-uppercase">Body</label>
+        <div class="col-md-10">
+          <label for="body">Body *</label>
           <textarea type="text" name="body" id="body" class="summernote" required=""></textarea>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <label>Featured Image (750 X 430 &amp; 400Kb Max): (Optional)</label>
           <input type="file" id="image" name="featured_image" class="form-control">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <img src="{{ asset('images/600x315.png')}}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
         </div>
       </div>
 
-        <button class="btn highlight-button-dark btn-bg btn-round margin-two no-margin-right" type="submit">Post Blog</button>
+      <button class="btn btn-success" type="submit">Submit Blog</button>
     {!! Form::close() !!}
 @stop
 
@@ -84,7 +84,7 @@
               height: 200,
               dialogsInBody: true
           });
-          // $('div.note-group-select-from-files').remove();
+          $('div.note-group-select-from-files').remove();
       });
   </script>
 
