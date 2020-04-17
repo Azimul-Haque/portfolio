@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\User;
 use App\Blog;
 use App\Category;
-use App\Adhocmember;
 use App\Multimedia;
 
 use Carbon\Carbon;

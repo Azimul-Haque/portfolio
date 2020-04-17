@@ -127,7 +127,21 @@
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+                    {{-- @each('adminlte::partials.menu-item', $adminlte->menu(), 'item') --}}
+                    <li class="header">Dashboard</li>
+                    <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.index') }}">
+                            <i class="fa fa-fw fa-tachometer"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="header">Personal Profile</li>
+                    <li class="{{ Request::is('dashboard/blogs') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.blogs') }}">
+                            <i class="fa fa-fw fa-user-circle"></i>
+                            <span>Blogs</span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
