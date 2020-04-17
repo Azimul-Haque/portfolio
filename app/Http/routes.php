@@ -30,19 +30,6 @@ Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses
 
 Route::get('/search', ['as'=>'index.search','uses'=>'IndexController@getGSearch']);
 
-
-
-Route::get('/journey', ['as'=>'index.journey','uses'=>'IndexController@getJourney']);
-Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
-Route::get('/adhoc', ['as'=>'index.adhoc','uses'=>'IndexController@getAdhoc']);
-Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
-Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
-Route::get('/events', ['as'=>'index.events','uses'=>'IndexController@getEvents']);
-Route::get('/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
-Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
-Route::get('/member/login', ['as'=>'index.login','uses'=>'IndexController@getLogin']);
-Route::get('/member/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
-Route::post('/member/application/store', ['as'=>'index.storeapplication','uses'=>'IndexController@storeApplication']);
 // index routes
 // index routes
 

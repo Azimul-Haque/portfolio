@@ -86,7 +86,7 @@
             <div class="slider-typography position-relative">
                 <div class="slider-text-middle-main">
                     <div class="slider-text-middle text-center slider-text-middle1 center-col wow fadeIn">
-                        <span class="fashion-subtitle white-text text-uppercase font-weight-700 border-color-white text-center ">
+                        <span class="fashion-subtitle white-text text-uppercase font-weight-700 border-color-white text-center">
                             Your time is limited, so don’t waste it living someone else’s life.
                         </span>
                     </div>
