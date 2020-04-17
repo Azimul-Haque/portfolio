@@ -39,7 +39,12 @@ class DashboardController extends Controller
 
     public function getBlogs()
     {
-        return view('dashboard.blogs.index');
+        $categories = Category::all();
+        $blogs = Blog::orderBy('likes', 'desc')->paginate(7);
+
+        return view('dashboard.blogs.index')
+                        ->withCategories($categories)
+                        ->withBlogs($blogs);
     }
 
     public function getCommittee()
