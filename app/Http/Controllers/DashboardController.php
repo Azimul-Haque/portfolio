@@ -57,6 +57,7 @@ class DashboardController extends Controller
             'title'          => 'required|max:255',
             'body'           => 'required',
             'category_id'    => 'required|integer',
+            'status'         => 'required|integer',
             'featured_image' => 'sometimes|image|max:400'
         ));
 
@@ -66,6 +67,7 @@ class DashboardController extends Controller
         $blog->user_id     = Auth::user()->id;
         $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
         $blog->category_id = $request->category_id;
+        $blog->status = $request->status;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         
         // image upload
@@ -98,11 +100,42 @@ class DashboardController extends Controller
     public function updateBlog(Request $request, $id)
     {
         $blog = Blog::find($id);
-        $categories = Category::all();
+        $this->validate($request,array(
+            'title'          => 'required|max:255',
+            'body'           => 'required',
+            'category_id'    => 'required|integer',
+            'status'         => 'required|integer',
+            'featured_image' => 'sometimes|image|max:400'
+        ));
 
-        return view('dashboard.blogs.edit')
-                        ->withBlog($blog)
-                        ->withCategories($categories);
+        //store to DB
+        $blog->title = $request->title;
+        if($blog->title != $request->title) {
+            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        }
+        $blog->category_id = $request->category_id;
+        $blog->status = $request->status;
+        $blog->body = Purifier::clean($request->body, 'youtube');
+        
+        // image upload
+        if($request->hasFile('featured_image'))
+        {
+            $image_path = public_path('images/blogs/'. $blog->featured_image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('featured_image');
+            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/blogs/'. $filename);
+            Image::make($image)->fit(600, 315)->save($location);
+            $blog->featured_image = $filename;
+        }
+
+        $blog->save();
+
+        //redirect
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.blogs');
     }
 
     public function getCommittee()

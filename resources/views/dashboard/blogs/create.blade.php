@@ -36,17 +36,17 @@
           <select name="category_id" id="category_id" class="form-control" required="">
               <option value="" selected="" disabled="">Category</option>
               @foreach($categories as $category)
-              <option value="{{ $category->id }}">{{ $category->name }}</option>
+              <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="" @endif>{{ $category->name }}</option>
               @endforeach
           </select>
         </div>
         <div class="col-md-5">
           <label for="title">Publish Status *</label><br/>
           <label class="radio-inline">
-            <input type="radio" name="status" checked>Published
+            <input type="radio" name="status" value="1" checked>Published
           </label>
           <label class="radio-inline">
-            <input type="radio" name="status">Unpublished
+            <input type="radio" name="status" value="0">Unpublished
           </label>
         </div>
       </div>
@@ -55,7 +55,7 @@
       <div class="row">
         <div class="col-md-10">
           <label for="body">Body *</label>
-          <textarea type="text" name="body" id="body" class="summernote" required=""></textarea>
+          <textarea type="text" name="body" id="body" class="summernote" required="">{{ old('body') }}</textarea>
         </div>
       </div>
 
@@ -65,7 +65,7 @@
           <input type="file" id="image" name="featured_image" class="form-control">
         </div>
         <div class="col-md-5">
-          <img src="{{ asset('images/600x315.png')}}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+          <img src="{{ asset('images/600x315.png') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
         </div>
       </div>
 
@@ -81,7 +81,7 @@
           $('.summernote').summernote({
               placeholder: 'Write Blog Post',
               tabsize: 2,
-              height: 200,
+              height: 250,
               dialogsInBody: true
           });
           $('div.note-group-select-from-files').remove();

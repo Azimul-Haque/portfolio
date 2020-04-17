@@ -54,7 +54,7 @@
             </td>
             @endhandheld
             <td>
-              @if($blog->featured_image != null)
+              @if($blog->featured_image != null && file_exists(public_path('images/blogs/' . $blog->featured_image)))
               <img src="{{ asset('images/blogs/'.$blog->featured_image)}}" style="height: 40px; width: auto;" />
               @else
               <img src="{{ asset('images/blogs/default.jpg')}}" style="height: 40px; width: auto;" />
