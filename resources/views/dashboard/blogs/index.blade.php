@@ -10,7 +10,7 @@
     <h1>
       Blogs
       <div class="pull-right">
-        <a class="btn btn-success" href="{{-- {{ route('index.application') }} --}}" target="_blank"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Blog</a>
+        <a class="btn btn-success" href="{{ route('dashboard.blogs.create') }}" title="Add a New Blog"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Blog</a>
       </div>
     </h1>
 @stop
@@ -21,91 +21,72 @@
         <tr>
           <th>Title</th>
           <th>Category</th>
-          <th>Body</th>
+          @handheld @elsehandheld <th width="30%">Body</th> @endhandheld
           <th>Image</th>
           <th>Date Published</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        @foreach($blogs as $application)
+        @foreach($blogs as $blog)
         <tr>
-          <td>{{ $application->title }}</td>
-          <td><span class="label label-success">{{ $application->category->name }}</span></td>
-          <td>{{ $application->email }}<br/>{{ $application->phone }}</td>
-          <td>{{ $application->degree }} {{ $application->batch }}, {{ $application->roll }}</td>
-          <td>{{ $application->designation }}<br/>{{ $application->current_job }}</td>
           <td>
-            @if($application->image != null)
-            <img src="{{ asset('images/users/'.$application->image)}}" style="height: 40px; width: auto;" />
+            <a href="{{ route('blog.single', $blog->slug) }}" target="_blank">{{ $blog->title }}</a><br/>
+            @if($blog->status == 1)
+              <span class="badge" style="background: #D73925;"><i class="fa fa-check"></i> Published</span>
             @else
-            <img src="{{ asset('images/user.png')}}" style="height: 40px; width: auto;" />
+              <span class="badge"><i class="fa fa-bell-slash-o"></i> Unpublished</span>
+            @endif
+            
+          </td>
+          <td><span class="label label-success">{{ $blog->category->name }}</span></td>
+          @handheld
+
+          @elsehandheld
+          <td>
+            @if(strlen(strip_tags($blog->body))>100)
+                {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+100))." [...] " }}
+
+            @else
+                {{ strip_tags($blog->body) }}
             @endif
           </td>
+          @endhandheld
           <td>
-            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#approveMemberModal{{ $application->id }}" data-backdrop="static" title="Approve Application"><i class="fa fa-check"></i></button>
-            <!-- Approve Application Modal -->
-            <!-- Approve Application Modal -->
-            <div class="modal fade" id="approveMemberModal{{ $application->id }}" role="dialog">
-              <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                  <div class="modal-header modal-header-success">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Approve Application</h4>
-                  </div>
-                  <div class="modal-body">
-                    {!! Form::model($application, ['route' => ['dashboard.approveapplication', $application->id], 'method' => 'PATCH', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
-                        Confirm approve this application of <b>{{ $application->name }}</b>?<br/>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="amount">Amount</label>
-                                <input type="text" name="amount" id="amount" class="form-control" required="">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="trxid">Transaction ID (Optional)</label>
-                                <input type="text" name="trxid" id="trxid" class="form-control"> 
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-                  <div class="modal-footer">
-                        {!! Form::submit('Approve', array('class' => 'btn btn-success')) !!}
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  </div>
-                  {!! Form::close() !!}
-                </div>
-              </div>
-            </div>
-            <!-- Approve Application Modal -->
-            <!-- Approve Application Modal -->
+            @if($blog->featured_image != null)
+            <img src="{{ asset('images/blogs/'.$blog->featured_image)}}" style="height: 40px; width: auto;" />
+            @else
+            <img src="{{ asset('images/blogs/default.jpg')}}" style="height: 40px; width: auto;" />
+            @endif
+          </td>
+          <td>{{ date('F d, Y h:i A', strtotime($blog->created_at)) }}</td>
+          <td>
+            <a class="btn btn-sm btn-primary" href="" title="Edit Blog"><i class="fa fa-pencil"></i></a>
 
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteApplicationModal{{ $application->id }}" data-backdrop="static" title="Delete Application"><i class="fa fa-trash-o"></i></button>
-            <!-- Delete Application Modal -->
-            <!-- Delete Application Modal -->
-            <div class="modal fade" id="deleteApplicationModal{{ $application->id }}" role="dialog">
+            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $blog->id }}" data-backdrop="static" title="Delete Blog"><i class="fa fa-trash-o"></i></button>
+            <!-- Delete Modal -->
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal{{ $blog->id }}" role="dialog">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header modal-header-danger">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Application</h4>
+                    <h4 class="modal-title">Delete Blog</h4>
                   </div>
                   <div class="modal-body">
-                    Confirm Delete the application of <b>{{ $application->name }}</b>
+                    Confirm Delete the Blog of <b>{{ $blog->name }}</b>
                   </div>
                   <div class="modal-footer">
-                    {!! Form::model($application, ['route' => ['dashboard.deleteapplication', $application->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                    {{-- {!! Form::model($blog, ['route' => ['dashboard.deleteblog', $blog->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                         {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    {!! Form::close() !!}
+                    {!! Form::close() !!} --}}
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Delete Application Modal -->
-            <!-- Delete Application Modal -->
+            <!-- Delete Modal -->
+            <!-- Delete Modal -->
           </td>
         </tr>
         @endforeach

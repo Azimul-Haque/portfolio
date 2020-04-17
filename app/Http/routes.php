@@ -53,7 +53,10 @@ Route::auth();
 // dashboard routes
 Route::resource('users','UserController');
 Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
+
 Route::get('/dashboard/blogs', ['as'=>'dashboard.blogs','uses'=>'DashboardController@getBlogs']);
+Route::get('/dashboard/blogs/create', ['as'=>'dashboard.blogs.create','uses'=>'DashboardController@createBlog']);
+
 Route::get('/dashboard/books', ['as'=>'dashboard.books','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
 Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getCommittee']);
