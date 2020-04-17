@@ -109,10 +109,10 @@ class DashboardController extends Controller
         ));
 
         //store to DB
-        $blog->title = $request->title;
         if($blog->title != $request->title) {
             $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
         }
+        $blog->title = $request->title;
         $blog->category_id = $request->category_id;
         $blog->status = $request->status;
         $blog->body = Purifier::clean($request->body, 'youtube');

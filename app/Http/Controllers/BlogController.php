@@ -102,6 +102,7 @@ class BlogController extends Controller {
 
     public function getBlogPost(Request $request, $slug)
     {
+      try {
         if(!$request->hasCookie('my_sweet_visitor')) {
           $minutes = 60 * 24 * 365;
           $randomstring = random_string(10);
@@ -131,6 +132,9 @@ class BlogController extends Controller {
                 ->withPopulars($populars)
                 ->withArchives($archives)
                 ->withVisitor($visitor);
+      } catch (\Exception $e) {
+          abort(404, 'Page Not found');
+      }
     }
 
     /**
