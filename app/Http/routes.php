@@ -56,6 +56,7 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 
 Route::get('/dashboard/blogs', ['as'=>'dashboard.blogs','uses'=>'DashboardController@getBlogs']);
 Route::get('/dashboard/blogs/create', ['as'=>'dashboard.blogs.create','uses'=>'DashboardController@createBlog']);
+Route::post('/dashboard/blogs/store', ['as'=>'dashboard.blogs.store','uses'=>'DashboardController@storeBlog']);
 
 Route::get('/dashboard/books', ['as'=>'dashboard.books','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
