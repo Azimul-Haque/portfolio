@@ -8,16 +8,21 @@
 @endsection
 
 @section('content')
+    {{-- facebook comment plugin --}}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
+    {{-- facebook comment plugin --}}
+    
     <!-- head section -->
     <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
                     <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Category - {{ $name }}</span>
                     <!-- end page title -->
                 </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                <div class="col-lg-6 col-md-6 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
                     <ul @desktop class="text-right" @enddesktop>
                         <li><a href="{{ route('index.index') }}">Home</a></li>
@@ -62,15 +67,14 @@
                             </div>
                             <div class="separator-line bg-black no-margin-lr margin-four"></div>
                             <div>
-                                <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
-                                <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
-                                <span id="comment_count{{ $blog->id }}"></span>
-                                 comment(s)</a>
+                                {{-- <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>  --}}
+                                <div class="fb-like blog-like" data-href="{{ url('/blog/'.$blog->slug) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false" ></div>
+                                <a href="{{ url('/blog/'.$blog->slug . '#comment_section') }}" class="comment"><i class="fa fa-comment-o"></i> <span class="fb-comments-count" data-href="{{ url('/blog/'.$blog->slug) }}">0</span> comment(s)</a>
                             </div>
                             <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Continue Reading</a>
                         </div>
                     </div>
-                    <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
+                    {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
                     <script type="text/javascript">
                         $.ajax({
                             url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
@@ -79,7 +83,7 @@
                                 $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
                             }
                         });
-                    </script>
+                    </script> --}}
                     @endforeach
                     <!-- end post item -->
                     {{-- paginating --}}

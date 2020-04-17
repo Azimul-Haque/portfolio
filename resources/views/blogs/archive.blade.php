@@ -8,16 +8,21 @@
 @endsection
 
 @section('content')
+    {{-- facebook comment plugin --}}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId=250806882740490"></script>
+    {{-- facebook comment plugin --}}
+    
     <!-- head section -->
     <section class="content-top-margin page-title page-title-small bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                     <!-- page title -->
                     <span class="text-large letter-spacing-2 black-text font-weight-600 text-uppercase agency-title">Archive - {{ $archivedate }}</span>
                     <!-- end page title -->
                 </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                <div class="col-lg-6 col-md-6 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
                     <ul @desktop class="text-right" @enddesktop>
                         <li><a href="{{ route('index.index') }}">Home</a></li>
