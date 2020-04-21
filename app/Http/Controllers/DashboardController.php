@@ -203,12 +203,8 @@ class DashboardController extends Controller
 
     public function editBook($id)
     {
-        $blog = Blog::find($id);
-        $categories = Category::all();
-
-        return view('dashboard.blogs.edit')
-                        ->withBook($blog)
-                        ->withCategories($categories);
+        $book = Book::find($id);
+        return view('dashboard.books.edit')->withBook($book);
     }
 
     public function updateBook(Request $request, $id)

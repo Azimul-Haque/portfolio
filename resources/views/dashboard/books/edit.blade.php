@@ -1,95 +1,93 @@
 @extends('adminlte::page')
 
-@section('title', 'Create New Blog')
+@section('title', 'Add New Book')
 
 @section('css')
-  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}"> --}}
 @stop
 
 @section('content_header')
     <h1>
-      Create New Blog
+      Create New Book
       <div class="pull-right">
-        {{-- <a class="btn btn-success" href="{{ route('dashboard.blogs.create') }}" title="Add a New Blog"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Blog</a> --}}
+        {{-- <a class="btn btn-success" href="{{ route('dashboard.books.create') }}" title="Add a New Book"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Book</a> --}}
       </div>
     </h1>
 @stop
 
 @section('content')
-    {!! Form::model($blog, ['route' => ['dashboard.blogs.update', $blog->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
-      <div class="row">
-        <div class="col-md-10">
-          <label for="title">Title of the Blog *</label>
-          <input type="text" name="title" id="title" class="form-control" value="{{ $blog->title }}" placeholder="Title of the Blog" required="">
-        </div>
-        {{-- <div class="col-md-5">
-          <label for="slug">URL Slug *</label>
-          <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Blog" required="">
-        </div> --}}
-      </div>
+    <div class="row">
+      <div class="col-md-10">
+        <div class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              <i class="fa fa-book"></i> Add New Book Form
+            </h3>
+          </div>
 
-      <br/>
-      <div class="row">
-        <div class="col-md-5">
-          <label for="category_id">Select Category *</label>
-          <select name="category_id" id="category_id" class="form-control" required="">
-              <option value="" selected="" disabled="">Category</option>
-              @foreach($categories as $category)
-              <option value="{{ $category->id }}" @if($blog->category_id == $category->id) selected="" @endif>{{ $category->name }}</option>
-              @endforeach
-          </select>
-        </div>
-        <div class="col-md-5">
-          <label for="title">Publish Status *</label><br/>
-          <label class="radio-inline">
-            <input type="radio" name="status" value="1" @if($blog->status == 1) checked="" @endif>Published
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="status" value="0" @if($blog->status == 0) checked="" @endif>Unpublished
-          </label>
+          {!! Form::model($book, ['route' => ['dashboard.books.update', $book->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="title">Name of the Book *</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" placeholder="Name of the Book" required="">
+              </div>
+              <div class="col-md-6">
+                <label for="serial">Serial Number (For Web Page) *</label>
+                <input type="number" name="serial" id="serial" class="form-control" placeholder="Serial of the Book" required="">
+              </div>
+            </div>
+
+            <br/>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="link">Buy Link (Optional)</label>
+                <input type="text" name="link" id="link" class="form-control" placeholder="Buy Link of the Book (Optional)">
+              </div>
+            </div>
+
+            <br/>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="description">Description *</label>
+                <textarea type="text" name="description" id="description" class="form-control" required="" placeholder="Description of the Book" style="min-height: 200px;">{{ old('description') }}</textarea>
+              </div>
+            </div>
+
+            <br/>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Cover of the Book (400Kb Max): (Optional)</label>
+                <input type="file" id="image" name="image" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <img src="{{ asset('images/blank_book.jpg') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button class="btn btn-success" type="submit">Submit Book</button>
+          </div>
+          {!! Form::close() !!}
         </div>
       </div>
-
-      <br/>
-      <div class="row">
-        <div class="col-md-10">
-          <label for="body">Body *</label>
-          <textarea type="text" name="body" id="body" class="summernote" required="">{!! $blog->body !!}</textarea>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-5">
-          <label>Featured Image (600 X 315 &amp; 400Kb Max): (Optional)</label>
-          <input type="file" id="image" name="featured_image" class="form-control">
-        </div>
-        <div class="col-md-5">
-          @if($blog->featured_image != null && file_exists(public_path('images/blogs/' . $blog->featured_image)))
-            <img src="{{ asset('images/blogs/' . $blog->featured_image) }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
-          @else
-            <img src="{{ asset('images/600x315.png') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
-          @endif
-        </div>
-      </div>
-
-      <button class="btn btn-success" type="submit">Submit Blog</button>
-    {!! Form::close() !!}
+    </div>
 @stop
 
 @section('js')
-  <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script> --}}
   
   <script>
-      $(document).ready(function(){
-          $('.summernote').summernote({
-              placeholder: 'Write Blog Post',
-              tabsize: 2,
-              height: 250,
-              dialogsInBody: true
-          });
-          $('div.note-group-select-from-files').remove();
-      });
+      // $(document).ready(function(){
+      //     $('.summernote').summernote({
+      //         placeholder: 'Write Book Post',
+      //         tabsize: 2,
+      //         height: 250,
+      //         dialogsInBody: true
+      //     });
+      //     $('div.note-group-select-from-files').remove();
+      // });
   </script>
 
   <script type="text/javascript">
@@ -125,7 +123,7 @@
             $("#image").val('');
             toastr.warning('File size is: '+filesize+' Kb. try uploading less than 400Kb', 'WARNING').css('width', '400px;');
               setTimeout(function() {
-                $("#img-upload").attr('src', '{{ asset('images/600x315.png') }}');
+                $("#img-upload").attr('src', '{{ asset('images/blank_book.jpg') }}');
               }, 1000);
           }
       });
