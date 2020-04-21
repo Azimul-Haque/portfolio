@@ -10,6 +10,11 @@ use App\User;
 use App\Blog;
 use App\Category;
 use App\Like;
+use App\Book;
+use App\Gallery;
+use App\Multimedia;
+use App\Faq;
+use App\Formmessage;
 
 use DB, Hash, Auth, Image, File, Session, Cookie;
 use Purifier;
@@ -151,6 +156,118 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
+    public function getBooks()
+    {
+        $books = Book::orderBy('id', 'desc')->paginate(7);
+        return view('dashboard.books.index')->withBooks($books);
+    }
+
+    public function createBook()
+    {
+        $categories = Category::all();
+        return view('dashboard.blogs.create')
+                        ->withCategories($categories);
+    }
+
+    public function storeBook(Request $request)
+    {
+        $this->validate($request,array(
+            'title'          => 'required|max:255',
+            'body'           => 'required',
+            'category_id'    => 'required|integer',
+            'status'         => 'required|integer',
+            'featured_image' => 'sometimes|image|max:400'
+        ));
+
+        //store to DB
+        $blog              = new Blog;
+        $blog->title       = $request->title;
+        $blog->user_id     = Auth::user()->id;
+        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        $blog->category_id = $request->category_id;
+        $blog->status = $request->status;
+        $blog->body        = Purifier::clean($request->body, 'youtube');
+        
+        // image upload
+        if($request->hasFile('featured_image'))
+        {
+            $image      = $request->file('featured_image');
+            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/blogs/'. $filename);
+            Image::make($image)->fit(600, 315)->save($location);
+            $blog->featured_image = $filename;
+        }
+
+        $blog->save();
+
+        //redirect
+        Session::flash('success', 'Saved Successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
+
+    public function editBook($id)
+    {
+        $blog = Blog::find($id);
+        $categories = Category::all();
+
+        return view('dashboard.blogs.edit')
+                        ->withBook($blog)
+                        ->withCategories($categories);
+    }
+
+    public function updateBook(Request $request, $id)
+    {
+        $blog = Blog::find($id);
+        $this->validate($request,array(
+            'title'          => 'required|max:255',
+            'body'           => 'required',
+            'category_id'    => 'required|integer',
+            'status'         => 'required|integer',
+            'featured_image' => 'sometimes|image|max:400'
+        ));
+
+        //store to DB
+        if($blog->title != $request->title) {
+            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        }
+        $blog->title = $request->title;
+        $blog->category_id = $request->category_id;
+        $blog->status = $request->status;
+        $blog->body = Purifier::clean($request->body, 'youtube');
+        
+        // image upload
+        if($request->hasFile('featured_image'))
+        {
+            $image_path = public_path('images/blogs/'. $blog->featured_image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('featured_image');
+            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/blogs/'. $filename);
+            Image::make($image)->fit(600, 315)->save($location);
+            $blog->featured_image = $filename;
+        }
+
+        $blog->save();
+
+        //redirect
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
+
+    public function deleteBook($id)
+    {
+        $blog = Blog::find($id);
+        $image_path = public_path('images/blogs/'. $blog->featured_image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $blog->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
 
 
 
@@ -162,9 +279,7 @@ class DashboardController extends Controller
 
 
 
-
-
-
+    
     public function getCommittee()
     {
         $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();

@@ -61,7 +61,13 @@ Route::get('/dashboard/blogs/{id}/edit', ['as'=>'dashboard.blogs.edit','uses'=>'
 Route::put('/dashboard/blogs/{id}/update', ['as'=>'dashboard.blogs.update','uses'=>'DashboardController@updateBlog']);
 Route::delete('/dashboard/blogs/{id}/delete', ['as'=>'dashboard.blogs.delete','uses'=>'DashboardController@deleteBlog']);
 
-Route::get('/dashboard/books', ['as'=>'dashboard.books','uses'=>'DashboardController@getCommittee']);
+Route::get('/dashboard/books', ['as'=>'dashboard.books','uses'=>'DashboardController@getBooks']);
+Route::get('/dashboard/books/create', ['as'=>'dashboard.blogs.create','uses'=>'DashboardController@createBook']);
+Route::post('/dashboard/books/store', ['as'=>'dashboard.books.store','uses'=>'DashboardController@storeBook']);
+Route::get('/dashboard/books/{id}/edit', ['as'=>'dashboard.books.edit','uses'=>'DashboardController@editBook']);
+Route::put('/dashboard/books/{id}/update', ['as'=>'dashboard.books.update','uses'=>'DashboardController@updateBook']);
+Route::delete('/dashboard/books/{id}/delete', ['as'=>'dashboard.books.delete','uses'=>'DashboardController@deleteBook']);
+
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
 Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getCommittee']);
