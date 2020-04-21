@@ -17,60 +17,75 @@
 @stop
 
 @section('content')
-    {!! Form::open(['route' => 'dashboard.blogs.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-      <div class="row">
-        <div class="col-md-10">
-          <label for="title">Title of the Blog *</label>
-          <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Blog" required="">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <i class="fa fa-book"></i> Create New Blog Form
+          </h3>
         </div>
-        {{-- <div class="col-md-5">
-          <label for="slug">URL Slug *</label>
-          <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Blog" required="">
-        </div> --}}
-      </div>
 
-      <br/>
-      <div class="row">
-        <div class="col-md-5">
-          <label for="category_id">Select Category *</label>
-          <select name="category_id" id="category_id" class="form-control" required="">
-              <option value="" selected="" disabled="">Category</option>
-              @foreach($categories as $category)
-              <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="" @endif>{{ $category->name }}</option>
-              @endforeach
-          </select>
-        </div>
-        <div class="col-md-5">
-          <label for="title">Publish Status *</label><br/>
-          <label class="radio-inline">
-            <input type="radio" name="status" value="1" checked>Published
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="status" value="0">Unpublished
-          </label>
-        </div>
-      </div>
+        {!! Form::open(['route' => 'dashboard.blogs.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="title">Title of the Blog *</label>
+              <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Blog" required="">
+            </div>
+            {{-- <div class="col-md-6">
+              <label for="slug">URL Slug *</label>
+              <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Blog" required="">
+            </div> --}}
+          </div>
 
-      <br/>
-      <div class="row">
-        <div class="col-md-10">
-          <label for="body">Body *</label>
-          <textarea type="text" name="body" id="body" class="summernote" required="">{{ old('body') }}</textarea>
-        </div>
-      </div>
+          <br/>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="category_id">Select Category *</label>
+              <select name="category_id" id="category_id" class="form-control" required="">
+                  <option value="" selected="" disabled="">Category</option>
+                  @foreach($categories as $category)
+                  <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="" @endif>{{ $category->name }}</option>
+                  @endforeach
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="title">Publish Status *</label><br/>
+              <label class="radio-inline">
+                <input type="radio" name="status" value="1" checked>Published
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="status" value="0">Unpublished
+              </label>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-md-5">
-          <label>Featured Image (600 X 315 &amp; 400Kb Max): (Optional)</label>
-          <input type="file" id="image" name="featured_image" class="form-control">
-        </div>
-        <div class="col-md-5">
-          <img src="{{ asset('images/600x315.png') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
-        </div>
-      </div>
+          <br/>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="body">Body *</label>
+              <textarea type="text" name="body" id="body" class="summernote" required="">{{ old('body') }}</textarea>
+            </div>
+          </div>
 
-      <button class="btn btn-success" type="submit">Submit Blog</button>
-    {!! Form::close() !!}
+          <div class="row">
+            <div class="col-md-6">
+              <label>Featured Image (600 X 315 &amp; 400Kb Max): (Optional)</label>
+              <input type="file" id="image" name="featured_image" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <img src="{{ asset('images/600x315.png') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+        <div class="box-dooter">
+          <button class="btn btn-success" type="submit">Submit Blog</button>
+        </div>
+        {!! Form::close() !!}
+      </div>
+    </div>
+  </div>
 @stop
 
 @section('js')

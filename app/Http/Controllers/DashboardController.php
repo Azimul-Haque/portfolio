@@ -164,9 +164,7 @@ class DashboardController extends Controller
 
     public function createBook()
     {
-        $categories = Category::all();
-        return view('dashboard.blogs.create')
-                        ->withCategories($categories);
+        return view('dashboard.books.create');
     }
 
     public function storeBook(Request $request)
