@@ -59,7 +59,7 @@
             <div class="row">
               <div class="col-md-6">
                 <label>Cover of the Book (400Kb Max): (Optional)</label>
-                <input type="file" id="image" name="image" class="form-control">
+                <input type="file" id="image" name="image" class="form-control" required="">
               </div>
               <div class="col-md-6">
                 <img src="{{ asset('images/blank_book.jpg') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />

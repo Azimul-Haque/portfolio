@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Add New Book')
+@section('title', 'Edit Book')
 
 @section('css')
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
@@ -9,9 +9,9 @@
 
 @section('content_header')
     <h1>
-      Create New Book
+      Edit Book
       <div class="pull-right">
-        {{-- <a class="btn btn-success" href="{{ route('dashboard.books.create') }}" title="Add a New Book"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Book</a> --}}
+
       </div>
     </h1>
 @stop
@@ -22,7 +22,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title">
-              <i class="fa fa-book"></i> Add New Book Form
+              <i class="fa fa-book"></i> Edit Book Form
             </h3>
           </div>
 
@@ -31,11 +31,11 @@
             <div class="row">
               <div class="col-md-6">
                 <label for="title">Name of the Book *</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" placeholder="Name of the Book" required="">
+                <input type="text" name="name" id="name" class="form-control" value="{{ $book->name }}" placeholder="Name of the Book" required="">
               </div>
               <div class="col-md-6">
                 <label for="serial">Serial Number (For Web Page) *</label>
-                <input type="number" name="serial" id="serial" class="form-control" value="{{ old('serial') }}" placeholder="Serial of the Book" required="">
+                <input type="number" name="serial" id="serial" class="form-control" value="{{ $book->serial }}" placeholder="Serial of the Book" required="">
               </div>
             </div>
 
@@ -43,7 +43,7 @@
             <div class="row">
               <div class="col-md-12">
                 <label for="link">Buy Link (Optional)</label>
-                <input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}" placeholder="Buy Link of the Book (Optional)">
+                <input type="text" name="link" id="link" class="form-control" value="{{ $book->link }}" placeholder="Buy Link of the Book (Optional)">
               </div>
             </div>
 
@@ -51,7 +51,7 @@
             <div class="row">
               <div class="col-md-12">
                 <label for="description">Description *</label>
-                <textarea type="text" name="description" id="description" class="form-control" required="" placeholder="Description of the Book" style="min-height: 200px;">{{ old('description') }}</textarea>
+                <textarea type="text" name="description" id="description" class="form-control" required="" placeholder="Description of the Book" style="min-height: 200px;">{{ $book->description }}</textarea>
               </div>
             </div>
 
@@ -62,7 +62,12 @@
                 <input type="file" id="image" name="image" class="form-control">
               </div>
               <div class="col-md-6">
-                <img src="{{ asset('images/blank_book.jpg') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+                @if($book->image != null && file_exists(public_path('images/books/' . $book->image)))
+                  <img src="{{ asset('images/books/' . $book->image) }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+                @else
+                  <img src="{{ asset('images/blank_book.jpg') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+                @endif
+                
               </div>
             </div>
           </div>

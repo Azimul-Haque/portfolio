@@ -65,7 +65,7 @@
                       <h4 class="modal-title">Delete Book</h4>
                     </div>
                     <div class="modal-body">
-                      Confirm Delete the Book<br/><big><b>{{ $book->title }}</b></big>
+                      Confirm Delete the Book<br/><big><b>{{ $book->name }}</b></big>
                     </div>
                     <div class="modal-footer">
                       {!! Form::model($book, ['route' => ['dashboard.books.delete', $book->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}

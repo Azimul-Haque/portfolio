@@ -105,6 +105,7 @@ class DashboardController extends Controller
     public function updateBlog(Request $request, $id)
     {
         $blog = Blog::find($id);
+
         $this->validate($request,array(
             'title'          => 'required|max:255',
             'body'           => 'required',
@@ -174,7 +175,7 @@ class DashboardController extends Controller
             'serial'         => 'required',
             'description'    => 'required',
             'link'           => 'sometimes',
-            'image'          => 'sometimes|image|max:400'
+            'image'          => 'required|image|max:400'
         ));
 
         //store to DB
@@ -209,56 +210,54 @@ class DashboardController extends Controller
 
     public function updateBook(Request $request, $id)
     {
-        $blog = Blog::find($id);
+        $book = Book::find($id);
+
         $this->validate($request,array(
-            'title'          => 'required|max:255',
-            'body'           => 'required',
-            'category_id'    => 'required|integer',
-            'status'         => 'required|integer',
-            'featured_image' => 'sometimes|image|max:400'
+            'name'           => 'required|max:255',
+            'serial'         => 'required',
+            'description'    => 'required',
+            'link'           => 'sometimes',
+            'image'          => 'sometimes|image|max:400'
         ));
 
         //store to DB
-        if($blog->title != $request->title) {
-            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
-        }
-        $blog->title = $request->title;
-        $blog->category_id = $request->category_id;
-        $blog->status = $request->status;
-        $blog->body = Purifier::clean($request->body, 'youtube');
+        $book->name = $request->name;
+        $book->serial = $request->serial;
+        $book->description = Purifier::clean($request->description, 'youtube');
+        $book->link = $request->link;
         
         // image upload
-        if($request->hasFile('featured_image'))
+        if($request->hasFile('image'))
         {
-            $image_path = public_path('images/blogs/'. $blog->featured_image);
+            $image_path = public_path('images/books/'. $book->image);
             if(File::exists($image_path)) {
                 File::delete($image_path);
             }
-            $image      = $request->file('featured_image');
-            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->fit(600, 315)->save($location);
-            $blog->featured_image = $filename;
+            $image      = $request->file('image');
+            $filename   = 'image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/books/'. $filename);
+            Image::make($image)->resize(300, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $book->image = $filename;
         }
 
-        $blog->save();
+        $book->save();
 
         //redirect
-        Session::flash('success', 'Updated Successfully!');
-        return redirect()->route('dashboard.blogs');
+        Session::flash('success', 'Saved Successfully!');
+        return redirect()->route('dashboard.books');
     }
 
     public function deleteBook($id)
     {
-        $blog = Blog::find($id);
-        $image_path = public_path('images/blogs/'. $blog->featured_image);
+        $book = Book::find($id);
+        $image_path = public_path('images/books/'. $book->image);
         if(File::exists($image_path)) {
             File::delete($image_path);
         }
-        $blog->delete();
+        $book->delete();
 
         Session::flash('success', 'Deleted Successfully!');
-        return redirect()->route('dashboard.blogs');
+        return redirect()->route('dashboard.books');
     }
 
 
