@@ -22,63 +22,53 @@
           <tr>
             <th>Book Name</th>
             @handheld @elsehandheld <th width="30%">Description</th> @endhandheld
-            <th>Image</th>
             <th>Cover</th>
             <th>Serial</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($books as $blog)
+          @foreach($books as $book)
           <tr>
-            <td>
-              <a href="{{ route('blog.single', $blog->slug) }}" target="_blank">{{ $blog->title }}</a><br/>
-              @if($blog->status == 1)
-                <span class="badge" style="background: #D73925;"><i class="fa fa-check"></i> Published</span>
-              @else
-                <span class="badge"><i class="fa fa-bell-slash-o"></i> Unpublished</span>
-              @endif
-              
-            </td>
-            <td><span class="label label-success">{{ $blog->category->name }}</span></td>
+            <td>{{ $book->name }}</td>
             @handheld
 
             @elsehandheld
             <td>
-              @if(strlen(strip_tags($blog->body))>100)
-                  {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+100))." [...] " }}
+              @if(strlen(strip_tags($book->description))>100)
+                  {{ mb_substr(strip_tags($book->description), 0, stripos($book->description, " ", stripos(strip_tags($book->description), " ")+100))." [...] " }}
 
               @else
-                  {{ strip_tags($blog->body) }}
+                  {{ strip_tags($book->description) }}
               @endif
             </td>
             @endhandheld
             <td>
-              @if($blog->featured_image != null && file_exists(public_path('images/blogs/' . $blog->featured_image)))
-              <img src="{{ asset('images/blogs/'.$blog->featured_image)}}" style="height: 40px; width: auto;" />
+              @if($book->image != null && file_exists(public_path('images/books/' . $book->image)))
+              <img src="{{ asset('images/books/'.$book->image)}}" style="height: 40px; width: auto;" />
               @else
-              <img src="{{ asset('images/blogs/default.jpg')}}" style="height: 40px; width: auto;" />
+              <img src="{{ asset('images/books/default.jpg')}}" style="height: 40px; width: auto;" />
               @endif
             </td>
-            <td>{{ date('F d, Y h:i A', strtotime($blog->created_at)) }}</td>
+            <td>{{ $book->serial }}</td>
             <td>
-              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.blogs.edit', $blog->id) }}" title="Edit Blog"><i class="fa fa-pencil"></i></a>
+              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.books.edit', $book->id) }}" title="Edit Book"><i class="fa fa-pencil"></i></a>
 
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $blog->id }}" data-backdrop="static" title="Delete Blog"><i class="fa fa-trash-o"></i></button>
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $book->id }}" data-backdrop="static" title="Delete Book"><i class="fa fa-trash-o"></i></button>
               <!-- Delete Modal -->
               <!-- Delete Modal -->
-              <div class="modal fade" id="deleteModal{{ $blog->id }}" role="dialog">
+              <div class="modal fade" id="deleteModal{{ $book->id }}" role="dialog">
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header modal-header-danger">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Delete Blog</h4>
+                      <h4 class="modal-title">Delete Book</h4>
                     </div>
                     <div class="modal-body">
-                      Confirm Delete the Blog<br/><big><b>{{ $blog->title }}</b></big>
+                      Confirm Delete the Book<br/><big><b>{{ $book->title }}</b></big>
                     </div>
                     <div class="modal-footer">
-                      {!! Form::model($blog, ['route' => ['dashboard.blogs.delete', $blog->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                      {!! Form::model($book, ['route' => ['dashboard.books.delete', $book->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                           {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       {!! Form::close() !!}

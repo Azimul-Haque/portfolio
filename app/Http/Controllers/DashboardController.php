@@ -170,37 +170,35 @@ class DashboardController extends Controller
     public function storeBook(Request $request)
     {
         $this->validate($request,array(
-            'title'          => 'required|max:255',
-            'body'           => 'required',
-            'category_id'    => 'required|integer',
-            'status'         => 'required|integer',
-            'featured_image' => 'sometimes|image|max:400'
+            'name'           => 'required|max:255',
+            'serial'         => 'required',
+            'description'    => 'required',
+            'link'           => 'sometimes',
+            'image'          => 'sometimes|image|max:400'
         ));
 
         //store to DB
-        $blog              = new Blog;
-        $blog->title       = $request->title;
-        $blog->user_id     = Auth::user()->id;
-        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
-        $blog->category_id = $request->category_id;
-        $blog->status = $request->status;
-        $blog->body        = Purifier::clean($request->body, 'youtube');
+        $book = new Book;
+        $book->name = $request->name;
+        $book->serial = $request->serial;
+        $book->description = Purifier::clean($request->description, 'youtube');
+        $book->link = $request->link;
         
         // image upload
-        if($request->hasFile('featured_image'))
+        if($request->hasFile('image'))
         {
-            $image      = $request->file('featured_image');
-            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->fit(600, 315)->save($location);
-            $blog->featured_image = $filename;
+            $image      = $request->file('image');
+            $filename   = 'image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/books/'. $filename);
+            Image::make($image)->resize(300, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $book->image = $filename;
         }
 
-        $blog->save();
+        $book->save();
 
         //redirect
         Session::flash('success', 'Saved Successfully!');
-        return redirect()->route('dashboard.blogs');
+        return redirect()->route('dashboard.books');
     }
 
     public function editBook($id)

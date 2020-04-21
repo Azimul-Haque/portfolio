@@ -26,7 +26,7 @@
             </h3>
           </div>
 
-          {!! Form::open(['route' => 'dashboard.blogs.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+          {!! Form::open(['route' => 'dashboard.books.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="box-body">
             <div class="row">
               <div class="col-md-6">
@@ -59,7 +59,7 @@
             <div class="row">
               <div class="col-md-6">
                 <label>Cover of the Book (400Kb Max): (Optional)</label>
-                <input type="file" id="image" name="featured_image" class="form-control">
+                <input type="file" id="image" name="image" class="form-control">
               </div>
               <div class="col-md-6">
                 <img src="{{ asset('images/blank_book.jpg') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />

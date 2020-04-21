@@ -9,6 +9,9 @@ use App\User;
 use App\Blog;
 use App\Category;
 use App\Multimedia;
+use App\Book;
+use App\Faq;
+use App\Formmessage;
 
 use Carbon\Carbon;
 use DB;
@@ -42,7 +45,9 @@ class IndexController extends Controller
 
     public function getBooks()
     {
-        return view('index.books');
+        $books = Book::orderBy('serial', 'ASC')->paginate(7);
+
+        return view('index.books')->withBooks($books);
     }
 
     public function getMultimedia()
