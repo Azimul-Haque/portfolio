@@ -42,52 +42,28 @@
     <section class="wow fadeIn">
         <!-- container -->
         <div class="container">
-            
-            <div class="row margin-five" style="min-height: 350px;">
-                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
-                    <p class="no-margin sm-center">
-                        <img src="{{ asset('images/books/1.png') }}" class="img-responsive">
-                    </p>
+            @foreach($books as $book)
+                <div class="row margin-five" style="min-height: 350px;">
+                    <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
+                        <p class="no-margin sm-center">
+                            @if($book->image != null && file_exists(public_path('images/books/' . $book->image)))
+                                <img src="{{ asset('images/books/' . $book->image) }}" class="img-responsive">
+                            @else
+                                <img src="{{ asset('images/books/1.png') }}" class="img-responsive">
+                            @endif
+                        </p>
+                    </div>
+                    <div class="col-md-9 col-sm-6">
+                        <span class="title-large font-weight-600 black-text">{{ $book->name }}</span>
+                        <div class="separator-line-thick bg-yellow no-margin-lr"></div>
+                        <p class="no-margin-bottom text-med text-justify">
+                            {{ $book->description }}
+                        </p>
+                        <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
+                    </div>
                 </div>
-                <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">Our Mission is to Save বাংলাদেশ</span>
-                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
-                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
-                </div>
-            </div>
-            <div class="wide-separator-line no-margin-lr"></div>
-            
-            <div class="row margin-five" style="min-height: 350px;">
-                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
-                    <p class="no-margin sm-center">
-                        <img src="{{ asset('images/books/2.jpg') }}" class="img-responsive">
-                    </p>
-                </div>
-                <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">Dummy Book</span>
-                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
-                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
-                </div>
-            </div>
-            <div class="wide-separator-line no-margin-lr"></div>
-            
-            <div class="row margin-five" style="min-height: 350px;">
-                <div class="col-md-3 col-sm-6 xs-margin-bottom-five xs-center-col">
-                    <p class="no-margin sm-center">
-                        <img src="{{ asset('images/books/3.jpg') }}" class="img-responsive">
-                    </p>
-                </div>
-                <div class="col-md-9 col-sm-6">
-                    <span class="title-large font-weight-600 black-text">অর্কেস্ট্রা</span>
-                    <div class="separator-line-thick bg-yellow no-margin-lr"></div>
-                    <p class="no-margin-bottom text-med text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
-                </div>
-            </div>
-            <div class="wide-separator-line no-margin-lr"></div>
-        
+                <div class="wide-separator-line no-margin-lr"></div>
+            @endforeach
         </div>
     </section>
 @endsection
