@@ -102,7 +102,9 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <center>{{ $multimedia->links() }}</center>
+            <center>
+                @include('pagination.default', ['paginator' => $multimedia])
+            </center>
           </div>
         </div>
       </div>
