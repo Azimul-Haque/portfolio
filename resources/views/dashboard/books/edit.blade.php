@@ -35,7 +35,7 @@
               </div>
               <div class="col-md-6">
                 <label for="serial">Serial Number (For Web Page) *</label>
-                <input type="number" name="serial" id="serial" class="form-control" placeholder="Serial of the Book" required="">
+                <input type="number" name="serial" id="serial" class="form-control" value="{{ old('serial') }}" placeholder="Serial of the Book" required="">
               </div>
             </div>
 
@@ -43,7 +43,7 @@
             <div class="row">
               <div class="col-md-12">
                 <label for="link">Buy Link (Optional)</label>
-                <input type="text" name="link" id="link" class="form-control" placeholder="Buy Link of the Book (Optional)">
+                <input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}" placeholder="Buy Link of the Book (Optional)">
               </div>
             </div>
 
