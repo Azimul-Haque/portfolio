@@ -52,7 +52,7 @@ class IndexController extends Controller
 
     public function getMultimedia()
     {
-        $multimedia = Multimedia::orderBy('id', 'DESC')->paginate(6);
+        $multimedia = Multimedia::orderBy('id', 'DESC')->paginate(4);
         return view('index.multimedia')->withMultimedia($multimedia);
     }
 

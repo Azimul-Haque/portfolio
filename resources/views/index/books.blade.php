@@ -59,11 +59,19 @@
                         <p class="no-margin-bottom text-med text-justify">
                             {{ $book->description }}
                         </p>
-                        <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Buy This Book</a>
+                        @if($book->link != null)
+                            <a class="highlight-button-dark btn btn-small xs-no-margin no-margin-bottom inner-link sm-margin-bottom-ten" href="{{ $book->link }}" target="_blank">Buy This Book</a>
+                        @else
+                            
+                        @endif
                     </div>
                 </div>
                 <div class="wide-separator-line no-margin-lr"></div>
             @endforeach
+
+            <center>
+                @include('pagination.default', ['paginator' => $books])
+            </center>
         </div>
     </section>
 @endsection
