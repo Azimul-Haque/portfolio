@@ -75,13 +75,13 @@
                       <h4 class="modal-title">Delete Blog</h4>
                     </div>
                     <div class="modal-body">
-                      Confirm Delete the Blog of <b>{{ $blog->name }}</b>
+                      Confirm Delete the Blog<br/><big><b>{{ $blog->title }}</b></big>
                     </div>
                     <div class="modal-footer">
-                      {{-- {!! Form::model($blog, ['route' => ['dashboard.deleteblog', $blog->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                      {!! Form::model($blog, ['route' => ['dashboard.blogs.delete', $blog->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                           {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                      {!! Form::close() !!} --}}
+                      {!! Form::close() !!}
                     </div>
                   </div>
                 </div>

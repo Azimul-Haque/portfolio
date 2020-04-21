@@ -138,6 +138,33 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
+    public function deleteBlog($id)
+    {
+        $blog = Blog::find($id);
+        $image_path = public_path('images/blogs/'. $blog->featured_image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $blog->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function getCommittee()
     {
         $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();

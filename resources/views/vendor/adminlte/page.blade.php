@@ -165,6 +165,12 @@
                             <span>Multimedia</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('dashboard/faq') ? 'active' : '' }} {{ Request::is('dashboard/faq/*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.faq') }}">
+                            <i class="fa fa-fw fa-question-circle-o"></i>
+                            <span>FAQ</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('dashboard/messages') ? 'active' : '' }} {{ Request::is('dashboard/messages/*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.messages') }}">
                             <i class="fa fa-fw fa-envelope-o"></i>
