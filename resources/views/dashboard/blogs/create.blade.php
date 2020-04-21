@@ -22,7 +22,7 @@
       <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">
-            <i class="fa fa-book"></i> Create New Blog Form
+            <i class="fa fa-file-text-o"></i> Create New Blog Form
           </h3>
         </div>
 
@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-        <div class="box-dooter">
+        <div class="box-footer">
           <button class="btn btn-success" type="submit">Submit Blog</button>
         </div>
         {!! Form::close() !!}
