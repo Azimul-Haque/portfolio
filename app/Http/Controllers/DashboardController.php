@@ -377,9 +377,9 @@ class DashboardController extends Controller
         $single->title       = $request->title;
         // $single->type        = $request->type; // 1 for youtube, 2 for soundcloud
         $single->status      = $request->status;
-        if($request->type == 1) {
+        if($single->type == 1) {
             $single->body    = $request->youtube_body_hidden;
-        } elseif ($request->type == 2) {
+        } elseif ($single->type == 2) {
             $single->body    = Purifier::clean($request->post_body, 'youtube');
         }
 
