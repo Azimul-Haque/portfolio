@@ -46,8 +46,8 @@
                                 <figure>
                                     <div class="gallery-img">
                                         @if($gallery->image != null && file_exists(public_path('images/gallery/' . $gallery->image)))
-                                            <a href="{{ asset('images/gallery/' . . $gallery->image) }}" title="{{ $gallery->caption }}">
-                                                <img src="{{ asset('images/gallery/' . . $gallery->image) }}" alt="">
+                                            <a href="{{ asset('images/gallery/' . $gallery->image) }}" title="{{ $gallery->caption }}">
+                                                <img src="{{ asset('images/gallery/' . $gallery->image) }}" alt="">
                                             </a>
                                         @else
                                             <a href="{{ asset('images/blank_image') }}" title="This image is not avalable!">
@@ -58,7 +58,7 @@
                                     </div>
                                     <figcaption>
                                         <h3>{{ $gallery->caption }}</h3>
-                                        <p>{{ date('F d, Y', strtotime($gallery->caption)) }}</p>
+                                        <p>{{ date('F d, Y', strtotime($gallery->created_at)) }}</p>
                                     </figcaption>
                                 </figure>
                             </li>
@@ -67,6 +67,12 @@
                     </ul>
                 </div>
 
+                <div class="col-md-12 margin-five">
+                    
+                    <center>
+                        @include('pagination.default', ['paginator' => $galleries])
+                    </center>
+                </div>
             </div>
         </div>
     </section>
