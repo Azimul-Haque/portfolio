@@ -72,13 +72,17 @@
                   <div class="youtibecontainer"> <iframe src="https://www.youtube.com/embed/{{ $single->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe> </div>
                 </div>
               @elseif($single->type == 2)
-                <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
+                <h3>
+                  <a href="{{ route('index.multimedia.single', $single->slug) }}" target="_blank">
+                    <i class="fa fa-soundcloud"></i> SoundCloud
+                  </a>
+                </h3>
               @endif
             </td>
 
             <td>{{ date('F d, Y h:i A', strtotime($single->created_at)) }}</td>
             <td>
-              {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a> --}}
+              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a>
 
               <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $single->id }}" data-backdrop="static" title="Delete Multimedia"><i class="fa fa-trash-o"></i></button>
               <!-- Delete Modal -->
