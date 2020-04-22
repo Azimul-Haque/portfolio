@@ -85,15 +85,14 @@
           <div class="row">
             <div class="col-md-12" id="body_youtube">
               <label for="body_youtube_input">YouTube Link *</label>
-              <input type="text" name="post_body" id="body_youtube_input" class="form-control" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
-              <input type="text" name="post_test" id="" class="form-control" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
-              <input type="hidden" name="youtube_body_hidden"><br/>
+              <input type="text" id="body_youtube_input" class="form-control" value="{{ old('post_body') }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
+              <input type="hidden" name="youtube_body_hidden" id="youtube_body_hidden"><br/>
               <div id="youtube_preview" style="max-width: 400px;"></div>
             </div>
 
             <div class="col-md-12" id="body_soundcloud">
               <label for="body_soundcloud_input">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
-              <textarea type="text" name="post_body" id="body_soundcloud_input" class="summernote">{{ old('post_body') }}</textarea>
+              <textarea type="text" id="body_soundcloud_input" class="summernote">{{ old('post_body') }}</textarea>
             </div>
           </div>
         </div>
@@ -130,16 +129,20 @@
         if($('#multimedia_type').val() == 1)
         {
           $('#body_soundcloud').hide();
-          $('#body_soundcloud_input').removeAttr('required', true);
+          $('#body_soundcloud_input').removeAttr('required');
+          $('#body_soundcloud_input').removeAttr('name');
 
           $('#body_youtube').show();
           $('#body_youtube_input').attr('required', true);
+          $('#body_youtube_input').attr('name', 'post_body');
         } else if($('#multimedia_type').val() == 2) {
           $('#body_youtube').hide();
           $('#body_youtube_input').removeAttr('required');
+          $('#body_youtube_input').removeAttr('name');
 
           $('#body_soundcloud').show();
           $('#body_soundcloud_input').attr('required', true);
+          $('#body_soundcloud_input').attr('name', 'post_body');
         }
       })
   </script>

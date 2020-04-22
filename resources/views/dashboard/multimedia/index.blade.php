@@ -3,7 +3,27 @@
 @section('title', 'Multimedia')
 
 @section('css')
-
+  <style type="text/css">
+    .youtibecontainer {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+    }
+    .youtubeiframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .separator-line {
+        height: 2px;
+        margin: 0 auto;
+        width: 30px;
+        margin: 3% auto;
+    }
+  </style>
 @stop
 
 @section('content_header')
@@ -48,12 +68,14 @@
             
             <td>
               @if($single->type == 1)
-                <span class="badge" style="background: #FF0000;"><i class="fa fa-youtube-play"></i> YouTube</span>
+                <div style="max-width: 120px;">
+                  <div class="youtibecontainer"> <iframe src="https://www.youtube.com/embed/{{ $single->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe> </div>
+                </div>
               @elseif($single->type == 2)
                 <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
               @endif
             </td>
-            
+
             <td>{{ date('F d, Y h:i A', strtotime($single->created_at)) }}</td>
             <td>
               <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a>

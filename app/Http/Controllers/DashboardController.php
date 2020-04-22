@@ -322,7 +322,6 @@ class DashboardController extends Controller
 
     public function storeMultimedia(Request $request)
     {
-        dd($request->all());
         $this->validate($request,array(
             'title'          => 'required|max:255',
             'type'           => 'required',
@@ -338,9 +337,9 @@ class DashboardController extends Controller
         $single->type        = $request->type; // 1 for youtube, 2 for soundcloud
         $single->status      = $request->status;
         if($request->type == 1) {
-            $single->post_body    = $request->youtube_body_hidden;
+            $single->body    = $request->youtube_body_hidden;
         } elseif ($request->type == 2) {
-            $single->post_body    = Purifier::clean($request->post_body, 'youtube');
+            $single->body    = Purifier::clean($request->post_body, 'youtube');
         }
 
         $single->save();
