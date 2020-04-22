@@ -72,7 +72,13 @@ Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardCo
 Route::post('/dashboard/gallery/store', ['as'=>'dashboard.gallery.store','uses'=>'DashboardController@storeGallery']);
 Route::delete('/dashboard/gallery/{id}/delete', ['as'=>'dashboard.gallery.delete','uses'=>'DashboardController@deleteGallery']);
 
-Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getCommittee']);
+Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getMultimedia']);
+Route::get('/dashboard/multimedia/create', ['as'=>'dashboard.multimedia.create','uses'=>'DashboardController@createMultimedia']);
+Route::post('/dashboard/multimedia/store', ['as'=>'dashboard.multimedia.store','uses'=>'DashboardController@storeMultimedia']);
+Route::get('/dashboard/multimedia/{id}/edit', ['as'=>'dashboard.multimedia.edit','uses'=>'DashboardController@editMultimedia']);
+Route::put('/dashboard/multimedia/{id}/update', ['as'=>'dashboard.multimedia.update','uses'=>'DashboardController@updateMultimedia']);
+Route::delete('/dashboard/multimedia/{id}/delete', ['as'=>'dashboard.multimedia.delete','uses'=>'DashboardController@deleteMultimedia']);
+
 Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getCommittee']);
 

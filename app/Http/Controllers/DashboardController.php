@@ -308,7 +308,12 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.gallery');
     }
 
-
+    public function getMultimedia()
+    {
+        $multimedia = Multimedia::orderBy('id', 'desc')->paginate(7);
+        
+        return view('dashboard.multimedia.index')->withMultimedia($multimedia);
+    }
 
 
 
@@ -316,6 +321,8 @@ class DashboardController extends Controller
 
 
     
+    
+
     public function getCommittee()
     {
         $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();
