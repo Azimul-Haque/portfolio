@@ -53,14 +53,14 @@ class IndexController extends Controller
 
     public function getMultimedia()
     {
-        $multimedia = Multimedia::orderBy('id', 'DESC')->paginate(6);
+        $multimedia = Multimedia::where('status', 1)->orderBy('id', 'DESC')->paginate(6);
         return view('index.multimedia')->withMultimedia($multimedia);
     }
 
     public function getSingleMultimedia($slug)
     {
-        $multimedia = Multimedia::where('slug', $slug)->first();
-        $similars = Multimedia::orderBy('id', 'DESC')->get()->take(7);
+        $multimedia = Multimedia::where('status', 1)->where('slug', $slug)->first();
+        $similars = Multimedia::where('status', 1)->orderBy('id', 'DESC')->get()->take(7);
 
         return view('index.singlemultimedia')
                     ->withMultimedia($multimedia)

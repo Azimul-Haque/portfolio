@@ -254,7 +254,8 @@ class BlogController extends Controller {
                         ->orderBy('created_at', 'DESC')
                         ->get();
                         //dd($archives);
-        $blogs = Blog::where('status', 1)->whereYear('created_at', '=', date('Y', strtotime($date)))
+        $blogs = Blog::where('status', 1)
+                     ->whereYear('created_at', '=', date('Y', strtotime($date)))
                      ->whereMonth('created_at', '=', date('m', strtotime($date)))
                      ->orderBy('id', 'desc')
                      ->paginate(7);
