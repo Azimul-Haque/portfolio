@@ -79,8 +79,8 @@ class IndexController extends Controller
 
     public function getGallery()
     {
-        $galleries = Gallery::orderBy('id', 'DESC')->paginate(10);
-        
+        $galleries = Gallery::orderBy('id', 'DESC')->paginate(15);
+
         return view('index.gallery')->withGalleries($galleries);
     }
 

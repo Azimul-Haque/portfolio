@@ -297,15 +297,15 @@ class DashboardController extends Controller
 
     public function deleteGallery($id)
     {
-        $book = Book::find($id);
-        $image_path = public_path('images/books/'. $book->image);
+        $gallery = Gallery::find($id);
+        $image_path = public_path('images/gallery/'. $gallery->image);
         if(File::exists($image_path)) {
             File::delete($image_path);
         }
-        $book->delete();
+        $gallery->delete();
 
         Session::flash('success', 'Deleted Successfully!');
-        return redirect()->route('dashboard.books');
+        return redirect()->route('dashboard.gallery');
     }
 
 

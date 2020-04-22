@@ -82,7 +82,8 @@
                         <h4 class="modal-title">Delete Photo</h4>
                       </div>
                       <div class="modal-body">
-                        Confirm Delete the Photo<br/><big><b>{{ $gallery->name }}</b></big>
+                        Confirm Delete the Photo?<br/>
+                        <img src="{{ asset('images/gallery/'.$gallery->image)}}" class="img-responsive">
                       </div>
                       <div class="modal-footer">
                         {!! Form::model($gallery, ['route' => ['dashboard.gallery.delete', $gallery->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
