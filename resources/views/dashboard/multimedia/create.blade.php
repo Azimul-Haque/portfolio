@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Create New Blog')
+@section('title', 'Create New Multimedia')
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
@@ -9,9 +9,9 @@
 
 @section('content_header')
     <h1>
-      Create New Blog
+      Create New Multimedia
       <div class="pull-right">
-        {{-- <a class="btn btn-success" href="{{ route('dashboard.blogs.create') }}" title="Add a New Blog"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Blog</a> --}}
+        {{-- <a class="btn btn-success" href="{{ route('dashboard.blogs.create') }}" title="Add a New Multimedia"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Multimedia</a> --}}
       </div>
     </h1>
 @stop
@@ -22,7 +22,7 @@
       <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">
-            <i class="fa fa-file-text-o"></i> Create New Blog Form
+            <i class="fa fa-file-text-o"></i> Create New Multimedia Form
           </h3>
         </div>
 
@@ -30,24 +30,23 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <label for="title">Title of the Blog *</label>
-              <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Blog" required="">
+              <label for="title">Title of the Multimedia *</label>
+              <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Multimedia" required="">
             </div>
             {{-- <div class="col-md-6">
               <label for="slug">URL Slug *</label>
-              <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Blog" required="">
+              <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug of the Multimedia" required="">
             </div> --}}
           </div>
 
           <br/>
           <div class="row">
             <div class="col-md-6">
-              <label for="category_id">Select Category *</label>
-              <select name="category_id" id="category_id" class="form-control" required="">
+              <label for="type">Select Type *</label>
+              <select name="type" id="type" class="form-control" required="">
                   <option value="" selected="" disabled="">Category</option>
-                  @foreach($categories as $category)
-                  <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="" @endif>{{ $category->name }}</option>
-                  @endforeach
+                  <option value="1" @if(old('type') == 1) selected="" @endif>YouTube</option>
+                  <option value="2" @if(old('type') == 2) selected="" @endif>SoundCloud</option>
               </select>
             </div>
             <div class="col-md-6">
