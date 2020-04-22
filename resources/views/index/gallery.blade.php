@@ -38,56 +38,116 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 grid-gallery overflow-hidden no-padding" >
+                <div class="col-md-12 grid-gallery overflow-hidden no-padding">
                     <ul class="grid masonry-items lightbox-gallery">
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/1.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/1.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/1.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/1.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/2.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/2.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/2.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/2.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/3.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/3.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/3.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/3.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/4.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/4.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/4.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/4.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/5.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/5.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/5.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/5.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/6.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/6.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/6.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/6.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/7.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/7.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/7.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/7.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/8.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/8.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/8.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/8.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/9.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/9.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/9.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/9.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                         <!-- photo item -->
                         <li class="wow">
-                            <a href="{{ asset('images/gallery/10.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/10.jpg') }}" alt=""></a>
+                            <figure>
+                                <div class="gallery-img"><a href="{{ asset('images/gallery/10.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/10.jpg') }}" alt=""></a></div>
+                                <figcaption>
+                                    <h3>Alexander Lewis</h3>
+                                    <p>Fashion Model</p>
+                                </figcaption>
+                            </figure>
                         </li>
                         <!-- end photo item -->
                     </ul>

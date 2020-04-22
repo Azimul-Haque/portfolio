@@ -69,6 +69,9 @@ Route::put('/dashboard/books/{id}/update', ['as'=>'dashboard.books.update','uses
 Route::delete('/dashboard/books/{id}/delete', ['as'=>'dashboard.books.delete','uses'=>'DashboardController@deleteBook']);
 
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
+Route::post('/dashboard/gallery/store', ['as'=>'dashboard.gallery.store','uses'=>'DashboardController@storeGallery']);
+Route::delete('/dashboard/gallery/{id}/delete', ['as'=>'dashboard.gallery.delete','uses'=>'DashboardController@deleteGallery']);
+
 Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getCommittee']);
 Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getCommittee']);

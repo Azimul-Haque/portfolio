@@ -260,8 +260,53 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.books');
     }
 
+    public function getGallery()
+    {
+        $galleries = Gallery::orderBy('id', 'DESC')->paginate(10);
 
+        return view('dashboard.gallery.index')->withGalleries($galleries);
+    }
 
+    public function storeGallery(Request $request)
+    {
+        $this->validate($request,array(
+            'caption'        => 'sometimes|max:255',
+            'image'          => 'required|image|max:500'
+        ));
+
+        //store to DB
+        $gallery = new Gallery;
+        $gallery->caption = $request->caption;
+        
+        // image upload
+        if($request->hasFile('image'))
+        {
+            $image      = $request->file('image');
+            $filename   = 'image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/gallery/'. $filename);
+            Image::make($image)->resize(null, 520, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $gallery->image = $filename;
+        }
+
+        $gallery->save();
+
+        //redirect
+        Session::flash('success', 'Saved Successfully!');
+        return redirect()->route('dashboard.gallery');
+    }
+
+    public function deleteGallery($id)
+    {
+        $book = Book::find($id);
+        $image_path = public_path('images/books/'. $book->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $book->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.books');
+    }
 
 
 
@@ -277,114 +322,8 @@ class DashboardController extends Controller
         return view('dashboard.committee')->withAdhocmembers($adhocmembers);
     }
 
-    public function storeCommittee(Request $request)
-    {
-        $this->validate($request,array(
-            'name'                      => 'required|max:255',
-            'email'                     => 'sometimes|email',
-            'phone'                     => 'sometimes|numeric',
-            'designation'               => 'required|max:255',
-            'fb'                        => 'sometimes|max:255',
-            'twitter'                   => 'sometimes|max:255',
-            'gplus'                     => 'sometimes|max:255',
-            'linkedin'                  => 'sometimes|max:255',
-            'image'                     => 'sometimes|image|max:400'
-        ));
 
-        $adhocmember = new Adhocmember();
-        $adhocmember->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
-        $adhocmember->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
-        $adhocmember->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
-        $adhocmember->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
-        $adhocmember->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
-        $adhocmember->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
-        $adhocmember->gplus = htmlspecialchars(preg_replace("/\s+/", " ", $request->gplus));
-        $adhocmember->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
-
-        // image upload
-        if($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('/images/committee/adhoc/'. $filename);
-            Image::make($image)->resize(400, 400)->save($location);
-            $adhocmember->image = $filename;
-        }
-
-        $adhocmember->save();
-        
-        Session::flash('success', 'Saved Successfully!');
-        return redirect()->route('dashboard.committee');
-    }
-
-    public function updateCommittee(Request $request, $id) {
-        $this->validate($request,array(
-            'name'                      => 'required|max:255',
-            'email'                     => 'sometimes|email',
-            'phone'                     => 'sometimes|numeric',
-            'designation'               => 'required|max:255',
-            'fb'                        => 'sometimes|max:255',
-            'twitter'                   => 'sometimes|max:255',
-            'gplus'                     => 'sometimes|max:255',
-            'linkedin'                  => 'sometimes|max:255',
-            'image'                     => 'sometimes|image|max:400'
-        ));
-
-        $adhocmember = Adhocmember::find($id);
-        $adhocmember->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
-        $adhocmember->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
-        $adhocmember->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
-        $adhocmember->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
-        $adhocmember->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
-        $adhocmember->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
-        $adhocmember->gplus = htmlspecialchars(preg_replace("/\s+/", " ", $request->gplus));
-        $adhocmember->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
-
-        // image upload
-        if($adhocmember->image == null) {
-            if($request->hasFile('image')) {
-                $image      = $request->file('image');
-                $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
-                $location   = public_path('/images/committee/adhoc/'. $filename);
-                Image::make($image)->resize(400, 400)->save($location);
-                $adhocmember->image = $filename;
-            }
-        } else {
-            if($request->hasFile('image')) {
-                $image_path = public_path('images/committee/adhoc/'. $adhocmember->image);
-                if(File::exists($image_path)) {
-                    File::delete($image_path);
-                }
-                $image      = $request->file('image');
-                $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
-                $location   = public_path('/images/committee/adhoc/'. $filename);
-                Image::make($image)->resize(400, 400)->save($location);
-                $adhocmember->image = $filename;
-            }
-        }
-            
-        $adhocmember->save();
-        
-        Session::flash('success', 'Updated Successfully!');
-        return redirect()->route('dashboard.committee');
-    }
-
-    public function deleteCommittee($id)
-    {
-        $adhocmember = Adhocmember::find($id);
-        $image_path = public_path('images/committee/adhoc/'. $adhocmember->image);
-        if(File::exists($image_path)) {
-            File::delete($image_path);
-        }
-        $adhocmember->delete();
-
-        Session::flash('success', 'Deleted Successfully!');
-        return redirect()->route('dashboard.committee');
-    }
-
-    public function getGallery()
-    {
-        return view('dashboard.index');
-    }
+    
 
     
 }
