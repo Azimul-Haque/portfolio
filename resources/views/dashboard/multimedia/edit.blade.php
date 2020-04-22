@@ -47,12 +47,12 @@
           </h3>
         </div>
 
-        {!! Form::open(['route' => 'dashboard.multimedia.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::model($multimedia, ['route' => ['dashboard.multimedia.update', $multimedia->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
               <label for="title">Title of the Multimedia *</label>
-              <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Title of the Multimedia" required="">
+              <input type="text" name="title" id="title" class="form-control" value="{{ $multimedia->title }}" placeholder="Title of the Multimedia" required="">
             </div>
             {{-- <div class="col-md-6">
               <label for="slug">URL Slug *</label>
@@ -64,36 +64,40 @@
           <div class="row">
             <div class="col-md-6">
               <label for="type">Select Type *</label>
-              <select name="type" class="form-control" required="" id="multimedia_type">
+              <select name="type" class="form-control" disabled="">
                   <option value="" selected="" disabled="">Category</option>
-                  <option value="1" @if(old('type') == 1) selected="" @endif>YouTube</option>
-                  <option value="2" @if(old('type') == 2) selected="" @endif>SoundCloud</option>
+                  <option value="1" @if($multimedia->type == 1) selected="" @endif>YouTube</option>
+                  <option value="2" @if($multimedia->type == 2) selected="" @endif>SoundCloud</option>
               </select>
             </div>
             <div class="col-md-6">
               <label for="title">Publish Status *</label><br/>
               <label class="radio-inline">
-                <input type="radio" name="status" value="1" checked>Published
+                <input type="radio" name="status" value="1" @if($multimedia->status == 1) checked="" @endif>Published
               </label>
               <label class="radio-inline">
-                <input type="radio" name="status" value="0">Unpublished
+                <input type="radio" name="status" value="0" @if($multimedia->status == 0) checked="" @endif>Unpublished
               </label>
             </div>
           </div>
 
           <br/>
           <div class="row">
-            <div class="col-md-12" id="body_youtube">
-              <label for="body_youtube_input">YouTube Link *</label>
-              <input type="text" id="body_youtube_input" class="form-control" value="{{ old('post_body') }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
-              <input type="hidden" name="youtube_body_hidden" id="youtube_body_hidden"><br/>
-              <div id="youtube_preview" style="max-width: 400px;"></div>
-            </div>
-
-            <div class="col-md-12" id="body_soundcloud">
-              <label for="body_soundcloud_input">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
-              <textarea type="text" id="body_soundcloud_input" class="summernote">{{ old('post_body') }}</textarea>
-            </div>
+            @if($multimedia->type == 1)
+              <div class="col-md-12" id="">
+                <label for="body_youtube_input">YouTube Link *</label>
+                <input type="text" name="post_body" id="body_youtube_input" class="form-control" value="https://youtu.be/{{ $multimedia->body }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()" required="">
+                <input type="hidden" name="youtube_body_hidden" id="youtube_body_hidden" value="{{ $multimedia->body }}"><br/>
+                <div id="youtube_preview" style="max-width: 400px;">
+                  <div class="youtibecontainer"> <iframe src="https://www.youtube.com/embed/{{ $multimedia->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe> </div>
+                </div>
+              </div>
+            @elseif($multimedia->type == 2)
+              <div class="col-md-12" id="">
+                <label for="body_soundcloud_input">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
+                <textarea type="text" name="post_body" id="body_soundcloud_input" class="summernote" required="">{!! $multimedia->body !!}</textarea>
+              </div>
+            @endif
           </div>
         </div>
         <div class="box-footer">
@@ -121,30 +125,6 @@
           });
           $('div.note-group-select-from-files').remove();
       });
-
-      $('#body_youtube').hide();
-      $('#body_soundcloud').hide();
-
-      $('#multimedia_type').change(function() {
-        if($('#multimedia_type').val() == 1)
-        {
-          $('#body_soundcloud').hide();
-          $('#body_soundcloud_input').removeAttr('required');
-          $('#body_soundcloud_input').removeAttr('name');
-
-          $('#body_youtube').show();
-          $('#body_youtube_input').attr('required', true);
-          $('#body_youtube_input').attr('name', 'post_body');
-        } else if($('#multimedia_type').val() == 2) {
-          $('#body_youtube').hide();
-          $('#body_youtube_input').removeAttr('required');
-          $('#body_youtube_input').removeAttr('name');
-
-          $('#body_soundcloud').show();
-          $('#body_soundcloud_input').attr('required', true);
-          $('#body_soundcloud_input').attr('name', 'post_body');
-        }
-      })
   </script>
 
   <script type="text/javascript">

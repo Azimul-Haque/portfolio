@@ -117,6 +117,7 @@ class DashboardController extends Controller
         //store to DB
         if($blog->title != $request->title) {
             $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+            Session::flash('info', 'Please note that, URL has changed!');
         }
         $blog->title = $request->title;
         $blog->category_id = $request->category_id;
@@ -359,29 +360,33 @@ class DashboardController extends Controller
 
     public function updateMultimedia(Request $request, $id)
     {
-        $blog = Blog::find($id);
+        $single = Multimedia::find($id);
 
         $this->validate($request,array(
             'title'          => 'required|max:255',
-            'body'           => 'required',
-            'category_id'    => 'required|integer',
+            // 'type'           => 'required',
             'status'         => 'required|integer',
-            'featured_image' => 'sometimes|image|max:400'
+            'post_body'      => 'required'
         ));
 
         //store to DB
-        if($blog->title != $request->title) {
-            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        if($single->title != $request->title) {
+            $single->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+            Session::flash('info', 'Please note that, URL has changed!');
         }
-        $blog->title = $request->title;
-        $blog->category_id = $request->category_id;
-        $blog->status = $request->status;
-        $blog->body = Purifier::clean($request->body, 'youtube');
+        $single->title       = $request->title;
+        // $single->type        = $request->type; // 1 for youtube, 2 for soundcloud
+        $single->status      = $request->status;
+        if($request->type == 1) {
+            $single->body    = $request->youtube_body_hidden;
+        } elseif ($request->type == 2) {
+            $single->body    = Purifier::clean($request->post_body, 'youtube');
+        }
 
-        $blog->save();
+        $single->save();
 
         //redirect
-        Session::flash('success', 'Updated Successfully!');
+        Session::flash('success', 'Saved Successfully!');
         return redirect()->route('dashboard.multimedia');
     }
 
