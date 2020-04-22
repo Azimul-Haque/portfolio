@@ -40,17 +40,17 @@
             </td>
             
             <td>
-              @if($single->featured_image != null && file_exists(public_path('images/blogs/' . $single->featured_image)))
-              <img src="{{ asset('images/blogs/'.$single->featured_image)}}" style="height: 40px; width: auto;" />
-              @else
-              <img src="{{ asset('images/blogs/default.jpg')}}" style="height: 40px; width: auto;" />
+              @if($single->type == 1)
+                <span class="badge" style="background: #FF0000;"><i class="fa fa-youtube-play"></i> YouTube</span>
+              @elseif($single->type == 2)
+                <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
               @endif
             </td>
             <td>{{ date('F d, Y h:i A', strtotime($single->created_at)) }}</td>
             <td>
-              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.blogs.edit', $single->id) }}" title="Edit Blog"><i class="fa fa-pencil"></i></a>
+              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a>
 
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $single->id }}" data-backdrop="static" title="Delete Blog"><i class="fa fa-trash-o"></i></button>
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $single->id }}" data-backdrop="static" title="Delete Multimedia"><i class="fa fa-trash-o"></i></button>
               <!-- Delete Modal -->
               <!-- Delete Modal -->
               <div class="modal fade" id="deleteModal{{ $single->id }}" role="dialog">
@@ -58,13 +58,13 @@
                   <div class="modal-content">
                     <div class="modal-header modal-header-danger">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Delete Blog</h4>
+                      <h4 class="modal-title">Delete Multimedia</h4>
                     </div>
                     <div class="modal-body">
-                      Confirm Delete the Blog<br/><big><b>{{ $single->title }}</b></big>
+                      Confirm Delete the Multimedia<br/><big><b>{{ $single->title }}</b></big>
                     </div>
                     <div class="modal-footer">
-                      {!! Form::model($single, ['route' => ['dashboard.blogs.delete', $single->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                      {!! Form::model($single, ['route' => ['dashboard.multimedia.delete', $single->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                           {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       {!! Form::close() !!}
