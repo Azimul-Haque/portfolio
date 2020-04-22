@@ -6,27 +6,25 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
   <style type="text/css">
-    style type="text/css">
-          .youtibecontainer {
-              position: relative;
-              width: 100%;
-              height: 0;
-              padding-bottom: 56.25%;
-          }
-          .youtubeiframe {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-          }
-          .separator-line {
-              height: 2px;
-              margin: 0 auto;
-              width: 30px;
-              margin: 3% auto;
-          }
-        </style>
+    .youtibecontainer {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+    }
+    .youtubeiframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .separator-line {
+        height: 2px;
+        margin: 0 auto;
+        width: 30px;
+        margin: 3% auto;
+    }
   </style>
 @stop
 
@@ -86,14 +84,14 @@
           <br/>
           <div class="row">
             <div class="col-md-12" id="body_youtube">
-              <label for="body">Body *</label>
+              <label for="body">YouTube Link *</label>
               <input type="text" name="body" id="body_youtube_input" class="form-control" value="{{ old('body') }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
-              <span id="youtube_id_text"></span>
-              <span id="youtube_id_img"></span>
+              <input type="hidden" name="youtube_body_hidden"><br/>
+              <div id="youtube_preview" style="max-width: 400px;"></div>
             </div>
 
             <div class="col-md-12" id="body_soundcloud">
-              <label for="body">Body *</label>
+              <label for="body">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
               <textarea type="text" name="body" id="body_soundcloud_input" class="summernote">{{ old('body') }}</textarea>
             </div>
           </div>
@@ -116,7 +114,10 @@
               placeholder: 'Write Multimedia Post',
               tabsize: 2,
               height: 250,
-              dialogsInBody: true
+              dialogsInBody: true,
+              toolbar: [
+                ['view', ['codeview']],
+              ]
           });
           $('div.note-group-select-from-files').remove();
       });
@@ -147,9 +148,26 @@
         var regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
         var match = $('#body_youtube_input').val().match(regExp);
         var youtube_id = (match&&match[1].length==11)? match[1] : false;
-        $('#youtube_id_text').text(youtube_id);
-        var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_id+'/0.jpg">');
-        $('#youtube_id_img').append(video_thumbnail);
+
+        if(youtube_id == false)
+        {
+          if($(window).width() > 768) {
+            toastr.warning('Not a valid YouTube URL! Try Again.', 'WARNING').css('width', '400px');
+          } else {
+            toastr.warning('Not a valid YouTube URL! Try Again.', 'WARNING').css('width', ($(window).width()-25)+'px');
+          }
+
+          $('#body_youtube_input').val(null);
+          $('#youtube_body_hidden').val(null);
+          $('#youtube_preview').empty();
+        } else {
+          $('#youtube_body_hidden').val(youtube_id);
+
+          var video_thumbnail = $('<div class="youtibecontainer"> <iframe src="https://www.youtube.com/embed/'+ youtube_id +'" frameborder="0" class="youtubeiframe" allowfullscreen></iframe> </div>');
+          $('#youtube_preview').empty();
+          $('#youtube_preview').append(video_thumbnail);
+        }
+        
     }
   </script>
 @stop

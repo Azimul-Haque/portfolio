@@ -21,6 +21,7 @@
         <thead>
           <tr>
             <th>Title</th>
+            <th>Type</th>
             <th>Embedded</th>
             <th>Date Published</th>
             <th>Action</th>
@@ -31,12 +32,18 @@
           <tr>
             <td>
               <a href="{{ route('index.multimedia.single', $single->slug) }}" target="_blank">{{ $single->title }}</a><br/>
+              @if($single->status == 1)
+                <span class="badge" style="background: #D73925;"><i class="fa fa-check"></i> Published</span>
+              @else
+                <span class="badge"><i class="fa fa-bell-slash-o"></i> Unpublished</span>
+              @endif
+            </td>
+            <td>
               @if($single->type == 1)
                 <span class="badge" style="background: #FF0000;"><i class="fa fa-youtube-play"></i> YouTube</span>
               @elseif($single->type == 2)
                 <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
               @endif
-              
             </td>
             
             <td>
@@ -46,6 +53,7 @@
                 <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
               @endif
             </td>
+            
             <td>{{ date('F d, Y h:i A', strtotime($single->created_at)) }}</td>
             <td>
               <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a>
