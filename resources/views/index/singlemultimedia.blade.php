@@ -80,7 +80,13 @@
                     <h2 class="blog-details-headline text-black">{{ $multimedia->title }}</h2>
                     <!-- end post title  -->
                     <!-- post date and categories  -->
-                    <div class="blog-date no-padding-top margin-two-bottom">Posted by <a href="{{ route('index.bio') }}"><b>{{ $multimedia->user->name }}</b></a> | {{ date('F d, Y', strtotime($multimedia->created_at)) }}</div>
+                    <div class="blog-date no-padding-top margin-two-bottom">Posted by <a href="{{ route('index.bio') }}"><b>{{ $multimedia->user->name }}</b></a> | {{ date('F d, Y', strtotime($multimedia->created_at)) }}  | 
+                      @if($multimedia->type == 1)
+                        <span class="badge" style="background: #FF0000;"><i class="fa fa-youtube-play" style="color: #FFFFFF;"></i> YouTube</span>
+                      @elseif($multimedia->type == 2)
+                        <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud" style="color: #FFFFFF;"></i> SoundCloud</span>
+                      @endif
+                    </div>
                     <!-- end date and categories   -->
                     
 

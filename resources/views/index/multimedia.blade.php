@@ -78,11 +78,12 @@
                 {!! $blog->body !!}
               </div>
               <div class="blog-details">
-                  <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | @if($blog->type == 1)
-                <span class="badge" ><i class="fa fa-youtube-play"></i> YouTube</span>
-              @elseif($blog->type == 2)
-                <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud"></i> SoundCloud</span>
-              @endif
+                  <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | 
+                    @if($blog->type == 1)
+                      <span class="badge" style="background: #FF0000;"><i class="fa fa-youtube-play" style="color: #FFFFFF;"></i> YouTube</span>
+                    @elseif($blog->type == 2)
+                      <span class="badge" style="background: #B62284;"><i class="fa fa-soundcloud" style="color: #FFFFFF;"></i> SoundCloud</span>
+                    @endif
                   </div>
                   <div class="blog-title">
                     <a href="{{ route('index.multimedia.single', $blog->slug) }}">
