@@ -262,7 +262,7 @@ class DashboardController extends Controller
 
     public function getGallery()
     {
-        $galleries = Gallery::orderBy('id', 'DESC')->paginate(10);
+        $galleries = Gallery::orderBy('id', 'DESC')->paginate(7);
 
         return view('dashboard.gallery.index')->withGalleries($galleries);
     }
@@ -277,14 +277,14 @@ class DashboardController extends Controller
         //store to DB
         $gallery = new Gallery;
         $gallery->caption = $request->caption;
-        
+
         // image upload
         if($request->hasFile('image'))
         {
             $image      = $request->file('image');
             $filename   = 'image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('images/gallery/'. $filename);
-            Image::make($image)->resize(null, 520, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(null, 520, function ($constraint) { $constraint->aspectRatio(); })->save($location, 80);
             $gallery->image = $filename;
         }
 
