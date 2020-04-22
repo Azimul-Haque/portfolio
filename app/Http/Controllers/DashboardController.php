@@ -322,23 +322,28 @@ class DashboardController extends Controller
 
     public function storeMultimedia(Request $request)
     {
+        dd($request->all());
         $this->validate($request,array(
             'title'          => 'required|max:255',
             'type'           => 'required',
             'status'         => 'required|integer',
-            'body'           => 'required'
+            'post_body'      => 'required'
         ));
 
         //store to DB
-        $multimedia              = new Multimedia;
-        $multimedia->title       = $request->title;
-        $multimedia->user_id     = Auth::user()->id;
-        $multimedia->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
-        $multimedia->type        = $request->type;
-        $multimedia->status      = $request->status;
-        $multimedia->body        = Purifier::clean($request->body);
+        $single              = new Multimedia;
+        $single->title       = $request->title;
+        $single->user_id     = Auth::user()->id;
+        $single->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        $single->type        = $request->type; // 1 for youtube, 2 for soundcloud
+        $single->status      = $request->status;
+        if($request->type == 1) {
+            $single->post_body    = $request->youtube_body_hidden;
+        } elseif ($request->type == 2) {
+            $single->post_body    = Purifier::clean($request->post_body, 'youtube');
+        }
 
-        $multimedia->save();
+        $single->save();
 
         //redirect
         Session::flash('success', 'Saved Successfully!');

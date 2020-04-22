@@ -84,15 +84,16 @@
           <br/>
           <div class="row">
             <div class="col-md-12" id="body_youtube">
-              <label for="body">YouTube Link *</label>
-              <input type="text" name="body" id="body_youtube_input" class="form-control" value="{{ old('body') }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
+              <label for="body_youtube_input">YouTube Link *</label>
+              <input type="text" name="post_body" id="body_youtube_input" class="form-control" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
+              <input type="text" name="post_test" id="" class="form-control" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
               <input type="hidden" name="youtube_body_hidden"><br/>
               <div id="youtube_preview" style="max-width: 400px;"></div>
             </div>
 
             <div class="col-md-12" id="body_soundcloud">
-              <label for="body">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
-              <textarea type="text" name="body" id="body_soundcloud_input" class="summernote">{{ old('body') }}</textarea>
+              <label for="body_soundcloud_input">SoundCloud Code<br/><small>(Click the &lt;/&gt; button and paste the code)</small> *</label>
+              <textarea type="text" name="post_body" id="body_soundcloud_input" class="summernote">{{ old('post_body') }}</textarea>
             </div>
           </div>
         </div>
@@ -149,6 +150,8 @@
         var match = $('#body_youtube_input').val().match(regExp);
         var youtube_id = (match&&match[1].length==11)? match[1] : false;
 
+        console.log($('#body_youtube_input').val());
+
         if(youtube_id == false)
         {
           if($(window).width() > 768) {
@@ -156,7 +159,6 @@
           } else {
             toastr.warning('Not a valid YouTube URL! Try Again.', 'WARNING').css('width', ($(window).width()-25)+'px');
           }
-
           $('#body_youtube_input').val(null);
           $('#youtube_body_hidden').val(null);
           $('#youtube_preview').empty();
