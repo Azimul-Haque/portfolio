@@ -5,13 +5,36 @@
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
+  <style type="text/css">
+    style type="text/css">
+          .youtibecontainer {
+              position: relative;
+              width: 100%;
+              height: 0;
+              padding-bottom: 56.25%;
+          }
+          .youtubeiframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+          }
+          .separator-line {
+              height: 2px;
+              margin: 0 auto;
+              width: 30px;
+              margin: 3% auto;
+          }
+        </style>
+  </style>
 @stop
 
 @section('content_header')
     <h1>
       Create New Multimedia
       <div class="pull-right">
-        {{-- <a class="btn btn-success" href="{{ route('dashboard.blogs.create') }}" title="Add a New Multimedia"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Multimedia</a> --}}
+        {{-- <a class="btn btn-success" href="{{ route('dashboard.multimedia.create') }}" title="Add a New Multimedia"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Write New Multimedia</a> --}}
       </div>
     </h1>
 @stop
@@ -26,7 +49,7 @@
           </h3>
         </div>
 
-        {!! Form::open(['route' => 'dashboard.blogs.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::open(['route' => 'dashboard.multimedia.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
@@ -43,7 +66,7 @@
           <div class="row">
             <div class="col-md-6">
               <label for="type">Select Type *</label>
-              <select name="type" id="type" class="form-control" required="">
+              <select name="type" class="form-control" required="" id="multimedia_type">
                   <option value="" selected="" disabled="">Category</option>
                   <option value="1" @if(old('type') == 1) selected="" @endif>YouTube</option>
                   <option value="2" @if(old('type') == 2) selected="" @endif>SoundCloud</option>
@@ -62,24 +85,21 @@
 
           <br/>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="body_youtube">
               <label for="body">Body *</label>
-              <textarea type="text" name="body" id="body" class="summernote" required="">{{ old('body') }}</textarea>
+              <input type="text" name="body" id="body_youtube_input" class="form-control" value="{{ old('body') }}" placeholder="YouTube video link (URL)" onchange="youtube_parser()">
+              <span id="youtube_id_text"></span>
+              <span id="youtube_id_img"></span>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <label>Featured Image (600 X 315 &amp; 400Kb Max): (Optional)</label>
-              <input type="file" id="image" name="featured_image" class="form-control">
-            </div>
-            <div class="col-md-6">
-              <img src="{{ asset('images/600x315.png') }}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+            <div class="col-md-12" id="body_soundcloud">
+              <label for="body">Body *</label>
+              <textarea type="text" name="body" id="body_soundcloud_input" class="summernote">{{ old('body') }}</textarea>
             </div>
           </div>
         </div>
         <div class="box-footer">
-          <button class="btn btn-success" type="submit">Submit Blog</button>
+          <button class="btn btn-success" type="submit">Submit Multimedia</button>
         </div>
         {!! Form::close() !!}
       </div>
@@ -93,53 +113,43 @@
   <script>
       $(document).ready(function(){
           $('.summernote').summernote({
-              placeholder: 'Write Blog Post',
+              placeholder: 'Write Multimedia Post',
               tabsize: 2,
               height: 250,
               dialogsInBody: true
           });
           $('div.note-group-select-from-files').remove();
       });
+
+      $('#body_youtube').hide();
+      $('#body_soundcloud').hide();
+
+      $('#multimedia_type').change(function() {
+        if($('#multimedia_type').val() == 1)
+        {
+          $('#body_soundcloud').hide();
+          $('#body_soundcloud_input').removeAttr('required', true);
+
+          $('#body_youtube').show();
+          $('#body_youtube_input').attr('required', true);
+        } else if($('#multimedia_type').val() == 2) {
+          $('#body_youtube').hide();
+          $('#body_youtube_input').removeAttr('required');
+
+          $('#body_soundcloud').show();
+          $('#body_soundcloud_input').attr('required', true);
+        }
+      })
   </script>
 
   <script type="text/javascript">
-    $(document).ready( function() {
-      $(document).on('change', '.btn-file :file', function() {
-        var input = $(this),
-            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [label]);
-      });
-
-      $('.btn-file :file').on('fileselect', function(event, label) {
-          var input = $(this).parents('.input-group').find(':text'),
-              log = label;
-          if( input.length ) {
-              input.val(log);
-          } else {
-              if( log ) alert(log);
-          }
-      });
-      function readURL(input) {
-          if (input.files && input.files[0]) {
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                  $('#img-upload').attr('src', e.target.result);
-              }
-              reader.readAsDataURL(input.files[0]);
-          }
-      }
-      $("#image").change(function(){
-          readURL(this);
-          var filesize = parseInt((this.files[0].size)/1024);
-          if(filesize > 400) {
-            $("#image").val('');
-            toastr.warning('File size is: '+filesize+' Kb. try uploading less than 400Kb', 'WARNING').css('width', '400px;');
-              setTimeout(function() {
-                $("#img-upload").attr('src', '{{ asset('images/600x315.png') }}');
-              }, 1000);
-          }
-      });
-
-    });
+    function youtube_parser(){
+        var regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
+        var match = $('#body_youtube_input').val().match(regExp);
+        var youtube_id = (match&&match[1].length==11)? match[1] : false;
+        $('#youtube_id_text').text(youtube_id);
+        var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_id+'/0.jpg">');
+        $('#youtube_id_img').append(video_thumbnail);
+    }
   </script>
 @stop
