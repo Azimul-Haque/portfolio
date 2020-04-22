@@ -78,7 +78,7 @@
 
             <td>{{ date('F d, Y h:i A', strtotime($single->created_at)) }}</td>
             <td>
-              <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a>
+              {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.multimedia.edit', $single->id) }}" title="Edit Multimedia"><i class="fa fa-pencil"></i></a> --}}
 
               <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $single->id }}" data-backdrop="static" title="Delete Multimedia"><i class="fa fa-trash-o"></i></button>
               <!-- Delete Modal -->

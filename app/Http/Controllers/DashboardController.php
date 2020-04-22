@@ -349,69 +349,65 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.multimedia');
     }
 
-    public function editMultimedia($id)
-    {
-        $blog = Blog::find($id);
-        $categories = Category::all();
+    // public function editMultimedia($id)
+    // {
+    //     $blog = Blog::find($id);
+    //     $categories = Category::all();
 
-        return view('dashboard.blogs.edit')
-                        ->withMultimedia($blog)
-                        ->withCategories($categories);
-    }
+    //     return view('dashboard.blogs.edit')
+    //                     ->withMultimedia($blog)
+    //                     ->withCategories($categories);
+    // }
 
-    public function updateMultimedia(Request $request, $id)
-    {
-        $blog = Blog::find($id);
+    // public function updateMultimedia(Request $request, $id)
+    // {
+    //     $blog = Blog::find($id);
 
-        $this->validate($request,array(
-            'title'          => 'required|max:255',
-            'body'           => 'required',
-            'category_id'    => 'required|integer',
-            'status'         => 'required|integer',
-            'featured_image' => 'sometimes|image|max:400'
-        ));
+    //     $this->validate($request,array(
+    //         'title'          => 'required|max:255',
+    //         'body'           => 'required',
+    //         'category_id'    => 'required|integer',
+    //         'status'         => 'required|integer',
+    //         'featured_image' => 'sometimes|image|max:400'
+    //     ));
 
-        //store to DB
-        if($blog->title != $request->title) {
-            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
-        }
-        $blog->title = $request->title;
-        $blog->category_id = $request->category_id;
-        $blog->status = $request->status;
-        $blog->body = Purifier::clean($request->body, 'youtube');
+    //     //store to DB
+    //     if($blog->title != $request->title) {
+    //         $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+    //     }
+    //     $blog->title = $request->title;
+    //     $blog->category_id = $request->category_id;
+    //     $blog->status = $request->status;
+    //     $blog->body = Purifier::clean($request->body, 'youtube');
         
-        // image upload
-        if($request->hasFile('featured_image'))
-        {
-            $image_path = public_path('images/blogs/'. $blog->featured_image);
-            if(File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $image      = $request->file('featured_image');
-            $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->fit(600, 315)->save($location);
-            $blog->featured_image = $filename;
-        }
+    //     // image upload
+    //     if($request->hasFile('featured_image'))
+    //     {
+    //         $image_path = public_path('images/blogs/'. $blog->featured_image);
+    //         if(File::exists($image_path)) {
+    //             File::delete($image_path);
+    //         }
+    //         $image      = $request->file('featured_image');
+    //         $filename   = 'featured_image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+    //         $location   = public_path('images/blogs/'. $filename);
+    //         Image::make($image)->fit(600, 315)->save($location);
+    //         $blog->featured_image = $filename;
+    //     }
 
-        $blog->save();
+    //     $blog->save();
 
-        //redirect
-        Session::flash('success', 'Updated Successfully!');
-        return redirect()->route('dashboard.blogs');
-    }
+    //     //redirect
+    //     Session::flash('success', 'Updated Successfully!');
+    //     return redirect()->route('dashboard.blogs');
+    // }
 
     public function deleteMultimedia($id)
     {
-        $blog = Blog::find($id);
-        $image_path = public_path('images/blogs/'. $blog->featured_image);
-        if(File::exists($image_path)) {
-            File::delete($image_path);
-        }
-        $blog->delete();
+        $multimedia = Multimedia::find($id);
+        $multimedia->delete();
 
         Session::flash('success', 'Deleted Successfully!');
-        return redirect()->route('dashboard.blogs');
+        return redirect()->route('dashboard.multimedia');
     }
 
 
