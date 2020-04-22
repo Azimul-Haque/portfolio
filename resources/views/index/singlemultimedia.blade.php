@@ -203,32 +203,32 @@
 @section('js')
     @if(Auth::check())
     <script type="text/javascript">
-        $(document).ready(function(){
-            checkLiked();
-        });
+        // $(document).ready(function(){
+        //     checkLiked();
+        // });
 
         // like or dislike
-        function likeBlog(user_id, blog_id) {
-          //console.log(user_id +','+ blog_id);
-          $.get(window.location.protocol + "//" + window.location.host + "/like/" + user_id + "/" + blog_id, function(data, status){
-              //console.log("Data: " + data + "\nStatus: " + status);
-              checkLiked();
-          });
-        }
-        function checkLiked() {
-          $.get(window.location.protocol + "//" + window.location.host + "/check/like/" + {{ Auth::user()->id }} + "/" + {{ $multimedia->id }}, function(data, status){
-              //console.log(data);
-              if(data.status == 'liked') {
-                $('#like_span').text(data.likes +' Liked');
-                $('#like_icon').css('color', 'red');
-                $('#like_icon').attr('class', 'fa fa-heart');
-              } else {
-                $('#like_span').text(data.likes +' Like');
-                $('#like_icon').css('color', '');
-                $('#like_icon').attr('class', 'fa fa-heart-o');
-              }
-          });
-        }
+        // function likeBlog(user_id, blog_id) {
+        //   //console.log(user_id +','+ blog_id);
+        //   $.get(window.location.protocol + "//" + window.location.host + "/like/" + user_id + "/" + blog_id, function(data, status){
+        //       //console.log("Data: " + data + "\nStatus: " + status);
+        //       checkLiked();
+        //   });
+        // }
+        // function checkLiked() {
+        //   $.get(window.location.protocol + "//" + window.location.host + "/check/like/" + {{ Auth::user()->id }} + "/" + {{ $multimedia->id }}, function(data, status){
+        //       //console.log(data);
+        //       if(data.status == 'liked') {
+        //         $('#like_span').text(data.likes +' Liked');
+        //         $('#like_icon').css('color', 'red');
+        //         $('#like_icon').attr('class', 'fa fa-heart');
+        //       } else {
+        //         $('#like_span').text(data.likes +' Like');
+        //         $('#like_icon').css('color', '');
+        //         $('#like_icon').attr('class', 'fa fa-heart-o');
+        //       }
+        //   });
+        // }
     </script>
     @endif
 @endsection

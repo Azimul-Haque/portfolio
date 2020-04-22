@@ -24,7 +24,14 @@
                 </a>
                 <div class="widget-posts-details">
                     <a href="{{ route('index.multimedia.single', $similar->slug) }}" class="overflowellipsis">{{ $similar->title }}</a>
-                    <span class="overflowellipsis">{{ $similar->user->name }} - {{ date('F d', strtotime($similar->created_at)) }}</span>
+                    <span class="overflowellipsis">
+                        @if($similar->type == 1)
+                          <i class="fa fa-youtube-play" style="color: #FF0000;"></i> YouTube
+                        @elseif($similar->type == 2)
+                          <i class="fa fa-soundcloud" style="color: #B62284;"></i> SoundCloud
+                        @endif
+                        - {{ date('F d', strtotime($similar->created_at)) }}
+                    </span>
                 </div>
             </li>
             @endforeach
