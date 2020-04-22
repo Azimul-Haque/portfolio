@@ -236,7 +236,7 @@ class BlogController extends Controller {
                         ->orderBy('created_at', 'DESC')
                         ->get();
         $category = Category::where('name', $name)->first();
-        $blogs = Blog::where('category_id', $category->id)->orderBy('id', 'desc')->paginate(7);
+        $blogs = Blog::where('status', 1)->where('category_id', $category->id)->orderBy('id', 'desc')->paginate(7);
         return view('blogs.categorywise')
                   ->withName($name)
                   ->withBlogs($blogs)
@@ -254,7 +254,7 @@ class BlogController extends Controller {
                         ->orderBy('created_at', 'DESC')
                         ->get();
                         //dd($archives);
-        $blogs = Blog::whereYear('created_at', '=', date('Y', strtotime($date)))
+        $blogs = Blog::where('status', 1)->whereYear('created_at', '=', date('Y', strtotime($date)))
                      ->whereMonth('created_at', '=', date('m', strtotime($date)))
                      ->orderBy('id', 'desc')
                      ->paginate(7);
