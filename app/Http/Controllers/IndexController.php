@@ -8,8 +8,9 @@ use App\Http\Requests;
 use App\User;
 use App\Blog;
 use App\Category;
-use App\Multimedia;
 use App\Book;
+use App\Gallery;
+use App\Multimedia;
 use App\Faq;
 use App\Formmessage;
 
@@ -78,7 +79,8 @@ class IndexController extends Controller
 
     public function getGallery()
     {
-        return view('index.gallery');
+        $galleries = Gallery::orderBy('id', 'DESC')->get(10);
+        return view('index.gallery')->withGalleries($galleries);
     }
 
     public function getContact()

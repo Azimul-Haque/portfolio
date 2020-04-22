@@ -64,7 +64,7 @@
                 @if($gallery->image != null && file_exists(public_path('images/gallery/' . $gallery->image)))
                 <img src="{{ asset('images/gallery/'.$gallery->image)}}" style="height: 60px; width: auto;" />
                 @else
-                <img src="{{ asset('images/gallery/blank_image.jpg')}}" style="height: 60px; width: auto;" />
+                <img src="{{ asset('images/blank_image.jpg')}}" style="height: 60px; width: auto;" />
                 @endif
               </td>
               <td>{{ $gallery->caption }}</td>

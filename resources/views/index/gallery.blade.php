@@ -40,116 +40,30 @@
             <div class="row">
                 <div class="col-md-12 grid-gallery overflow-hidden no-padding">
                     <ul class="grid masonry-items lightbox-gallery">
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/1.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/1.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/2.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/2.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/3.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/3.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/4.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/4.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/5.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/5.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/6.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/6.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/7.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/7.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/8.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/8.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/9.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/9.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
-                        <!-- photo item -->
-                        <li class="wow">
-                            <figure>
-                                <div class="gallery-img"><a href="{{ asset('images/gallery/10.jpg') }}" title="Lightbox gallery image title..."><img src="{{ asset('images/gallery/10.jpg') }}" alt=""></a></div>
-                                <figcaption>
-                                    <h3>Alexander Lewis</h3>
-                                    <p>Fashion Model</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <!-- end photo item -->
+                        @foreach($galleries as $gallery)
+                            <!-- photo item -->
+                            <li class="wow">
+                                <figure>
+                                    <div class="gallery-img">
+                                        @if($gallery->image != null && file_exists(public_path('images/gallery/' . $gallery->image)))
+                                            <a href="{{ asset('images/gallery/' . . $gallery->image) }}" title="{{ $gallery->caption }}">
+                                                <img src="{{ asset('images/gallery/' . . $gallery->image) }}" alt="">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset('images/blank_image') }}" title="This image is not avalable!">
+                                                <img src="{{ asset('images/blank_image') }}" alt="">
+                                            </a>
+                                        @endif
+                                        
+                                    </div>
+                                    <figcaption>
+                                        <h3>{{ $gallery->caption }}</h3>
+                                        <p>{{ date('F d, Y', strtotime($gallery->caption)) }}</p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end photo item -->
+                        @endforeach
                     </ul>
                 </div>
 
