@@ -69,7 +69,9 @@
             <td>
               @if($single->type == 1)
                 <div style="max-width: 120px;">
-                  <div class="youtibecontainer"> <iframe src="https://www.youtube.com/embed/{{ $single->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe> </div>
+                  <div class="youtibecontainer">
+                    <iframe src="https://www.youtube.com/embed/{{ $single->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe>
+                  </div>
                 </div>
               @elseif($single->type == 2)
                 <h3>

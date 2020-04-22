@@ -94,9 +94,15 @@
                     <!-- post details text -->
                     <div class="blog-details-text">
                         <div class="" style="overflow-wrap: break-word; ">
-                            {!! $multimedia->body !!}
+                            @if($multimedia->type == 1)
+                              <div class="youtibecontainer">
+                                <iframe src="https://www.youtube.com/embed/{{ $multimedia->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe>
+                              </div>
+                            @elseif($multimedia->type == 2)
+                              {!! $multimedia->body !!}
+                            @endif
                             {{-- solved the strong, em and p problem --}}
-                            @if(substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "<strong>") == substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "</strong>"))
+                            {{-- @if(substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "<strong>") == substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "</strong>"))
                             @else
                               </strong>
                             @endif
@@ -117,7 +123,7 @@
                             @if(substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "<p>") == substr_count(substr($multimedia->body, 0, stripos($multimedia->body, " ", stripos(strip_tags($multimedia->body), " ")+0)), "</p>"))
                             @else
                               </p>
-                            @endif
+                            @endif --}}
                             {{-- solved the strong, em and p problem --}}
                         </div>
 

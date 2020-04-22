@@ -75,7 +75,13 @@
           @endif
           >
               <div class="blog-image">
-                {!! $blog->body !!}
+                @if($blog->type == 1)
+                  <div class="youtibecontainer">
+                    <iframe src="https://www.youtube.com/embed/{{ $blog->body }}" frameborder="0" class="youtubeiframe" allowfullscreen></iframe>
+                  </div>
+                @elseif($blog->type == 2)
+                  {!! $blog->body !!}
+                @endif
               </div>
               <div class="blog-details">
                   <div class="blog-date">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | 
