@@ -17,8 +17,8 @@
 	<center>
 	  <div style="border-top: 4px solid #00B2B2; padding: 10px; margin: 20px; max-width: 600px; background: #FFF; ">
 	    <center>
-	      <img src="{{ asset('images/logo.png') }}" width="100px; height: auto;">
-	      {{-- <p style="font-size: 30px; color: #1B237D;"><b>Loyal</b>অভিযাত্রী</p> --}}
+	      <img src="{{ asset('images/logo.png') }}" style="height:50px; width: auto;">
+	      {{-- <p style="font-size: 30px; color: #1B237D;"><b>Atique</b>Riyad</p> --}}
 	      <p style="font-size: 25px"><b>Contact Message</b></p>
 
 	      <table class="bordertable" border="1" style="width: 100%;">
@@ -45,7 +45,7 @@
 	        This email is sent from Website Contact Form.
 	      </p>
 	      <p style="font-size: 12px; color: #ACACAC;">
-	        &copy; @php echo date('Y'); @endphp <a href="http://loyalovijatri.com/">Atique Riyad</a>, Dhaka, Bangladesh
+	        &copy; @php echo date('Y'); @endphp <a href="http://atiqueriyad.com/">Atique Riyad</a>, Dhaka, Bangladesh
 	      </p>
 	    </center>
 	  </div>
