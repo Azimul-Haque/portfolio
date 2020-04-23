@@ -127,11 +127,8 @@ class IndexController extends Controller
                 $message->subject($data['subject']);
               });
               // EMAIL
-              Session::flash('success', 'We received your message, thank you!');
-              return redirect()->route('index.contact');
             } catch(\Exception $e) {
-              Session::flash('warning', 'We cannot process your message right now, sorry!');
-              return redirect()->route('index.contact');
+              
             }
 
             
