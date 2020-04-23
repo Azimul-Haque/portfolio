@@ -69,7 +69,7 @@
               </td>
               <td>{{ $gallery->caption }}</td>
               <td>
-                {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.Photos.edit', $gallery->id) }}" title="Edit Photo"><i class="fa fa-pencil"></i></a> --}}
+                {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.gallery.edit', $gallery->id) }}" title="Edit Photo"><i class="fa fa-pencil"></i></a> --}}
 
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $gallery->id }}" data-backdrop="static" title="Delete Photo"><i class="fa fa-trash-o"></i></button>
                 <!-- Delete Modal -->

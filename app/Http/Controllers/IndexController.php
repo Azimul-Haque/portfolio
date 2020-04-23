@@ -74,7 +74,8 @@ class IndexController extends Controller
 
     public function getFaq()
     {
-        return view('index.faq');
+        $faqs = Faq::all();
+        return view('index.faq')->withFaqs($faqs);
     }
 
     public function getGallery()

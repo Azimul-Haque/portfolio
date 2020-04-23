@@ -406,10 +406,50 @@ class DashboardController extends Controller
         return view('dashboard.faqs.index')->withFaqs($faqs);
     }
 
+    public function storeFaq(Request $request)
+    {
+        $this->validate($request,array(
+            'question'       => 'required|max:255',
+            'answer'         => 'required'
+        ));
 
+        //store to DB
+        $faq              = new Faq;
+        $faq->question       = $request->question;
+        $faq->answer       = $request->answer;
+        $faq->save();
 
+        //redirect
+        Session::flash('success', 'Saved Successfully!');
+        return redirect()->route('dashboard.faq');
+    }
 
-    
+    public function updateFaq(Request $request, $id)
+    {
+        $faq = Faq::find($id);
+
+        $this->validate($request,array(
+            'question'       => 'required|max:255',
+            'answer'         => 'required'
+        ));
+
+        $faq->question       = $request->question;
+        $faq->answer       = $request->answer;
+        $faq->save();
+
+        //redirect
+        Session::flash('success', 'Saved Successfully!');
+        return redirect()->route('dashboard.faq');
+    }
+
+    public function deleteFaq($id)
+    {
+        $faq = Faq::find($id);
+        $faq->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.faq');
+    }
     
 
     

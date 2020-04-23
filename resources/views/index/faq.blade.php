@@ -36,66 +36,27 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 no-padding">
                     <div class="panel-group toggles-style3 no-border">
+                        @foreach($faqs as $faq)
                         <!-- faq item -->
-                        <div class="panel panel-default" id="collapse-one">
+                        <div class="panel panel-default" id="collapse-{{ $faq->id }}">
                             <div role="tablist" id="headingOne" class="panel-heading">
-                                <a data-toggle="collapse" data-parent="#collapse-one" href="#collapse-one-link1">
-                                    <h4 class="panel-title">Lorem Ipsum is simply text printing?
+                                <a data-toggle="collapse" data-parent="#collapse-{{ $faq->id }}" href="#collapse-{{ $faq->id }}-link">
+                                    <h4 class="panel-title">
+                                        {{ $faq->question }}
                                         <span class="pull-right">
                                             <i class="fa fa-plus"></i>
                                         </span>
                                     </h4>
                                 </a>
                             </div>
-                            <div id="collapse-one-link1" class="panel-collapse collapse">
+                            <div id="collapse-{{ $faq->id }}-link" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                    it to make a type specimen book.
+                                    {{ $faq->answer }}
                                 </div>
                             </div>
                         </div>
                         <!-- end faq item -->
-                        <!-- faq item -->
-                        <div class="panel panel-default">
-                            <div role="tablist" id="headingTwo" class="panel-heading">
-                                <a data-toggle="collapse" data-parent="#collapse-one" href="#collapse-one-link2">
-                                    <h4 class="panel-title">Lorem Ipsum is simply dummy?
-                                        <span class="pull-right">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </h4>
-                                </a>
-                            </div>
-                            <div id="collapse-one-link2" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                    it to make a type specimen book.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end faq item -->
-                        <!-- faq item -->
-                        <div class="panel panel-default">
-                            <div role="tablist" id="headingThree" class="panel-heading">
-                                <a data-toggle="collapse" data-parent="#collapse-one" href="#collapse-one-link3">
-                                    <h4 class="panel-title">Lorem Ipsum is simply dummy text?
-                                        <span class="pull-right">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                    </h4>
-                                </a>
-                            </div>
-                            <div id="collapse-one-link3" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                    it to make a type specimen book.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end faq item -->
+                        @endforeach
                     </div>
                 </div>
             </div>

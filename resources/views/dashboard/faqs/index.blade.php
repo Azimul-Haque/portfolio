@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col-md-12">
               <label>Answer *</label>
-              <textarea name="answer" class="form-control textarea" placeholder="Write the answer" style="min-height: 150px;"></textarea>
+              <textarea name="answer" class="form-control textarea" placeholder="Write the answer" style="min-height: 150px;">{{ old('answer') }}</textarea>
             </div>
           </div>
         </div>
@@ -47,24 +47,50 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Image</th>
-              <th>Caption</th>
+              <th>Question</th>
+              <th>Answer</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach($faqs as $faq)
             <tr>
+              <td>{{ $faq->question }}</td>
+              <td>{{ $faq->answer }}</td>
               <td>
-                @if($faq->image != null && file_exists(public_path('images/gallery/' . $faq->image)))
-                <img src="{{ asset('images/gallery/'.$faq->image)}}" style="height: 60px; width: auto;" />
-                @else
-                <img src="{{ asset('images/blank_image.jpg')}}" style="height: 60px; width: auto;" />
-                @endif
-              </td>
-              <td>{{ $faq->caption }}</td>
-              <td>
-                {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.faq.edit', $faq->id) }}" title="Edit Faq"><i class="fa fa-pencil"></i></a> --}}
+                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editModal{{ $faq->id }}" data-backdrop="static" title="Edit Faq"><i class="fa fa-pencil"></i></button>
+                <!-- Edit Modal -->
+                <!-- Edit Modal -->
+                <div class="modal fade" id="editModal{{ $faq->id }}" role="dialog">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header modal-header-primary">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Faq</h4>
+                      </div>
+                      {!! Form::model($faq, ['route' => ['dashboard.faq.update', $faq->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+                      <div class="modal-body">
+                        <label for="title">Question *</label>
+                        <input type="text" name="question" id="question" class="form-control" value="{{ $faq->question }}" placeholder="Write the question">
+
+                        <br/>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label>Answer *</label>
+                            <textarea name="answer" class="form-control textarea" placeholder="Write the answer" style="min-height: 150px;">{{ $faq->answer }}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                            {!! Form::submit('Update', array('class' => 'btn btn-primary')) !!}
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                      {!! Form::close() !!}
+                    </div>
+                  </div>
+                </div>
+                <!-- Edit Modal -->
+                <!-- Edit Modal -->
 
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $faq->id }}" data-backdrop="static" title="Delete Faq"><i class="fa fa-trash-o"></i></button>
                 <!-- Delete Modal -->
@@ -78,10 +104,10 @@
                       </div>
                       <div class="modal-body">
                         Confirm Delete the Faq?<br/>
-                        <img src="{{ asset('images/gallery/'.$faq->image)}}" class="img-responsive">
+                        <big><b>{{ $faq->question }}</b></big>
                       </div>
                       <div class="modal-footer">
-                        {!! Form::model($faq, ['route' => ['dashboard.gallery.delete', $faq->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                        {!! Form::model($faq, ['route' => ['dashboard.faq.delete', $faq->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                             {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         {!! Form::close() !!}
