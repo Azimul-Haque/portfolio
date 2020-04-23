@@ -79,7 +79,8 @@ Route::get('/dashboard/multimedia/{id}/edit', ['as'=>'dashboard.multimedia.edit'
 Route::put('/dashboard/multimedia/{id}/update', ['as'=>'dashboard.multimedia.update','uses'=>'DashboardController@updateMultimedia']);
 Route::delete('/dashboard/multimedia/{id}/delete', ['as'=>'dashboard.multimedia.delete','uses'=>'DashboardController@deleteMultimedia']);
 
-Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getCommittee']);
+Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getFaq']);
+
 Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getCommittee']);
 
 

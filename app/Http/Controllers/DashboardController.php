@@ -399,7 +399,11 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.multimedia');
     }
 
-
+    public function getFaq()
+    {
+        $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();
+        return view('dashboard.committee')->withAdhocmembers($adhocmembers);
+    }
 
 
 
@@ -407,6 +411,7 @@ class DashboardController extends Controller
     
     
 
+    
     public function getCommittee()
     {
         $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();
