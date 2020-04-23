@@ -38,7 +38,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $totalblogs = Blog::count();
+        $totalbooks = Book::count();
+
+        return view('dashboard.index')
+                        ->withTotalblogs($totalblogs)
+                        ->withTotalbooks($totalbooks);
     }
 
     public function getBlogs()
