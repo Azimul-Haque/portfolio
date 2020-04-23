@@ -85,6 +85,7 @@ Route::put('/dashboard/faq/{id}/update', ['as'=>'dashboard.faq.update','uses'=>'
 Route::delete('/dashboard/faq/{id}/delete', ['as'=>'dashboard.faq.delete','uses'=>'DashboardController@deleteFaq']);
 
 Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getMessages']);
+Route::delete('/dashboard/messages/{id}/delete', ['as'=>'dashboard.messages.delete','uses'=>'DashboardController@deleteMessage']);
 
 
 // dashboard routes

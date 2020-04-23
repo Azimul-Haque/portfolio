@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-use App\Adhocmember;
 use App\User;
 use App\Blog;
 use App\Category;
@@ -451,16 +450,19 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.faq');
     }
     
-
-    
-    public function getCommittee()
+    public function getMessages()
     {
-        $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();
-        return view('dashboard.committee')->withAdhocmembers($adhocmembers);
+        $messages = Formmessage::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.messages.index')->withMessages($messages);
     }
 
+    public function deleteMessage($id)
+    {
+        $message = Formmessage::find($id);
+        $message->delete();
 
-    
-
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.messages');
+    }
     
 }
