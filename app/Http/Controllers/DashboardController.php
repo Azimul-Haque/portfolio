@@ -82,7 +82,7 @@ class DashboardController extends Controller
         $blog              = new Blog;
         $blog->title       = $request->title;
         $blog->user_id     = Auth::user()->id;
-        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)). '-' .time();
         $blog->category_id = $request->category_id;
         $blog->status = $request->status;
         $blog->body        = Purifier::clean($request->body, 'youtube');
@@ -128,7 +128,7 @@ class DashboardController extends Controller
 
         //store to DB
         if($blog->title != $request->title) {
-            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+            $blog->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)). '-' .time();
             Session::flash('info', 'Please note that, URL has changed!');
         }
         $blog->title = $request->title;
@@ -346,7 +346,7 @@ class DashboardController extends Controller
         $single              = new Multimedia;
         $single->title       = $request->title;
         $single->user_id     = Auth::user()->id;
-        $single->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+        $single->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)). '-' .time();
         $single->type        = $request->type; // 1 for youtube, 2 for soundcloud
         $single->status      = $request->status;
         if($request->type == 1) {
@@ -383,7 +383,7 @@ class DashboardController extends Controller
 
         //store to DB
         if($single->title != $request->title) {
-            $single->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', $request->title). '-' .time();
+            $single->slug = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)). '-' .time();
             Session::flash('info', 'Please note that, URL has changed!');
         }
         $single->title       = $request->title;
