@@ -128,7 +128,7 @@ class IndexController extends Controller
               });
               // EMAIL
             } catch(\Exception $e) {
-              
+              Session::flash('success', 'Problem.');
             }
             
             Session::flash('success', 'Thank you for your message! I will get back to you.');
