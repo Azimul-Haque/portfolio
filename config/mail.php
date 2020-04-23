@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'in-v3.mailjet.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'support@atiqueriyad.com', 'name' => 'Atique Riyad'],
 
     /*
     |--------------------------------------------------------------------------
@@ -108,5 +108,4 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-
 ];
