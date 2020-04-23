@@ -401,8 +401,9 @@ class DashboardController extends Controller
 
     public function getFaq()
     {
-        $adhocmembers = Adhocmember::orderBy('id', 'desc')->get();
-        return view('dashboard.committee')->withAdhocmembers($adhocmembers);
+        $faqs = Faq::orderBy('id', 'desc')->get();
+
+        return view('dashboard.faqs.index')->withFaqs($faqs);
     }
 
 
