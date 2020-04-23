@@ -122,7 +122,7 @@ class IndexController extends Controller
                   'subject' => 'Message from Website Contact Form',
               );
               Mail::send('emails.contact', $data, function($message) use ($data){
-                $message->from($data['from'], 'LOYAL অভিযাত্রী Contact');
+                $message->from($data['from'], 'Atique Riyad Contact');
                 $message->to($data['email']);
                 $message->subject($data['subject']);
               });
