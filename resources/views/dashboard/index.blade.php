@@ -31,8 +31,7 @@
 	            <div class="info-box-content">
 	              <span class="info-box-text">Total Books</span>
 	              <span class="info-box-number">
-	                ৳ 
-	                {{-- {{ $totaldonationamount->total }} --}}
+	                {{ $totalbooks }}
 	              </span>
 	              <span class="info-box-text">
 	              	<a href="{{ route('dashboard.books') }}">See More</a>
@@ -48,8 +47,7 @@
 	            <div class="info-box-content">
 	              <span class="info-box-text">Total Photos</span>
 	              <span class="info-box-number"> 
-	                ৳ 
-	                {{-- {{ $totalcharge->total }} --}}
+	                {{ $totalphotos }}
 	              </span>
 	              <span class="info-box-text">
 	              	<a href="{{ route('dashboard.gallery') }}">See More</a>
@@ -65,8 +63,7 @@
 	            <div class="info-box-content">
 	              <span class="info-box-text">Total Multimedia</span>
 	              <span class="info-box-number"> 
-	                ৳ 
-	                {{-- {{ $totaldonationamount->total - $totalcharge->total }} --}}
+	                {{ $totalmultimedia }}
 	              </span>
 	              <span class="info-box-text">
 	              	<a href="{{ route('dashboard.multimedia') }}">See More</a>
@@ -85,7 +82,7 @@
                 <div class="info-box-content">
                   <span class="info-box-text">Total FAQs</span>
                   <span class="info-box-number">
-                    {{-- {{ $totaldonations }} --}}
+                    {{ $totalfaqs }}
                   </span>
                   <span class="info-box-text">
                   	<a href="{{ route('dashboard.faq') }}">See More</a>
@@ -101,8 +98,7 @@
 	            <div class="info-box-content">
 	              <span class="info-box-text">Total Messages</span>
 	              <span class="info-box-number">
-	                ৳ 
-	                {{-- {{ $totaldonationamount->total }} --}}
+	                {{ $totalformmessages }}
 	              </span>
 	              <span class="info-box-text">
 	              	<a href="{{ route('dashboard.messages') }}">See More</a>

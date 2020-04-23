@@ -40,10 +40,18 @@ class DashboardController extends Controller
     {
         $totalblogs = Blog::count();
         $totalbooks = Book::count();
+        $totalphotos = Gallery::count();
+        $totalmultimedia = Multimedia::count();
+        $totalfaqs = Faq::count();
+        $totalformmessages = Formmessage::count();
 
         return view('dashboard.index')
                         ->withTotalblogs($totalblogs)
-                        ->withTotalbooks($totalbooks);
+                        ->withTotalbooks($totalbooks)
+                        ->withTotalphotos($totalphotos)
+                        ->withTotalmultimedia($totalmultimedia)
+                        ->withTotalfaqs($totalfaqs)
+                        ->withTotalformmessages($totalformmessages);
     }
 
     public function getBlogs()
