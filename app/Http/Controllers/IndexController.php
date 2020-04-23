@@ -130,7 +130,6 @@ class IndexController extends Controller
             } catch(\Exception $e) {
               
             }
-
             
             Session::flash('success', 'Thank you for your message! I will get back to you.');
             return redirect()->route('index.contact');
