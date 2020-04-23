@@ -84,13 +84,7 @@ Route::post('/dashboard/faq/store', ['as'=>'dashboard.faq.store','uses'=>'Dashbo
 Route::put('/dashboard/faq/{id}/update', ['as'=>'dashboard.faq.update','uses'=>'DashboardController@updateFaq']);
 Route::delete('/dashboard/faq/{id}/delete', ['as'=>'dashboard.faq.delete','uses'=>'DashboardController@deleteFaq']);
 
-Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getCommittee']);
-
-
-Route::get('/dashboard/committee', ['as'=>'dashboard.committee','uses'=>'DashboardController@getCommittee']);
-Route::post('/dashboard/committee', ['as'=>'dashboard.storecommittee','uses'=>'DashboardController@storeCommittee']);
-Route::put('/dashboard/committee/{id}', ['as'=>'dashboard.updatecommittee','uses'=>'DashboardController@updateCommittee']);
-Route::delete('/dashboard/committee/{id}', ['as'=>'dashboard.deletecommittee','uses'=>'DashboardController@deleteCommittee']);
+Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getMessages']);
 
 
 // dashboard routes

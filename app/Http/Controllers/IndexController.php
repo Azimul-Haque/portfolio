@@ -95,18 +95,20 @@ class IndexController extends Controller
         $this->validate($request,array(
             'name'                      => 'required|max:255',
             'email'                     => 'required',
-            'phone'                     => 'required',
+            'phone'                     => 'required|max:11',
             'message'                   => 'required',
             'contact_sum_result_hidden'   => 'required',
             'contact_sum_result'   => 'required'
         ));
 
-        if($request->contact_sum_result_hidden == $request->contact_sum_result) {
-            // $message = new Formmessage;
-            // $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
-            // $message->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
-            // $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
-            // $message->save();
+        if($request->contact_sum_result_hidden == $request->contact_sum_result) 
+        {
+            $message = new Formmessage;
+            $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
+            $message->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+            $message->phone = $request->phone;
+            $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
+            $message->save();
             
             Session::flash('success', 'Thank you for your message! I will get back to you.');
             return redirect()->route('index.contact');
