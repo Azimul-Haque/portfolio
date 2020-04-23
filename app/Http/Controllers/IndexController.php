@@ -22,6 +22,7 @@ use Image;
 use File;
 use Session;
 use Artisan;
+use Mail;
 
 class IndexController extends Controller
 {
@@ -109,6 +110,30 @@ class IndexController extends Controller
             $message->phone = $request->phone;
             $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
             $message->save();
+
+            try{
+              // EMAIL
+              $data = array(
+                  'email' => 'orbachinujbuk@gmail.com',
+                  'name' => $request->name,
+                  'from' => $request->email,
+                  'phone' => $request->phone,
+                  'message_data' => $request->message,
+                  'subject' => 'Message from Website Contact Form',
+              );
+              Mail::send('emails.contact', $data, function($message) use ($data){
+                $message->from($data['from'], 'LOYAL অভিযাত্রী Contact');
+                $message->to($data['email']);
+                $message->subject($data['subject']);
+              });
+              // EMAIL
+              Session::flash('success', 'We received your message, thank you!');
+              return redirect()->route('index.contact');
+            } catch(\Exception $e) {
+              Session::flash('warning', 'We cannot process your message right now, sorry!');
+              return redirect()->route('index.contact');
+            }
+
             
             Session::flash('success', 'Thank you for your message! I will get back to you.');
             return redirect()->route('index.contact');
