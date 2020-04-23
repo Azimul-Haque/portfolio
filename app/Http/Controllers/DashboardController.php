@@ -401,7 +401,7 @@ class DashboardController extends Controller
 
     public function getFaq()
     {
-        $faqs = Faq::orderBy('id', 'desc')->get();
+        $faqs = Faq::orderBy('id', 'desc')->paginate(7);
 
         return view('dashboard.faqs.index')->withFaqs($faqs);
     }

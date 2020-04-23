@@ -80,6 +80,8 @@ Route::put('/dashboard/multimedia/{id}/update', ['as'=>'dashboard.multimedia.upd
 Route::delete('/dashboard/multimedia/{id}/delete', ['as'=>'dashboard.multimedia.delete','uses'=>'DashboardController@deleteMultimedia']);
 
 Route::get('/dashboard/faq', ['as'=>'dashboard.faq','uses'=>'DashboardController@getFaq']);
+Route::post('/dashboard/faq/store', ['as'=>'dashboard.faq.store','uses'=>'DashboardController@storeFaq']);
+Route::delete('/dashboard/faq/{id}/delete', ['as'=>'dashboard.faq.delete','uses'=>'DashboardController@deleteFaq']);
 
 Route::get('/dashboard/messages', ['as'=>'dashboard.messages','uses'=>'DashboardController@getCommittee']);
 
