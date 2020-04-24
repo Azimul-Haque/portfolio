@@ -209,7 +209,7 @@
                     <a target="_blank" href="https://www.youtube.com/channel/UCN2oy3P9SZma8TxSwhfH1tA">
                         <i class="fa fa-youtube"></i>
                     </a>
-                    <a target="_blank" href="https://www.linkedin.com/">
+                    <a target="_blank" href="https://www.linkedin.com/in/atique-riyad-9457161a7/">
                         <i class="fa fa-linkedin"></i>
                     </a>
                     <!-- end social media link -->

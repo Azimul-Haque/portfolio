@@ -116,7 +116,7 @@
                           <a href="https://twitter.com/atique_riyad" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-twitter"></i></a>
                           <a href="https://www.instagram.com/atiqueriyad/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-instagram"></i></a>
                           <a href="https://www.youtube.com/channel/UCN2oy3P9SZma8TxSwhfH1tA" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-youtube"></i></a>
-                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-linkedin"></i></a>
+                          <a href="https://www.linkedin.com/in/atique-riyad-9457161a7/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </div>
                         <center>
                             <a class="highlight-button-dark btn btn-small button" href="#">Download Resume</a>
@@ -128,7 +128,7 @@
     </section> 
     <!-- end about us section -->
 
-    @mobile
+    @handheld
         <section id="slider" class="wow fadeInUp fix-background" style="background-image:url('/images/pcc.jpg');">
             <div class="bg-dark-gray"></div>
             <div class="container">
@@ -193,7 +193,7 @@
                 </div>
             </div>
         </section>
-    @elsemobile
+    @elsehandheld
         <!-- education section -->
         <section id="education" class="fix-background" style="background-image:url('/images/pcc.jpg');">
             <div class="bg-dark-gray"></div>
@@ -208,64 +208,64 @@
                 <div class="row">
                     <!-- education item -->
                     <div class="col-md-3 col-sm-6 sm-margin-bottom-ten">
-                        <div class="education-box-main text-center bg-white-opacity-light">
+                        <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-laptop black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2012  - 2014</span>
-                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
+                                <span class="year text-large gray-text display-block margin-five">2013 - 2016</span>
+                                <span class="university text-uppercase display-block black-text letter-spacing-1 font-weight-600" style="min-height: 60px;">Bangladesh University of Professionals</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
-                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top">Bachelor of Arts</span>
-                                <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span>
+                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Bsc(Hons) in Military Science</span>
+                                <p>Dhaka, Bangadesh</p>
+                                {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
                     </div>
                     <!-- end education item -->
                     <!-- education item -->
                     <div class="col-md-3 col-sm-6 sm-margin-bottom-ten">
-                        <div class="education-box-main text-center bg-white-opacity-light">
+                        <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-video black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2010  - 2012</span>
-                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
+                                <span class="year text-large gray-text display-block margin-five">2006 - 2012</span>
+                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Pabna Cadet College</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
-                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top">Visual Art & Design</span>
-                                <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span>
+                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Everything Possible</span>
+                                <p>Pabna, Bangadesh</p>
+                                {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
                     </div>
                     <!-- end education item -->
                     <!-- education item -->
                     <div class="col-md-3 col-sm-6 xs-margin-bottom-ten">
-                        <div class="education-box-main text-center bg-white-opacity-light">
+                        <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-camera black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2008  - 2010</span>
-                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
+                                <span class="year text-large gray-text display-block margin-five">2004 - 2006</span>
+                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Thakurgaon Govt. Boys' High School</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
-                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top">Degree of Web Design</span>
-                                <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span>
+                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Secondary</span>
+                                <p>Thakurgaon, Bangadesh</p>
+                                {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
                     </div>
                     <!-- end education item -->
                     <!-- education item -->
                     <div class="col-md-3 col-sm-6">
-                        <div class="education-box-main text-center bg-white-opacity-light">
+                        <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-picture black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2008  - 2006</span>
-                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
+                                <span class="year text-large gray-text display-block margin-five">1997 - 2003</span>
+                                <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Sunflower KG & Pre-cadet School</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
-                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top">Visual Art & Graphics</span>
-                                <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span>
+                            <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Primary Education</span>
+                                <p>Thakurgaon, Bangadesh</p>
+                                {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
             </div>
         </section>
         <!-- end education section -->
-    @endmobile
+    @endhandheld
 @endsection
 
 @section('js')
