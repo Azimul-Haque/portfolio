@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-md-5 col-sm-12 footer-social text-right sm-text-center">
                     <!-- social media link -->
-                    <a target="_blank" href="https://web.facebook.com/atique.riyad">
+                    <a target="_blank" href="https://www.facebook.com/atique.riyad">
                         <i class="fa fa-facebook"></i>
                     </a>
                     <a target="_blank" href="https://twitter.com/atique_riyad">

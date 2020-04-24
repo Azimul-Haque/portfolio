@@ -112,7 +112,7 @@
                             </tbody>
                         </table>
                         <div class="text-center text-large padding-four no-margin-top">
-                          <a href="https://web.facebook.com/atique.riyad" class="text-large btn social-icon social-icon-large button" target="_blank"><i class="fa fa-facebook"></i></a>
+                          <a href="https://www.facebook.com/atique.riyad" class="text-large btn social-icon social-icon-large button" target="_blank"><i class="fa fa-facebook"></i></a>
                           <a href="https://twitter.com/atique_riyad" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-twitter"></i></a>
                           <a href="https://www.instagram.com/atiqueriyad/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-instagram"></i></a>
                           <a href="https://www.youtube.com/channel/UCN2oy3P9SZma8TxSwhfH1tA" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-youtube"></i></a>
