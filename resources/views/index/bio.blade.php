@@ -146,7 +146,7 @@
                             <div class="education-box-main testimonial-style2 center-col text-center margin-three no-margin-top bg-white-opacity-light">
                                 <div class="education-box">
                                     <i class="icon-laptop black-text"></i>
-                                    <span class="year text-large gray-text display-block margin-five">2012  - 2014</span>
+                                    <span class="year text-large dark-gray-text display-block margin-five">2012  - 2014</span>
                                     <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
                                     <div class="separator-line bg-black margin-ten"></div>
                                 </div>
@@ -162,7 +162,7 @@
                             <div class="education-box-main testimonial-style2 center-col text-center margin-three no-margin-top bg-white-opacity-light">
                                 <div class="education-box">
                                     <i class="icon-laptop black-text"></i>
-                                    <span class="year text-large gray-text display-block margin-five">2012  - 2014</span>
+                                    <span class="year text-large dark-gray-text display-block margin-five">2012  - 2014</span>
                                     <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
                                     <div class="separator-line bg-black margin-ten"></div>
                                 </div>
@@ -178,7 +178,7 @@
                             <div class="education-box-main testimonial-style2 center-col text-center margin-three no-margin-top bg-white-opacity-light">
                                 <div class="education-box">
                                     <i class="icon-laptop black-text"></i>
-                                    <span class="year text-large gray-text display-block margin-five">2012  - 2014</span>
+                                    <span class="year text-large dark-gray-text display-block margin-five">2012  - 2014</span>
                                     <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600">Boston State University</span>
                                     <div class="separator-line bg-black margin-ten"></div>
                                 </div>
@@ -210,13 +210,13 @@
                     <div class="col-md-3 col-sm-6 sm-margin-bottom-ten">
                         <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
-                                <i class="icon-laptop black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2013 - 2016</span>
+                                <i class="fa black-text"></i>
+                                <span class="year text-large dark-gray-text display-block margin-five">2013 - 2016</span>
                                 <span class="university text-uppercase display-block black-text letter-spacing-1 font-weight-600" style="min-height: 60px;">Bangladesh University of Professionals</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
                             <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Bsc(Hons) in Military Science</span>
-                                <p>Dhaka, Bangadesh</p>
+                                <p class="dark-gray-text">Dhaka, Bangadesh</p>
                                 {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
@@ -227,12 +227,12 @@
                         <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-video black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2006 - 2012</span>
+                                <span class="year text-large dark-gray-text display-block margin-five">2006 - 2012</span>
                                 <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Pabna Cadet College</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
                             <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Everything Possible</span>
-                                <p>Pabna, Bangadesh</p>
+                                <p class="dark-gray-text">Pabna, Bangadesh</p>
                                 {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
@@ -243,12 +243,12 @@
                         <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-camera black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">2004 - 2006</span>
+                                <span class="year text-large dark-gray-text display-block margin-five">2004 - 2006</span>
                                 <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Thakurgaon Govt. Boys' High School</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
                             <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Secondary</span>
-                                <p>Thakurgaon, Bangadesh</p>
+                                <p class="dark-gray-text">Thakurgaon, Bangadesh</p>
                                 {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
@@ -259,12 +259,12 @@
                         <div class="education-box-main text-center bg-white-opacity-light" style="min-height: 350px;">
                             <div class="education-box">
                                 <i class="icon-picture black-text"></i>
-                                <span class="year text-large gray-text display-block margin-five">1997 - 2003</span>
+                                <span class="year text-large dark-gray-text display-block margin-five">1997 - 2003</span>
                                 <span class="university text-uppercase display-block black-text letter-spacing-2 font-weight-600" style="min-height: 60px;">Sunflower KG & Pre-cadet School</span>
                                 <div class="separator-line bg-black margin-ten"></div>
                             </div>
                             <div class="namerol"><span class="text-uppercase display-block black-text letter-spacing-2 margin-five no-margin-top" style="min-height: 50px;">Primary Education</span>
-                                <p>Thakurgaon, Bangadesh</p>
+                                <p class="dark-gray-text">Thakurgaon, Bangadesh</p>
                                 {{-- <span class="result text-uppercase white-text font-weight-600 letter-spacing-1">Grade A++</span> --}}
                             </div>
                         </div>
