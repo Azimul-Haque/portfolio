@@ -112,11 +112,11 @@
                             </tbody>
                         </table>
                         <div class="text-center text-large padding-four no-margin-top">
-                          <a href="https://www.facebook.com/" class="text-large btn social-icon social-icon-large button"><i class="fa fa-facebook"></i></a>
-                          <a href="https://twitter.com/" class="btn social-icon social-icon-large button"><i class="fa fa-twitter"></i></a>
-                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button"><i class="fa fa-instagram"></i></a>
-                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button"><i class="fa fa-youtube"></i></a>
-                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button"><i class="fa fa-linkedin"></i></a>
+                          <a href="https://web.facebook.com/atique.riyad" class="text-large btn social-icon social-icon-large button" target="_blank"><i class="fa fa-facebook"></i></a>
+                          <a href="https://twitter.com/atique_riyad" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-twitter"></i></a>
+                          <a href="https://www.instagram.com/atiqueriyad/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-instagram"></i></a>
+                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-youtube"></i></a>
+                          <a href="https://www.linkedin.com/" class="btn social-icon social-icon-large button" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </div>
                         <center>
                             <a class="highlight-button-dark btn btn-small button" href="#">Download Resume</a>

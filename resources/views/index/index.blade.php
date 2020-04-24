@@ -114,7 +114,7 @@
                 @foreach($blogs as $blog)
                 <div class="col-md-4 col-sm-4 blog-listing wow fadeInRight" data-wow-duration="{{ $eventwaitduration }}ms">
                     <div class="blog-image">
-                        <a href="{{ route('blog.single', $blog->slug) }}">
+                        <a href="{{ route('blog.single', $blog->slug) }}" title="Click here to read more!">
                             @if($blog->featured_image != null)
                             <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt=""/>
                             @else
@@ -123,17 +123,17 @@
                         </a>
                     </div>
                     <div class="blog-details">
-                        <div class="blog-date"><a href="{{ route('index.bio') }}">{{ $blog->user->name }}</a> | {{ date('F d, Y', strtotime($blog->created_at)) }}</div>
-                        <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">{{ $blog->title }}</a></div>
-                        <div class="blog-short-description" style="text-align: justify; text-justify: inter-word; width: 100%; min-height: 160px;">
-                            @if(strlen(strip_tags($blog->body))>300)
+                        <div class="blog-date"><a href="{{ route('index.bio') }}" title="Click here to see Author's bio!">{{ $blog->user->name }}</a> | {{ date('F d, Y', strtotime($blog->created_at)) }}</div>
+                        <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}" title="Click here to read more!">{{ $blog->title }}</a></div>
+                        <div class="blog-short-description" style="text-align: justify; text-justify: inter-word; width: 100%; min-height: 140px;">
+                            @if(strlen(strip_tags($blog->body))>250)
                             {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))." [...] " }}
                             @else
                                 {{ strip_tags($blog->body) }}
                             @endif
                         </div>
                         <div class="separator-line bg-black no-margin-lr"></div>
-                        <div>
+                        {{-- <div>
                             <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
                             <a href="#" class="comment"><i class="fa fa-comment-o"></i>
                             <span id="comment_count{{ $blog->id }}"></span> comment(s)</a>
@@ -152,7 +152,7 @@
                                     }
                                 });
                             </script>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 @php

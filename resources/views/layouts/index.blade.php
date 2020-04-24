@@ -197,16 +197,16 @@
                 </div>
                 <div class="col-md-5 col-sm-12 footer-social text-right sm-text-center">
                     <!-- social media link -->
-                    <a target="_blank" href="https://www.facebook.com/">
+                    <a target="_blank" href="https://web.facebook.com/atique.riyad">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a target="_blank" href="https://twitter.com/">
+                    <a target="_blank" href="https://twitter.com/atique_riyad">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a target="_blank" href="https://instagram.com/">
+                    <a target="_blank" href="https://www.instagram.com/atiqueriyad/">
                         <i class="fa fa-instagram"></i>
                     </a>
-                    <a target="_blank" href="https://www.youtube.com/">
+                    <a target="_blank" href="https://www.youtube.com/channel/UCN2oy3P9SZma8TxSwhfH1tA">
                         <i class="fa fa-youtube"></i>
                     </a>
                     <a target="_blank" href="https://www.linkedin.com/">
