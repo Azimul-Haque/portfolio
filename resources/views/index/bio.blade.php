@@ -97,12 +97,12 @@
                                 <tr>
                                     <th>Email</th>
                                     <td>:</td>
-                                    <td>andrew@gmail.com</td>
+                                    <td>info@atiqueriyad.com</td>
                                 </tr>
                                 <tr>
                                     <th>Date of birth</th>
                                     <td>:</td>
-                                    <td>23 February</td>
+                                    <td>August 03</td>
                                 </tr>
                                 <tr>
                                     <th>Nationality</th>

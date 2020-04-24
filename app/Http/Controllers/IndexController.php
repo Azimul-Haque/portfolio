@@ -107,7 +107,7 @@ class IndexController extends Controller
             $message = new Formmessage;
             $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
             $message->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
-            $message->phone = $request->phone;
+            $message->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
             $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
             $message->save();
 
