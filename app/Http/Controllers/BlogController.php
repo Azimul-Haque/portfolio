@@ -229,8 +229,9 @@ class BlogController extends Controller {
 
     public function getCategoryWise($name) {
         $categories = Category::all();
-        $populars = Blog::orderBy('likes', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('likes', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
+                        ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
                         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
                         ->orderBy('created_at', 'DESC')
@@ -247,8 +248,9 @@ class BlogController extends Controller {
 
     public function getMonthWise($date) {
         $categories = Category::all();
-        $populars = Blog::orderBy('likes', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('likes', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
+                        ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
                         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
                         ->orderBy('created_at', 'DESC')
