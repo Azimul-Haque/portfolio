@@ -38,7 +38,7 @@
     <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
     <div class="widget-body">
         <ul class="category-list">
-            @foreach($categories as $category)
+            @foreach($categories->where('status', 1) as $category)
             <li><a href="{{ route('blog.categorywise', $category->name) }}">{{ $category->name }} <span>{{ $category->blogs->count() }}</span></a></li>
             @endforeach
         </ul>
