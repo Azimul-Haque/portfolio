@@ -27,19 +27,15 @@
 	      <p style="font-size: 25px"><b>Contact Message</b></p>
 
 	      <table class="bordertable">
-	      	<thead>
-	      		<tr>
-	  		        <th width="40%">Sender Details</th>
-	  		        <th width="50%">Message</th>
-	  		    </tr>
-	      	</thead>
 	      	<tbody>
 		      	<tr>
+		      		<th style="background: #F4B609;">Sender Details</th>
 		      	    <td>
 		      	    	<big><b>{{ $name }}</b></big><br/>
 		      	    	{{ $from }}<br/>
 		      	    	{{ $phone }}
 		      	    </td>
+		      	    <th style="background: #F4B609;">Message</th>
 		      	    <td>{{ $message_data }}</td>
 		      	</tr>
 	      	</tbody>
