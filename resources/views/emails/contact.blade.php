@@ -7,10 +7,11 @@
 	  padding: 7px;
 	  font-family: 'kalpurush', sans-serif;
 	  font-size: 15px;
+	  border: 1px solid #A8A8A8;
 	}
-	.bordertable td, th {
+	/*.bordertable td, th {
 	    border: 1px solid #A8A8A8;
-	}
+	}*/
 </style>
 <body style="background: #F4F4F4;">
 	<br/>
@@ -21,7 +22,7 @@
 	      {{-- <p style="font-size: 30px; color: #1B237D;"><b>Atique</b>Riyad</p> --}}
 	      <p style="font-size: 25px"><b>Contact Message</b></p>
 
-	      <table class="bordertable" border="1" style="width: 100%;">
+	      <table>
 	      	<thead>
 	      		<tr>
 	  		        <th width="40%">Sender Details</th>
