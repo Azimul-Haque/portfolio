@@ -307,6 +307,39 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.gallery');
     }
 
+    public function updateGallery(Request $request, $id)
+    {
+        $gallery = Gallery::find($id);
+
+        $this->validate($request,array(
+            'caption'        => 'sometimes|max:255',
+            'image'          => 'sometimes|image|max:500'
+        ));
+
+        //store to DB
+        $gallery->caption = $request->caption;
+
+        // image upload
+        if($request->hasFile('image'))
+        {
+            $image_path = public_path('images/gallery/'. $gallery->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('image');
+            $filename   = 'image_' . random_string(4) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/gallery/'. $filename);
+            Image::make($image)->resize(null, 520, function ($constraint) { $constraint->aspectRatio(); })->save($location, 80);
+            $gallery->image = $filename;
+        }
+
+        $gallery->save();
+
+        //redirect
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.gallery');
+    }
+
     public function deleteGallery($id)
     {
         $gallery = Gallery::find($id);

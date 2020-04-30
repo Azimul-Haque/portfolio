@@ -70,6 +70,7 @@ Route::delete('/dashboard/books/{id}/delete', ['as'=>'dashboard.books.delete','u
 
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
 Route::post('/dashboard/gallery/store', ['as'=>'dashboard.gallery.store','uses'=>'DashboardController@storeGallery']);
+Route::put('/dashboard/gallery/{id}/update', ['as'=>'dashboard.gallery.update','uses'=>'DashboardController@updateGallery']);
 Route::delete('/dashboard/gallery/{id}/delete', ['as'=>'dashboard.gallery.delete','uses'=>'DashboardController@deleteGallery']);
 
 Route::get('/dashboard/multimedia', ['as'=>'dashboard.multimedia','uses'=>'DashboardController@getMultimedia']);

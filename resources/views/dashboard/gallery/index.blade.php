@@ -3,7 +3,7 @@
 @section('title', 'Gallery')
 
 @section('css')
-
+  <script type="text/javascript" src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 @stop
 
 @section('content_header')
@@ -69,7 +69,84 @@
               </td>
               <td>{{ $gallery->caption }}</td>
               <td>
-                {{-- <a class="btn btn-sm btn-primary" href="{{ route('dashboard.gallery.edit', $gallery->id) }}" title="Edit Photo"><i class="fa fa-pencil"></i></a> --}}
+                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editModal{{ $gallery->id }}" data-backdrop="static" title="Edit Faq"><i class="fa fa-pencil"></i></button>
+                <!-- Edit Modal -->
+                <!-- Edit Modal -->
+                <div class="modal fade" id="editModal{{ $gallery->id }}" role="dialog">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header modal-header-primary">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Faq</h4>
+                      </div>
+                      {!! Form::model($gallery, ['route' => ['dashboard.gallery.update', $gallery->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+                      <div class="modal-body">
+                        <label for="title">Caption (Optional)</label>
+                        <input type="text" name="caption" id="caption" class="form-control" value="{{ $gallery->caption }}" placeholder="Caption of the Photo (Photo)">
+
+                        <br/>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label>Photo (500Kb Max) *</label>
+                            <input type="file" id="image{{ $gallery->id }}" name="image" class="form-control">
+                          </div>
+                          <div class="col-md-12">
+                            <center>
+                              <img src="{{ asset('images/gallery/' . $gallery->image) }}" id='img-upload{{ $gallery->id }}' style="height: 200px; width: auto; padding: 5px;" class="img-responsive" />
+                            </center>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                            {!! Form::submit('Update', array('class' => 'btn btn-primary')) !!}
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                      {!! Form::close() !!}
+                    </div>
+                  </div>
+                </div>
+                <script type="text/javascript">
+                  $(document).ready( function() {
+                    $(document).on('change', '.btn-file :file', function() {
+                      var input = $(this),
+                          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                      input.trigger('fileselect', [label]);
+                    });
+
+                    $('.btn-file :file').on('fileselect', function(event, label) {
+                        var input = $(this).parents('.input-group').find(':text'),
+                            log = label;
+                        if( input.length ) {
+                            input.val(log);
+                        } else {
+                            if( log ) alert(log);
+                        }
+                    });
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $('#img-upload{{ $gallery->id }}').attr('src', e.target.result);
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+                    $("#image{{ $gallery->id }}").change(function(){
+                        readURL(this);
+                        var filesize = parseInt((this.files[0].size)/1024);
+                        if(filesize > 500) {
+                          $("#image{{ $gallery->id }}").val('');
+                          toastr.warning('File size is: '+filesize+' Kb. try uploading less than 500Kb', 'WARNING').css('width', '500px;');
+                            setTimeout(function() {
+                              $("#img-upload{{ $gallery->id }}").attr('src', '{{ asset('images/blank_image.jpg') }}');
+                            }, 1000);
+                        }
+                    });
+
+                  });
+                </script>
+                <!-- Edit Modal -->
+                <!-- Edit Modal -->
 
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $gallery->id }}" data-backdrop="static" title="Delete Photo"><i class="fa fa-trash-o"></i></button>
                 <!-- Delete Modal -->
