@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('title') {{ $blog->title }} @endsection
 
-@section('description') {{ $blog->title }} - {{ substr(strip_tags($blog->body), 0, 100) }} @endsection
+@section('description') {{ $blog->title }} - @if(strlen(strip_tags($blog->body))>250) {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200)) }} @else {{ strip_tags($blog->body) }} @endif @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
@@ -12,7 +12,7 @@
     @endif
 
     <meta property="og:title" content="{{ $blog->title }}">
-    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}">
+    <meta name="description" property="og:description" content="@if(strlen(strip_tags($blog->body))>250) {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200)) }} @else {{ strip_tags($blog->body) }} @endif">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:site_name" content="Atique Riyad">
