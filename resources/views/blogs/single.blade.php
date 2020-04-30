@@ -156,6 +156,11 @@
                     </div>
                     <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
                     <!-- end blog comment -->
+
+                    <center>
+                      <br/><br/><br/>
+                      <small>This article has been read <big><b>{{ $blog->hits }}</b></big> times.</small>
+                    </center>
                 </div>
                 <!-- end content  -->
 

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Blog;
 use App\Category;
-use App\Like;
 use App\Book;
 use App\Gallery;
 use App\Multimedia;

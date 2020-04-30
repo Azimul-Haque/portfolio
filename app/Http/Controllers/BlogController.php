@@ -9,8 +9,8 @@ use App\Http\Requests;
 
 use App\User;
 use App\Blog;
-use App\Category;
 use App\Like;
+use App\Category;
 use Carbon\Carbon;
 use DB, Hash, Auth, Image, File, Session, Cookie;
 use Purifier;
@@ -25,7 +25,7 @@ class BlogController extends Controller {
     public function index()
     {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                       ->where('status', 1)
                       ->select("created_at", DB::raw('count(*) as total'))
@@ -101,22 +101,27 @@ class BlogController extends Controller {
         //
     }
 
-    public function getBlogPost(Request $request, $slug)
+    public function getBlogPost($slug)
     {
       try {
-        if(!$request->hasCookie('my_sweet_visitor')) {
-          $minutes = 60 * 24 * 365;
-          $randomstring = random_string(10);
-          Cookie::queue('my_sweet_visitor', $randomstring, $minutes);
-          $visitor = $randomstring;
-        } else {
-          $visitor = $request->cookie('my_sweet_visitor');
-        }
+        // if(!$request->hasCookie('my_sweet_visitor')) {
+        //   $minutes = 60 * 24 * 365;
+        //   $randomstring = random_string(10);
+        //   Cookie::queue('my_sweet_visitor', $randomstring, $minutes);
+        //   $visitor = $randomstring;
+        // } else {
+        //   $visitor = $request->cookie('my_sweet_visitor');
+        // }
+        $blogpost = Blog::where('slug','=',$slug)
+                        ->where('status', 1)
+                        ->first();
+        // count hit
+        $blogpost->hits = $blogpost->hits + 1;
+        $blogpost->save();
         
-
         $categories = Category::orderBy('id', 'asc')->get();
         $blog = Blog::where('status', 1)->where('slug', $slug)->first();
-        $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                       ->where('status', 1)
                       ->select("created_at", DB::raw('count(*) as total'))
@@ -129,8 +134,7 @@ class BlogController extends Controller {
                 ->withBlog($blog)
                 ->withCategories($categories)
                 ->withPopulars($populars)
-                ->withArchives($archives)
-                ->withVisitor($visitor);
+                ->withArchives($archives);
       } catch (\Exception $e) {
           $message = $e->getMessage();
           
@@ -229,7 +233,7 @@ class BlogController extends Controller {
 
     public function getCategoryWise($name) {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                         ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
@@ -248,7 +252,7 @@ class BlogController extends Controller {
 
     public function getMonthWise($date) {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                         ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
