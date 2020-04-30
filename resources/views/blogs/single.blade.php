@@ -11,10 +11,10 @@
         <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}" />
     @endif
 
-    <meta property="og:title" content="{{ $blog->title }} | {{ $blog->user->name }} | atiqeuriyad.com"/>
-    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
+    <meta property="og:title" content="{{ $blog->title }}">
+    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}">
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:site_name" content="Atique Riyad">
     <meta property="og:locale" content="en_US">
     <meta property="fb:admins" content="100001596964477">
@@ -26,6 +26,7 @@
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->category->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
+    
     <style type="text/css">
       .youtibecontainer {
           position: relative;
