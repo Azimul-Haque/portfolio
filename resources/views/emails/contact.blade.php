@@ -1,18 +1,23 @@
-<style type="text/css">
-	table {
-	    border-collapse: collapse;
-	    width: 100% !important;
-	}
-	th, td{
-	  padding: 7px;
-	  font-family: 'kalpurush', sans-serif;
-	  font-size: 15px;
-	  border: 1px solid #A8A8A8;
-	}
-	/*.bordertable td, th {
-	    border: 1px solid #A8A8A8;
-	}*/
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		table {
+		    border-collapse: collapse;
+		    width: 100% !important;
+		}
+		th, td{
+		  padding: 7px;
+		  font-family: 'kalpurush', sans-serif;
+		  font-size: 15px;
+		  border: 1px solid #A8A8A8;
+		}
+		.bordertable td, th {
+		    border: 1px solid #A8A8A8;
+		}
+	</style>	
+</head>
+
 <body style="background: #F4F4F4;">
 	<br/>
 	<center>
@@ -22,7 +27,7 @@
 	      {{-- <p style="font-size: 30px; color: #1B237D;"><b>Atique</b>Riyad</p> --}}
 	      <p style="font-size: 25px"><b>Contact Message</b></p>
 
-	      <table>
+	      <table class="bordertable">
 	      	<thead>
 	      		<tr>
 	  		        <th width="40%">Sender Details</th>
@@ -53,3 +58,4 @@
 	</center>
 	<br/>	
 </body>
+</html>
