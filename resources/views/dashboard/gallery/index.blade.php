@@ -87,7 +87,7 @@
                         <br/>
                         <div class="row">
                           <div class="col-md-12">
-                            <label>Photo (500Kb Max) *</label>
+                            <label>Photo (500Kb Max)</label>
                             <input type="file" id="image{{ $gallery->id }}" name="image" class="form-control">
                           </div>
                           <div class="col-md-12">
