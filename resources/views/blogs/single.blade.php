@@ -179,7 +179,7 @@
               <!-- social icon -->
               <div class="text-center margin-ten padding-four no-margin-top">
 
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
+                    {{-- <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a> --}}
                     
                     <a href="https://www.facebook.com/dialog/share?app_id=250806882740490&display=popup&href={{ Request::url() }}&redirect_uri={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
 
