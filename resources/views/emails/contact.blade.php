@@ -47,7 +47,7 @@
 	      	</tbody>
 	      </table>
 	      
-	      <br/><br/>
+	      <br/>
 	      <p style="font-size: 12px; color: #ACACAC;">
 	        This email is sent from Website Contact Form.
 	      </p>
