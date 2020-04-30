@@ -114,7 +114,8 @@ class IndexController extends Controller
             try{
               // EMAIL
               $data = array(
-                  'email' => array('atiqueriyad@gmail.com', 'orbachinujbuk@gmail.com'),
+                  'email' => 'atiqueriyad@gmail.com',
+                  'cc' => ''orbachinujbuk@gmail.com'',
                   'name' => $request->name,
                   'from' => $request->email,
                   'phone' => $request->phone,
@@ -124,6 +125,7 @@ class IndexController extends Controller
               Mail::send('emails.contact', $data, function($message) use ($data){
                 $message->from($data['from'], 'Atique Riyad Contact');
                 $message->to($data['email']);
+                $message->cc($data['cc']);
                 $message->subject($data['subject']);
               });
               // EMAIL
