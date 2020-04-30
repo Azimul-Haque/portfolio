@@ -91,7 +91,7 @@
                     <div class="blog-date no-padding-top">Posted by <a href="{{ route('index.bio') }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->category->name) }}">{{ $blog->category->name }}</a> </div>
                     <!-- end date and categories   -->
                     <!-- post image -->
-                    @if($blog->featured_image != null)
+                    @if($blog->featured_image != null && file_exists(public_path('images/blogs/' . $blog->featured_image)))
                         <div class="blog-image margin-four"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%; height: auto;"></div>
                     @endif
 
