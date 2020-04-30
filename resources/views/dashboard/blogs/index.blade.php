@@ -38,7 +38,7 @@
               @else
                 <span class="badge"><i class="fa fa-bell-slash-o"></i> Unpublished</span>
               @endif
-              
+                <span class="badge"><i class="fa fa-eye"></i> {{ $blog->hits }}</span>
             </td>
             <td><span class="label label-success">{{ $blog->category->name }}</span></td>
             @handheld
