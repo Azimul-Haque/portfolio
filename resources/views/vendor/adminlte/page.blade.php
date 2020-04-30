@@ -222,8 +222,9 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script type="text/javascript">
       $(function(){
-       $('a[title]').tooltip();
-       $('button[title]').tooltip();
+       // $('a[title]').tooltip();
+       // $('button[title]').tooltip();
+       $('[title]').tooltip();
       });
     </script>
     @stack('js')
