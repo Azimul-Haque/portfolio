@@ -16,10 +16,10 @@
             @foreach($populars as $popular)
             <li class="clearfix">
                 <a href="{{ route('blog.single', $popular->slug) }}">
-                    @if($popular->featured_image != null)
-                    <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" alt=""/>
+                    @if($popular->featured_image != null && file_exists(public_path('images/blogs/' . $popular->featured_image)))
+                        <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" alt=""/>
                     @else
-                    <img src="{{ asset('images/600x315.png') }}" alt=""/>
+                        <img src="{{ asset('images/blogs/default.jpg') }}" alt=""/>
                     @endif
                 </a>
                 <div class="widget-posts-details">

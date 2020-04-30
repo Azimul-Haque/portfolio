@@ -5,7 +5,7 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
-    @if($blog->featured_image != null)
+    @if($blog->featured_image != null && file_exists(public_path('images/blogs/' . $blog->featured_image)))
         <meta property="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}" />
     @else
         <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}" />
@@ -44,7 +44,7 @@
 
       .font-large {
         font-size: 30px !important;
-        
+
       }
     </style>
 @endsection
