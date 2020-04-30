@@ -11,7 +11,7 @@
         <meta property="og:image" content="{{ asset('images/fb_back.jpg') }}" />
     @endif
 
-    <meta property="og:title" content="{{ $blog->title }}">
+    <meta property="og:title" content="{{ $blog->title }} | Atique Riyad">
     <meta name="description" property="og:description" content="@if(strlen(strip_tags($blog->body))>250) {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200)) }} @else {{ strip_tags($blog->body) }} @endif">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}">
@@ -26,7 +26,7 @@
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->category->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
-    
+
     <style type="text/css">
       .youtibecontainer {
           position: relative;
