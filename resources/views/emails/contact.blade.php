@@ -8,13 +8,12 @@
 		}
 		th, td{
 		  padding: 7px;
-		  font-family: 'kalpurush', sans-serif;
 		  font-size: 15px;
 		  border: 1px solid #A8A8A8;
 		}
-		.bordertable td, th {
+		/*.bordertable td, th {
 		    border: 1px solid #A8A8A8;
-		}
+		}*/
 	</style>	
 </head>
 
