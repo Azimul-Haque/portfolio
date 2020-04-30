@@ -17,8 +17,8 @@
     <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:site_name" content="Atique Riyad">
     <meta property="og:locale" content="en_US">
-    <meta property="fb:admins" content="100001596964477">
-    <meta property="fb:app_id" content="250806882740490">
+    {{-- <meta property="fb:admins" content="100001596964477">
+    <meta property="fb:app_id" content="250806882740490"> --}}
     <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->category->name }}">
