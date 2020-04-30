@@ -25,7 +25,7 @@ class BlogController extends Controller {
     public function index()
     {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                       ->where('status', 1)
                       ->select("created_at", DB::raw('count(*) as total'))
@@ -121,7 +121,7 @@ class BlogController extends Controller {
         
         $categories = Category::orderBy('id', 'asc')->get();
         $blog = Blog::where('status', 1)->where('slug', $slug)->first();
-        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                       ->where('status', 1)
                       ->select("created_at", DB::raw('count(*) as total'))
@@ -233,7 +233,7 @@ class BlogController extends Controller {
 
     public function getCategoryWise($name) {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                         ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
@@ -252,7 +252,7 @@ class BlogController extends Controller {
 
     public function getMonthWise($date) {
         $categories = Category::orderBy('id', 'asc')->get();
-        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(4);
+        $populars = Blog::where('status', 1)->orderBy('hits', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                         ->where('status', 1)
                         ->select("created_at", DB::raw('count(*) as total'))
