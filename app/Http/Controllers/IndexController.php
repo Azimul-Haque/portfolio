@@ -114,7 +114,7 @@ class IndexController extends Controller
             try{
               // EMAIL
               $data = array(
-                  'email' => ['atiqueriyad@gmail.com', 'orbachinujbuk@gmail.com'],
+                  'email' => array('atiqueriyad@gmail.com', 'orbachinujbuk@gmail.com'),
                   'name' => $request->name,
                   'from' => $request->email,
                   'phone' => $request->phone,
