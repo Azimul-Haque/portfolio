@@ -30,12 +30,18 @@
 	      	<tbody>
 		      	<tr>
 		      		<th style="background: #F4B609;">Sender Details</th>
+		      	</tr>
+		      	<tr>
 		      	    <td>
 		      	    	<big><b>{{ $name }}</b></big><br/>
 		      	    	{{ $from }}<br/>
 		      	    	{{ $phone }}
 		      	    </td>
-		      	    <th style="background: #F4B609;">Message</th>
+		      	</tr>
+		      	<tr>    
+		      	   	<th style="background: #F4B609;">Message</th>
+		      	</tr>
+		      	<tr>
 		      	    <td>{{ $message_data }}</td>
 		      	</tr>
 	      	</tbody>
