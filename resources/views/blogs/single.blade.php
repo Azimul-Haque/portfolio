@@ -17,8 +17,8 @@
     <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:site_name" content="Atique Riyad">
     <meta property="og:locale" content="en_US">
-    {{-- <meta property="fb:admins" content="100001596964477">
-    <meta property="fb:app_id" content="250806882740490"> --}}
+    <meta property="fb:admins" content="100001596964477">
+    <meta property="fb:app_id" content="250806882740490">
     <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->category->name }}">
@@ -178,7 +178,12 @@
               <p>
               <!-- social icon -->
               <div class="text-center margin-ten padding-four no-margin-top">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
+                  @mobile
+                    <a href="https://m.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
+                  @elsemobile
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
+                  @endmobile
+                  
                   <a href="https://twitter.com/intent/tweet?url={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-twitter"></i></a>
                   {{-- <a href="https://plus.google.com/share?url={{ Request::url() }}" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400');  return false;"><i class="fa fa-google-plus"></i></a> --}}
                   <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url()}}&title=IIT%20Alumni%20Association&summary={{ $blog->title }}&source=IITAlumni" class="btn social-icon social-icon-large button" onclick="window.open(this.href,'newwindow', 'width=500,height=400');  return false;"><i class="fa fa-linkedin"></i></a>
