@@ -63,7 +63,7 @@ class DashboardController extends Controller
 
     public function createBlog()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         return view('dashboard.blogs.create')
                         ->withCategories($categories);
     }
@@ -107,7 +107,7 @@ class DashboardController extends Controller
     public function editBlog($id)
     {
         $blog = Blog::find($id);
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
 
         return view('dashboard.blogs.edit')
                         ->withBlog($blog)

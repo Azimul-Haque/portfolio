@@ -63,6 +63,11 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+                        <li class="tasks-menu">
+                            <a href="{{ url('/') }}" target="_blank" title="" data-placement="bottom" data-original-title="View Website">
+                                <i class="fa fa-fw fa-eye" aria-hidden="true"></i>
+                            </a>
+                        </li>
                         <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             <img src="{{ asset('images/users/' . Auth::User()->image)}}" class="user-image" alt="User Image">
                             {{ Auth::User()->name }}</a>

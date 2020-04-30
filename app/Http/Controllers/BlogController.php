@@ -24,7 +24,7 @@ class BlogController extends Controller {
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                       ->where('status', 1)
@@ -49,7 +49,7 @@ class BlogController extends Controller {
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         return view('blogs.create')->withCategories($categories);
     }
 
@@ -114,7 +114,7 @@ class BlogController extends Controller {
         }
         
 
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         $blog = Blog::where('status', 1)->where('slug', $slug)->first();
         $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
@@ -228,7 +228,7 @@ class BlogController extends Controller {
     }
 
     public function getCategoryWise($name) {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                         ->where('status', 1)
@@ -247,7 +247,7 @@ class BlogController extends Controller {
     }
 
     public function getMonthWise($date) {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         $populars = Blog::where('status', 1)->orderBy('id', 'desc')->get()->take(4);
         $archives = DB::table('blogs')
                         ->where('status', 1)
