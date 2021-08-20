@@ -36,8 +36,8 @@
                 <!-- office address -->
                 <div class="col-md-4 col-sm-6 xs-margin-bottom-ten">
                     <p class="text-med text-uppercase letter-spacing-1 black-text font-weight-600">Write to me</p>
-                    <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p class="text-med">If you have any queries, please let me know through the contact form here.</p>
+                    {{-- <p class="text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> --}}
                 </div>
                 <!-- end office address -->
 
