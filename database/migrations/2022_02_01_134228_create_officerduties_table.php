@@ -14,6 +14,9 @@ class CreateOfficerdutiesTable extends Migration
     {
         Schema::create('officerduties', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('officer_id')->unsigned();
+            $table->date('duty_date');
+            $table->integer('shift');
             $table->timestamps();
         });
     }
