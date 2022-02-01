@@ -91,3 +91,10 @@ Route::delete('/dashboard/messages/{id}/delete', ['as'=>'dashboard.messages.dele
 
 // dashboard routes
 // dashboard routes
+
+// control room routes
+// control room routes
+Route::get('/dashboard/control-room', ['as'=>'dashboard.control-room.index','uses'=>'CRController@index']);
+
+// control room routes
+// control room routes
