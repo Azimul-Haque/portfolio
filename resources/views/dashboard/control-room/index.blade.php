@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Faq')
+@section('title', 'Control Room Duty Alert System')
 
 @section('css')
 
