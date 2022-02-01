@@ -10,7 +10,7 @@
     <h1>
       Faq
       <div class="pull-right">
-        
+        Test
       </div>
     </h1>
 @stop
