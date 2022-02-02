@@ -95,6 +95,12 @@ Route::delete('/dashboard/messages/{id}/delete', ['as'=>'dashboard.messages.dele
 // control room routes
 // control room routes
 Route::get('/dashboard/control-room', ['as'=>'dashboard.control-room.index','uses'=>'CRController@index']);
+Route::post('/dashboard/control-room/offier/store', ['as'=>'dashboard.control-room.storeofficer','uses'=>'CRController@storeOfficer']);
+Route::put('/dashboard/control-room/offier/{id}/update', ['as'=>'dashboard.control-room.updateofficer','uses'=>'CRController@updateOfficer']);
+Route::delete('/dashboard/control-room/offier/{id}/delete', ['as'=>'dashboard.control-room.deleteofficer','uses'=>'CRController@deleteOfficer']);
+Route::post('/dashboard/control-room/offier-duty/store', ['as'=>'dashboard.control-room.storeofficerduty','uses'=>'CRController@storeOfficerDuty']);
+Route::put('/dashboard/control-room/offier-duty/{id}/update', ['as'=>'dashboard.control-room.updateofficerduty','uses'=>'CRController@updateOfficerDuty']);
+Route::delete('/dashboard/control-room/offier-duty/{id}/delete', ['as'=>'dashboard.control-room.deleteofficerduty','uses'=>'CRController@deleteOfficerDuty']);
 
 // control room routes
 // control room routes
