@@ -246,7 +246,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Add New Duty</h4>
             </div>
-            {!! Form::open(['route' => 'dashboard.control-room.storeofficer', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::open(['route' => 'dashboard.control-room.storeofficerduty', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="modal-body">
               <label for="title">Officer *</label>
               <select name="officer_id" id="officer_id" class="form-control" required>
@@ -257,19 +257,34 @@
               </select>
 
               <br/>
-              <label for="title">1st Shift *</label>
+              <label for="first_shift_dates">1st Shift *</label>
               <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple required style="width: 100%;">
-                <option disabled>Select Data</option>
+                <option disabled>Select Date</option>
                 @php
-                  $today = date('F d, Y');
+                  $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
                 @endphp
-                <option value="1">123123</option>
-                <option value="2">1223423</option>
+                @for($i=0; $i<60; $i++)
+                  <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
+                  @php
+                    $today = $today->addDay();
+                  @endphp
+                @endfor
               </select>
 
               <br/><br/>
-              <label for="title">2nd Shift *</label>
-              <input type="text" name="second_shift_dates[]" id="second_shift_dates" class="form-control" value="" placeholder="Second Shift Dates" required>
+              <label for="second_shift_dates">2nd Shift *</label>
+              <select name="second_shift_dates[]" id="second_shift_dates" class="form-control" multiple required style="width: 100%;">
+                <option disabled>Select Date</option>
+                @php
+                  $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
+                @endphp
+                @for($i=0; $i<60; $i++)
+                  <option value="1">{{ date('F d, Y', strtotime($today)) }}</option>
+                  @php
+                    $today = $today->addDay();
+                  @endphp
+                @endfor
+              </select>
             </div>
             <div class="modal-footer">
                 {!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
@@ -286,6 +301,9 @@
 @section('js')
   <script>
     $('#first_shift_dates').select2({
+      dropdownParent: $("#addOfficerDutyModal .modal-content")
+    });
+    $('#second_shift_dates').select2({
       dropdownParent: $("#addOfficerDutyModal .modal-content")
     });
   </script>

@@ -75,9 +75,13 @@ class CRController extends Controller
     public function storeOfficerDuty(Request $request)
     {
         $this->validate($request,array(
-            'officer_id'    => 'required',
+            'officer_id'           => 'required',
+            'first_shift_dates'    => 'required',
+            'second_shift_dates'   => 'required'
         ));
 
+        dd($request->first_shift_dates);
+        
         $officerduty = new Officerduty;
         $officerduty->name = $request->name;
         $officerduty->phone = $request->phone;
