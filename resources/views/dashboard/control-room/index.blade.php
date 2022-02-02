@@ -260,6 +260,9 @@
               <label for="title">1st Shift *</label>
               <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple required style="width: 100%;">
                 <option disabled>Select Data</option>
+                @php
+                  $today = date('F d, Y');
+                @endphp
                 <option value="1">123123</option>
                 <option value="2">1223423</option>
               </select>
