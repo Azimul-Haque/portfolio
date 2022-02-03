@@ -11,10 +11,11 @@
         z-index: 3051;
     }
   </style>
-  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}"> --}}
   <script type="text/javascript" src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> --}}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 @stop
 
 @section('content_header')
@@ -94,7 +95,7 @@
                               <h4 class="modal-title">Delete Officer</h4>
                               </div>
                               <div class="modal-body">
-                              Confirm Delete the Faq?<br/>
+                              Confirm Delete the Officer?<br/>
                               <big><b>{{ $officer->name }}</b></big>
                               </div>
                               <div class="modal-footer">
@@ -128,46 +129,62 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Question</th>
-              <th>Answer</th>
+              <th>Officer</th>
+              <th>Duties</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach($officers as $officer)
             <tr>
-              <td>{{ $duty->officer->name }}</td>
-              <td>{{ $duty->duty_date }}</td>
+              <td>{{ $officer->name }}</td>
               <td>
-                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editDutyModal{{ $duty->id }}" data-backdrop="static" title="Edit Duty"><i class="fa fa-pencil"></i></button>
+                @foreach ($officer->officerduties->where('shift', 1) as $duty)
+                    <span class="label label-info">{{ date('F d, Y', strtotime($duty->duty_date)) }}</span>
+                @endforeach
+                <br/>
+                @foreach ($officer->officerduties->where('shift', 2) as $duty)
+                    <span class="label label-success">{{ date('F d, Y', strtotime($duty->duty_date)) }}</span>
+                @endforeach
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editDutyModal{{ $officer->id }}" data-backdrop="static" title="Edit Duty"><i class="fa fa-pencil"></i></button>
                 <!-- Edit Modal -->
                 <!-- Edit Modal -->
-                <div class="modal fade" id="editDutyModal{{ $duty->id }}" role="dialog">
+                <div class="modal fade" id="editDutyModal{{ $officer->id }}" role="dialog">
                   <div class="modal-dialog modal-md">
                     <div class="modal-content">
                       <div class="modal-header modal-header-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Edit Duty</h4>
                       </div>
-                      {!! Form::model($duty, ['route' => ['dashboard.control-room.updateofficerduty', $duty->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+                      {!! Form::model($officer, ['route' => ['dashboard.control-room.updateofficerduty', $officer->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                       <div class="modal-body">
                         <label for="title">Officer *</label>
-                        <select name="officer_id" id="officer_id" class="form-control" required>
+                        @php
+                          $shift1duties = [];
+                          $shift2duties = [];
+                          foreach($officer->officerduties->where('shift', 1) as $duty) {
+                            $shift1duties[] = $duty->duty_date;
+                          }
+                          foreach($officer->officerduties->where('shift', 2) as $duty) {
+                            $shift2duties[] = $duty->duty_date;
+                          }
+                        @endphp
+                        <select name="officer_id" id="officer_id" class="form-control" required readonly>
                           <option value="" disabled selected>Select Officer</option>
-                          @foreach ($officers as $officer)
-                            <option value="{{ $officer->id }}" @if($officer->id == $duty->officer_id) selected @endif>{{ $officer->name }}</option>
-                          @endforeach
+                          <option value="{{ $officer->id }}" selected>{{ $officer->name }}</option>
                         </select>
 
                         <br/>
-                        <label for="first_shift_dates">1st Shift *</label>
-                        <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple required style="width: 100%;">
+                        <label for="first_shift_dates{{ $officer->id }}">1st Shift *</label>
+                        <select name="first_shift_dates[]" id="first_shift_dates{{ $officer->id }}" class="form-control" multiple required style="width: 100%;">
                           <option disabled>Select Date</option>
                           @php
                             $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
                           @endphp
                           @for($i=0; $i<60; $i++)
-                            <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
+                            <option value="{{ date('Y-m-d', strtotime($today)) }}" @if(in_array(date('Y-m-d', strtotime($today)), $shift1duties)) selected @endif>{{ date('F d, Y', strtotime($today)) }}</option>
                             @php
                               $today = $today->addDay();
                             @endphp
@@ -175,14 +192,14 @@
                         </select>
 
                         <br/><br/>
-                        <label for="second_shift_dates">2nd Shift *</label>
-                        <select name="second_shift_dates[]" id="" class="form-control" multiple required style="width: 100%;">
+                        <label for="second_shift_dates{{ $officer->id }}">2nd Shift *</label>
+                        <select name="second_shift_dates[]" id="second_shift_dates{{ $officer->id }}" class="form-control" multiple required style="width: 100%;">
                           <option disabled>Select Date</option>
                           @php
                             $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
                           @endphp
                           @for($i=0; $i<60; $i++)
-                            <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
+                            <option value="{{ date('Y-m-d', strtotime($today)) }}" @if(in_array(date('Y-m-d', strtotime($today)), $shift2duties)) selected @endif>{{ date('F d, Y', strtotime($today)) }}</option>
                             @php
                               $today = $today->addDay();
                             @endphp
@@ -197,13 +214,21 @@
                     </div>
                   </div>
                 </div>
+                <script>
+                  $('#first_shift_dates{{ $officer->id }}').select2({
+                    dropdownParent: $("#editDutyModal{{ $officer->id }} .modal-content")
+                  });
+                  $('#second_shift_dates{{ $officer->id }}').select2({
+                    dropdownParent: $("#editDutyModal{{ $officer->id }} .modal-content")
+                  });
+                </script>
                 <!-- Edit Modal -->
                 <!-- Edit Modal -->
 
-                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDutyModal{{ $duty->id }}" data-backdrop="static" title="Delete Duty"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDutyModal{{ $officer->id }}" data-backdrop="static" title="Delete Duty"><i class="fa fa-trash-o"></i></button>
                 <!-- Delete Modal -->
                 <!-- Delete Modal -->
-                <div class="modal fade" id="deleteDutyModal{{ $duty->id }}" role="dialog">
+                <div class="modal fade" id="deleteDutyModal{{ $officer->id }}" role="dialog">
                   <div class="modal-dialog modal-md">
                     <div class="modal-content">
                       <div class="modal-header modal-header-danger">
@@ -214,7 +239,7 @@
                         Confirm Delete the Duty?<br/>
                       </div>
                       <div class="modal-footer">
-                        {!! Form::model($duty, ['route' => ['dashboard.control-room.deleteofficerduty', $duty->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                        {!! Form::model($officer, ['route' => ['dashboard.control-room.deleteofficerduty', $officer->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                             {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         {!! Form::close() !!}
@@ -230,7 +255,6 @@
           </tbody>
         </table>
       </div>
-      {{ $officerduties->links() }}
     </div>
   </div>
 

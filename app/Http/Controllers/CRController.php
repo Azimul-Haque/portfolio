@@ -11,19 +11,28 @@ use App\Officer;
 use App\Officerduty;
 
 use DB, Auth, Session, Cookie;
+use Carbon\Carbon;
 class CRController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('admin');
+        $this->middleware('auth')->except('sendAlert');
+        $this->middleware('admin')->except('sendAlert');
     }
     
+    public function sendAlert() {
+        $today = Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
+        $tomorrow = date('Y-m-d', strtotime($today->addDay()));
+        
+        $tomorrowduties = Officerduty::where('duty_date', $tomorrow)->get();
+        dd($tomorrowduties);
+    }
+
     public function index()
     {
         $officers = Officer::all();
         $officerduties = Officerduty::groupBy('officer_id')->get();
-        dd($officerduties);
+        // dd($officerduties);
 
         return view('dashboard.control-room.index')
                         ->withOfficers($officers)
@@ -107,14 +116,32 @@ class CRController extends Controller
     public function updateOfficerDuty(Request $request, $id)
     {
         $this->validate($request,array(
-            'name'            => 'required|max:255',
-            'phone'           => 'required|max:11'
+            'officer_id'           => 'required',
+            'first_shift_dates'    => 'required',
+            'second_shift_dates'   => 'required'
         ));
 
-        $officerduty = Officerduty::findOrFail($id);
-        $officerduty->name = $request->name;
-        $officerduty->phone = $request->phone;
-        $officerduty->save();
+        // dd($request->second_shift_dates);
+        $officerduties = Officerduty::where('officer_id', $id)->get();
+        foreach($officerduties as $duty) {
+            $duty->delete();
+        }
+
+        foreach($request->first_shift_dates as $duty) {
+            $officerduty = new Officerduty;
+            $officerduty->officer_id = $request->officer_id;
+            $officerduty->duty_date = $duty;
+            $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
+            $officerduty->save();
+        }
+        
+        foreach($request->second_shift_dates as $duty) {
+            $officerduty = new Officerduty;
+            $officerduty->officer_id = $request->officer_id;
+            $officerduty->duty_date = $duty;
+            $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
+            $officerduty->save();
+        }
 
         //redirect
         Session::flash('success', 'Updated Successfully!');
@@ -123,8 +150,10 @@ class CRController extends Controller
 
     public function deleteOfficerDuty($id)
     {
-        $officerduty = Officerduty::find($id);
-        $officerduty->delete();
+        $officerduties = Officerduty::where('officer_id', $id)->get();
+        foreach($officerduties as $duty) {
+            $duty->delete();
+        }
 
         Session::flash('success', 'Deleted Successfully!');
         return redirect()->route('dashboard.control-room.index');
