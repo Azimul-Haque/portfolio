@@ -134,33 +134,60 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($officerduties as $faq)
+            @foreach($officers as $officer)
             <tr>
-              <td>{{ $faq->question }}</td>
-              <td>{{ $faq->answer }}</td>
+              <td>{{ $duty->officer->name }}</td>
+              <td>{{ $duty->duty_date }}</td>
               <td>
-                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editModal{{ $faq->id }}" data-backdrop="static" title="Edit Faq"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-primary"data-toggle="modal" data-target="#editDutyModal{{ $duty->id }}" data-backdrop="static" title="Edit Duty"><i class="fa fa-pencil"></i></button>
                 <!-- Edit Modal -->
                 <!-- Edit Modal -->
-                <div class="modal fade" id="editModal{{ $faq->id }}" role="dialog">
+                <div class="modal fade" id="editDutyModal{{ $duty->id }}" role="dialog">
                   <div class="modal-dialog modal-md">
                     <div class="modal-content">
                       <div class="modal-header modal-header-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit Faq</h4>
+                        <h4 class="modal-title">Edit Duty</h4>
                       </div>
-                      {!! Form::model($faq, ['route' => ['dashboard.faq.update', $faq->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+                      {!! Form::model($duty, ['route' => ['dashboard.control-room.updateofficerduty', $duty->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                       <div class="modal-body">
-                        <label for="title">Question *</label>
-                        <input type="text" name="question" id="question" class="form-control" value="{{ $faq->question }}" placeholder="Write the question">
+                        <label for="title">Officer *</label>
+                        <select name="officer_id" id="officer_id" class="form-control" required>
+                          <option value="" disabled selected>Select Officer</option>
+                          @foreach ($officers as $officer)
+                            <option value="{{ $officer->id }}" @if($officer->id == $duty->officer_id) selected @endif>{{ $officer->name }}</option>
+                          @endforeach
+                        </select>
 
                         <br/>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label>Answer *</label>
-                            <textarea name="answer" class="form-control textarea" placeholder="Write the answer" style="min-height: 150px;">{{ $faq->answer }}</textarea>
-                          </div>
-                        </div>
+                        <label for="first_shift_dates">1st Shift *</label>
+                        <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple required style="width: 100%;">
+                          <option disabled>Select Date</option>
+                          @php
+                            $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
+                          @endphp
+                          @for($i=0; $i<60; $i++)
+                            <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
+                            @php
+                              $today = $today->addDay();
+                            @endphp
+                          @endfor
+                        </select>
+
+                        <br/><br/>
+                        <label for="second_shift_dates">2nd Shift *</label>
+                        <select name="second_shift_dates[]" id="" class="form-control" multiple required style="width: 100%;">
+                          <option disabled>Select Date</option>
+                          @php
+                            $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
+                          @endphp
+                          @for($i=0; $i<60; $i++)
+                            <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
+                            @php
+                              $today = $today->addDay();
+                            @endphp
+                          @endfor
+                        </select>
                       </div>
                       <div class="modal-footer">
                             {!! Form::submit('Update', array('class' => 'btn btn-primary')) !!}
@@ -173,22 +200,21 @@
                 <!-- Edit Modal -->
                 <!-- Edit Modal -->
 
-                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $faq->id }}" data-backdrop="static" title="Delete Faq"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDutyModal{{ $duty->id }}" data-backdrop="static" title="Delete Duty"><i class="fa fa-trash-o"></i></button>
                 <!-- Delete Modal -->
                 <!-- Delete Modal -->
-                <div class="modal fade" id="deleteModal{{ $faq->id }}" role="dialog">
+                <div class="modal fade" id="deleteDutyModal{{ $duty->id }}" role="dialog">
                   <div class="modal-dialog modal-md">
                     <div class="modal-content">
                       <div class="modal-header modal-header-danger">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Delete Faq</h4>
+                        <h4 class="modal-title">Delete Duty</h4>
                       </div>
                       <div class="modal-body">
-                        Confirm Delete the Faq?<br/>
-                        <big><b>{{ $faq->question }}</b></big>
+                        Confirm Delete the Duty?<br/>
                       </div>
                       <div class="modal-footer">
-                        {!! Form::model($faq, ['route' => ['dashboard.faq.delete', $faq->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                        {!! Form::model($duty, ['route' => ['dashboard.control-room.deleteofficerduty', $duty->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                             {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         {!! Form::close() !!}
@@ -213,7 +239,7 @@
     <div class="modal fade" id="addOfficerModal" role="dialog">
         <div class="modal-dialog modal-md">
         <div class="modal-content">
-            <div class="modal-header modal-header-primary">
+            <div class="modal-header modal-header-success">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Add New Officer</h4>
             </div>
@@ -227,7 +253,7 @@
               <input type="text" name="phone" id="phone" class="form-control" value="" placeholder="Write Officer Phone Number" required>
             </div>
             <div class="modal-footer">
-                {!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
+                {!! Form::submit('Save', array('class' => 'btn btn-success')) !!}
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
             {!! Form::close() !!}
@@ -242,7 +268,7 @@
     <div class="modal fade" id="addOfficerDutyModal" role="dialog">
         <div class="modal-dialog modal-md">
         <div class="modal-content">
-            <div class="modal-header modal-header-primary">
+            <div class="modal-header modal-header-success">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Add New Duty</h4>
             </div>
@@ -279,7 +305,7 @@
                   $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
                 @endphp
                 @for($i=0; $i<60; $i++)
-                  <option value="1">{{ date('F d, Y', strtotime($today)) }}</option>
+                  <option value="{{ date('Y-m-d', strtotime($today)) }}">{{ date('F d, Y', strtotime($today)) }}</option>
                   @php
                     $today = $today->addDay();
                   @endphp
@@ -287,7 +313,7 @@
               </select>
             </div>
             <div class="modal-footer">
-                {!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
+                {!! Form::submit('Save', array('class' => 'btn btn-success')) !!}
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
             {!! Form::close() !!}

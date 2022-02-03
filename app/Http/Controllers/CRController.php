@@ -22,7 +22,8 @@ class CRController extends Controller
     public function index()
     {
         $officers = Officer::all();
-        $officerduties = Officerduty::paginate(24);
+        $officerduties = Officerduty::groupBy('officer_id')->get();
+        dd($officerduties);
 
         return view('dashboard.control-room.index')
                         ->withOfficers($officers)
@@ -80,12 +81,23 @@ class CRController extends Controller
             'second_shift_dates'   => 'required'
         ));
 
-        dd($request->first_shift_dates);
+        // dd($request->second_shift_dates);
         
-        $officerduty = new Officerduty;
-        $officerduty->name = $request->name;
-        $officerduty->phone = $request->phone;
-        $officerduty->save();
+        foreach($request->first_shift_dates as $duty) {
+            $officerduty = new Officerduty;
+            $officerduty->officer_id = $request->officer_id;
+            $officerduty->duty_date = $duty;
+            $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
+            $officerduty->save();
+        }
+        
+        foreach($request->second_shift_dates as $duty) {
+            $officerduty = new Officerduty;
+            $officerduty->officer_id = $request->officer_id;
+            $officerduty->duty_date = $duty;
+            $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
+            $officerduty->save();
+        }
 
         //redirect
         Session::flash('success', 'Added Successfully!');
