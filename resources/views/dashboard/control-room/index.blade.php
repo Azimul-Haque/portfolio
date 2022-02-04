@@ -126,7 +126,7 @@
               </button>    
           </div>
       </h4>
-        <table class="table">
+        <table class="table onlyPrint print ">
           <thead>
             <tr>
               <th>Officer</th>

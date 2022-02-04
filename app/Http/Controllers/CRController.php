@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Officer;
 use App\Officerduty;
 
-use DB, Auth, Session, Cookie;
+use Session, Config;
 use Carbon\Carbon;
 class CRController extends Controller
 {
@@ -25,7 +25,46 @@ class CRController extends Controller
         $tomorrow = date('Y-m-d', strtotime($today->addDay()));
         
         $tomorrowduties = Officerduty::where('duty_date', $tomorrow)->get();
-        dd($tomorrowduties);
+        // dd($tomorrowduties);
+        
+        // send sms
+        $ch     = curl_init();  // Initialize cURL
+        $result = [];
+        foreach($tomorrowduties as $tomorrowduty) {
+            $mobile_number = 0;
+            if(strlen($tomorrowduty->officer->phone) == 11) {
+                $mobile_number = '88'.$tomorrowduty->officer->phone;
+            } elseif(strlen($tomorrowduty->officer->phone) > 11) {
+                if (strpos($tomorrowduty->officer->phone, '+') !== false) {
+                    $mobile_number = substr($tomorrowduty->officer->phone,0,1);
+                }
+            }
+
+            $url = config('sms.url');
+            $number = $mobile_number;
+            $shift = $tomorrowduty->shift == 1 ? '1ST' : '2ND';
+            $text = 'Dear Sir,%0a%0aTomorrow (' . date('F d, Y', strtotime($tomorrowduty->duty_date)) . ') you have the ' . $shift . ' SHIFT duty at the Control Room.%0a%0aRegards.';
+            
+            $data= array(
+                'username' => config('sms.username'),
+                'password' => config('sms.password'),
+                'number'   => "$number",
+                'message'  => urldecode($text)
+            );
+            dd($data);
+
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $result[] = curl_exec($ch);
+            if(!(count($result) > 0)) {
+                continue;
+            }
+            sleep(1);
+        }
+        curl_close($ch);
+
+        dd($result);
     }
 
     public function index()
