@@ -64,7 +64,7 @@ class CRController extends Controller
         }
         curl_close($ch);
 
-        dd($result);
+        // dd($result);
     }
 
     public function index()
