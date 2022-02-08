@@ -126,7 +126,7 @@ class CRController extends Controller
         $this->validate($request,array(
             'officer_id'           => 'required',
             'first_shift_dates'    => 'required',
-            'second_shift_dates'   => 'required'
+            'second_shift_dates'   => 'sometimes'
         ));
 
         // dd($request->second_shift_dates);
@@ -157,7 +157,7 @@ class CRController extends Controller
         $this->validate($request,array(
             'officer_id'           => 'required',
             'first_shift_dates'    => 'required',
-            'second_shift_dates'   => 'required'
+            'second_shift_dates'   => 'sometimes'
         ));
 
         // dd($request->second_shift_dates);

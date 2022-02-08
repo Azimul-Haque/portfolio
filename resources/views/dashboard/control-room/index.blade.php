@@ -193,7 +193,7 @@
 
                         <br/><br/>
                         <label for="second_shift_dates{{ $officer->id }}">2nd Shift *</label>
-                        <select name="second_shift_dates[]" id="second_shift_dates{{ $officer->id }}" class="form-control" multiple required style="width: 100%;">
+                        <select name="second_shift_dates[]" id="second_shift_dates{{ $officer->id }}" class="form-control" multiple style="width: 100%;">
                           <option disabled>Select Date</option>
                           @php
                             $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
@@ -323,7 +323,7 @@
 
               <br/><br/>
               <label for="second_shift_dates">2nd Shift *</label>
-              <select name="second_shift_dates[]" id="second_shift_dates" class="form-control" multiple required style="width: 100%;">
+              <select name="second_shift_dates[]" id="second_shift_dates" class="form-control" multiple style="width: 100%;">
                 <option disabled>Select Date</option>
                 @php
                   $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
