@@ -139,12 +139,14 @@ class CRController extends Controller
             $officerduty->save();
         }
         
-        foreach($request->second_shift_dates as $duty) {
-            $officerduty = new Officerduty;
-            $officerduty->officer_id = $request->officer_id;
-            $officerduty->duty_date = $duty;
-            $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
-            $officerduty->save();
+        if($request->second_shift_dates) {
+            foreach($request->second_shift_dates as $duty) {
+                $officerduty = new Officerduty;
+                $officerduty->officer_id = $request->officer_id;
+                $officerduty->duty_date = $duty;
+                $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
+                $officerduty->save();
+            }
         }
 
         //redirect
@@ -174,12 +176,14 @@ class CRController extends Controller
             $officerduty->save();
         }
         
-        foreach($request->second_shift_dates as $duty) {
-            $officerduty = new Officerduty;
-            $officerduty->officer_id = $request->officer_id;
-            $officerduty->duty_date = $duty;
-            $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
-            $officerduty->save();
+        if($request->second_shift_dates) {
+            foreach($request->second_shift_dates as $duty) {
+                $officerduty = new Officerduty;
+                $officerduty->officer_id = $request->officer_id;
+                $officerduty->duty_date = $duty;
+                $officerduty->shift = 2; // 1 = 1st shift, 2 = 2nd shift
+                $officerduty->save();
+            }
         }
 
         //redirect
