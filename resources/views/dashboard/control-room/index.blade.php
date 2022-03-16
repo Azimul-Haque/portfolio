@@ -299,7 +299,7 @@
             {!! Form::open(['route' => 'dashboard.control-room.storeofficerduty', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="modal-body">
               <label for="title">Officer *</label>
-              <select name="officer_id" id="officer_id" class="form-control">
+              <select name="officer_id" id="officer_id" class="form-control" required>
                 <option value="" disabled selected>Select Officer</option>
                 @foreach ($officers as $officer)
                   <option value="{{ $officer->id }}">{{ $officer->name }}</option>
@@ -308,7 +308,7 @@
 
               <br/>
               <label for="first_shift_dates">1st Shift *</label>
-              <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple required style="width: 100%;">
+              <select name="first_shift_dates[]" id="first_shift_dates" class="form-control" multiple style="width: 100%;">
                 <option disabled>Select Date</option>
                 @php
                   $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
