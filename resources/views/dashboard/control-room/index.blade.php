@@ -299,7 +299,7 @@
             {!! Form::open(['route' => 'dashboard.control-room.storeofficerduty', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="modal-body">
               <label for="title">Officer *</label>
-              <select name="officer_id" id="officer_id" class="form-control" required>
+              <select name="officer_id" id="officer_id" class="form-control">
                 <option value="" disabled selected>Select Officer</option>
                 @foreach ($officers as $officer)
                   <option value="{{ $officer->id }}">{{ $officer->name }}</option>
