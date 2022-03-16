@@ -178,7 +178,7 @@
 
                         <br/>
                         <label for="first_shift_dates{{ $officer->id }}">1st Shift *</label>
-                        <select name="first_shift_dates[]" id="first_shift_dates{{ $officer->id }}" class="form-control" multiple required style="width: 100%;">
+                        <select name="first_shift_dates[]" id="first_shift_dates{{ $officer->id }}" class="form-control" multiple style="width: 100%;">
                           <option disabled>Select Date</option>
                           @php
                             $today = \Carbon\Carbon::createFromFormat('F d, Y', date('F d, Y'));
