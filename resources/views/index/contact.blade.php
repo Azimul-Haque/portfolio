@@ -54,11 +54,11 @@
                         </div>
                         <textarea name="message" placeholder="Message *"  required="">{{ old('message') }}</textarea>
                         
-                        @php
+                        {{-- @php
                           $contact_num1 = rand(1,20);
                           $contact_num2 = rand(1,20);
                           $contact_sum_result_hidden = $contact_num1 + $contact_num2;
-                        @endphp
+                        @endphp --}}
                         <img src="data:image/png;base64,{{ $imstr }}" style="height: 60px; width: auto; margin-bottom: 5px;" />
                         <input type="hidden" name="hidden_capthcatext" value="{{ $capthcatext }}">
                         {{-- <input type="hidden" name="contact_sum_result_hidden" value="{{ $contact_sum_result_hidden }}"> --}}

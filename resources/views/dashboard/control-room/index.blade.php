@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Control Room Duty Alert System')
+@section('title', 'Preli Course Duty Alert System')
 
 @section('css')
   <style>
@@ -20,7 +20,7 @@
 
 @section('content_header')
     <h1>
-      Control Room Duties
+      Preli Course Duties
       <div class="pull-right">
         
       </div>
@@ -32,9 +32,9 @@
     <div class="col-md-4">
         <div class="table-responsive">
             <h4 style="padding: 10px; margin: 0px;">
-                <b>Officer List</b>
+                <b>Instructor List</b>
                 <div class="pull-right" style="margin: -5px;">
-                    <button class="btn btn-sm btn-success" title="Add new Officer" data-toggle="modal" data-target="#addOfficerModal" data-backdrop="static">
+                    <button class="btn btn-sm btn-success" title="Add new Instructor" data-toggle="modal" data-target="#addOfficerModal" data-backdrop="static">
                         <i class="fa fa-user-plus"></i>
                     </button>    
                 </div>
@@ -42,7 +42,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Officer</th>
+                    <th>Instructor</th>
                     <th width="30%">Action</th>
                 </tr>
                 </thead>
@@ -129,7 +129,7 @@
         <table class="table onlyPrint print ">
           <thead>
             <tr>
-              <th>Officer</th>
+              <th>Instructor</th>
               <th>Duties</th>
               <th>Action</th>
             </tr>
