@@ -125,18 +125,19 @@ class CRController extends Controller
     {
         $this->validate($request,array(
             'officer_id'           => 'required',
-            'first_shift_dates'    => 'required',
+            'first_shift_dates'    => 'sometimes',
             'second_shift_dates'   => 'sometimes'
         ));
 
-        // dd($request->second_shift_dates);
-        
-        foreach($request->first_shift_dates as $duty) {
-            $officerduty = new Officerduty;
-            $officerduty->officer_id = $request->officer_id;
-            $officerduty->duty_date = $duty;
-            $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
-            $officerduty->save();
+        // dd($request->first_shift_dates);
+        if($request->first_shift_dates) {
+            foreach($request->first_shift_dates as $duty) {
+                $officerduty = new Officerduty;
+                $officerduty->officer_id = $request->officer_id;
+                $officerduty->duty_date = $duty;
+                $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
+                $officerduty->save();
+            }
         }
         
         if($request->second_shift_dates) {
@@ -158,7 +159,7 @@ class CRController extends Controller
     {
         $this->validate($request,array(
             'officer_id'           => 'required',
-            'first_shift_dates'    => 'required',
+            'first_shift_dates'    => 'sometimes',
             'second_shift_dates'   => 'sometimes'
         ));
 
@@ -168,12 +169,14 @@ class CRController extends Controller
             $duty->delete();
         }
 
-        foreach($request->first_shift_dates as $duty) {
-            $officerduty = new Officerduty;
-            $officerduty->officer_id = $request->officer_id;
-            $officerduty->duty_date = $duty;
-            $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
-            $officerduty->save();
+        if($request->first_shift_dates) {
+            foreach($request->first_shift_dates as $duty) {
+                $officerduty = new Officerduty;
+                $officerduty->officer_id = $request->officer_id;
+                $officerduty->duty_date = $duty;
+                $officerduty->shift = 1; // 1 = 1st shift, 2 = 2nd shift
+                $officerduty->save();
+            }
         }
         
         if($request->second_shift_dates) {
