@@ -25,7 +25,7 @@ class CRController extends Controller
         $tomorrow = date('Y-m-d', strtotime($today->addDay()));
         
         $tomorrowduties = Officerduty::where('duty_date', $tomorrow)->get();
-        dd($tomorrowduties);
+        // dd($tomorrowduties);
         
         // send sms
         $ch     = curl_init();  // Initialize cURL
@@ -51,7 +51,7 @@ class CRController extends Controller
                 'number'   => "$number",
                 'message'  => urldecode($text)
             );
-            // dd($data);
+            dd($data);
 
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
