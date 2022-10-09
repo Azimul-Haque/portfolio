@@ -42,8 +42,8 @@ class CRController extends Controller
 
             $url = config('sms.url');
             $number = $mobile_number;
-            $shift = $tomorrowduty->shift == 1 ? '1ST' : '2ND';
-            $text = 'Dear Sir,%0a%0aTomorrow (' . date('F d, Y', strtotime($tomorrowduty->duty_date)) . ') you have the ' . $shift . ' SHIFT duty at the Control Room.%0a%0aRegards.';
+            $classtime = $tomorrowduty->shift == 1 ? '8.00/8.30' : '10.00/10.20';
+            $text = 'Dear Sir,%0a%0aTomorrow (' . date('F d, Y', strtotime($tomorrowduty->duty_date)) . ') you have a class at ' . $classtime . ' on our Preli Course.%0a%0aRegards.';
             
             $data= array(
                 'username' => config('sms.username'),
