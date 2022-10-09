@@ -25,7 +25,7 @@ class CRController extends Controller
         $tomorrow = date('Y-m-d', strtotime($today->addDay()));
         
         $tomorrowduties = Officerduty::where('duty_date', $tomorrow)->get();
-        // dd($tomorrowduties);
+        dd($tomorrowduties);
         
         // send sms
         $ch     = curl_init();  // Initialize cURL
@@ -42,7 +42,7 @@ class CRController extends Controller
 
             $url = config('sms.url');
             $number = $mobile_number;
-            $classtime = $tomorrowduty->shift == 1 ? '8.00/8.30' : '10.00/10.20';
+            $classtime = $tomorrowduty->shift == 1 ? '8.00/8.30 PM' : '10.00/10.20 PM';
             $text = 'Dear Sir,%0a%0aTomorrow (' . date('F d, Y', strtotime($tomorrowduty->duty_date)) . ') you have a class at ' . $classtime . ' on our Preli Course.%0a%0aRegards.';
             
             $data= array(
