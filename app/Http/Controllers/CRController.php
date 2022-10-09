@@ -30,6 +30,7 @@ class CRController extends Controller
         // send sms
         $ch     = curl_init();  // Initialize cURL
         $result = [];
+        $json_smsdata = [];
         foreach($tomorrowduties as $tomorrowduty) {
             $mobile_number = 0;
             if(strlen($tomorrowduty->officer->phone) == 11) {
@@ -49,22 +50,67 @@ class CRController extends Controller
                 'username' => config('sms.username'),
                 'password' => config('sms.password'),
                 'number'   => "$number",
-                'message'  => urldecode($text)
+                'message'  => urldecode("$text")
             );
             // dd($data);
 
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $result[] = curl_exec($ch);
+            $result[]  = curl_exec($ch);
             if(!(count($result) > 0)) {
                 continue;
             }
             sleep(1);
+            // dd($result);
+
+            // TEMP CODE
+            // TEMP CODE
+            // TEMP CODE
+            $json_smsdata[] = ['to'=>$number,'message'=>$text];
+            // TEMP CODE
+            // TEMP CODE
+            // TEMP CODE
+
+            
         }
         curl_close($ch);
 
-        dd($result);
+        // TEMP CODE
+        // TEMP CODE
+        // TEMP CODE
+        $smsdata = json_encode($json_smsdata);
+
+        $token = "575a9b45f0fb2282a8c3fa1ac7eaa5ec";
+        $smsdata = $smsdata;
+
+        $url = "http://api.greenweb.com.bd/api.php";
+
+
+        $data= array(
+        'smsdata'=>"$smsdata",
+        'token'=>"$token"
+        ); // Add parameters in key value
+        $ch = curl_init(); // Initialize cURL
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_ENCODING, '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $smsresult = curl_exec($ch);
+
+        //Result
+        // echo $smsresult;
+
+        //Error Display
+        echo curl_error($ch);
+        // TEMP CODE
+        // TEMP CODE
+        // TEMP CODE
+
+
+        // dd($smsresult);
     }
 
     public function index()
