@@ -51,7 +51,7 @@ class CRController extends Controller
                 'number'   => "$number",
                 'message'  => urldecode($text)
             );
-            dd($data);
+            // dd($data);
 
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
@@ -64,7 +64,7 @@ class CRController extends Controller
         }
         curl_close($ch);
 
-        // dd($result);
+        dd($result);
     }
 
     public function index()
