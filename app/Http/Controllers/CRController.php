@@ -60,10 +60,10 @@ class CRController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // this is important
             $result[]  = curl_exec($ch);
-            // if(!(count($result) > 0)) {
-            //     continue;
-            // }
-            // sleep(1);
+            if(!(count($result) > 0)) {
+                continue;
+            }
+            sleep(1);
             dd($result);
 
             // TEMP CODE
