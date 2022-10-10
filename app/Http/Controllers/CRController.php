@@ -73,8 +73,6 @@ class CRController extends Controller
             // TEMP CODE
             // TEMP CODE
             // TEMP CODE
-
-            
         }
         curl_close($ch);
 
