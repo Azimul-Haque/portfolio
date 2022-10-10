@@ -63,8 +63,6 @@ class CRController extends Controller
                 continue;
             }
             sleep(1);
-            // dd($result);
-
             // TEMP CODE
             // TEMP CODE
             // TEMP CODE
@@ -74,6 +72,7 @@ class CRController extends Controller
             // TEMP CODE
         }
         curl_close($ch);
+        // dd($result);
 
         // TEMP CODE
         // TEMP CODE
