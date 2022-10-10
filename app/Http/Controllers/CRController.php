@@ -54,15 +54,17 @@ class CRController extends Controller
             );
             // dd($data);
 
+            $ch     = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // this is important
             $result[]  = curl_exec($ch);
-            if(!(count($result) > 0)) {
-                continue;
-            }
-            sleep(1);
-            // dd($result);
+            // if(!(count($result) > 0)) {
+            //     continue;
+            // }
+            // sleep(1);
+            dd($result);
 
             // TEMP CODE
             // TEMP CODE
